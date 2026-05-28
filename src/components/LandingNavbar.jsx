@@ -1,0 +1,74 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { BrainCircuit, Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const LandingNavbar = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-background/50 backdrop-blur-xl border-b border-white/5">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2 group">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center neon-glow group-hover:scale-110 transition-transform">
+            <BrainCircuit className="text-white w-6 h-6" />
+          </div>
+          <span className="text-xl font-bold tracking-tight text-white">E-Aware <span className="text-primary-neon">AI</span></span>
+        </Link>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {['Features', 'Workflow', 'Hindsight', 'Analytics'].map((item) => (
+            <a 
+              key={item} 
+              href={`#${item.toLowerCase()}`}
+              className="text-sm font-medium text-white/60 hover:text-white transition-colors"
+            >
+              {item}
+            </a>
+          ))}
+          <div className="h-6 w-px bg-white/10 mx-2" />
+          <Link 
+            to="/dashboard" 
+            className="px-5 py-2.5 bg-primary/20 border border-primary/30 rounded-xl text-sm font-bold text-white hover:bg-primary/30 transition-all shadow-lg shadow-primary/10"
+          >
+            Launch Dashboard
+          </Link>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X /> : <Menu />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <motion.div 
+        initial={false}
+        animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+        className="md:hidden overflow-hidden bg-background/95 border-b border-white/5 px-6"
+      >
+        <div className="flex flex-col gap-4 py-8">
+          {['Features', 'Workflow', 'Hindsight', 'Analytics'].map((item) => (
+            <a 
+              key={item} 
+              href={`#${item.toLowerCase()}`}
+              className="text-lg font-medium text-white/70"
+              onClick={() => setIsOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+          <Link 
+            to="/dashboard" 
+            className="mt-4 px-6 py-4 bg-primary rounded-2xl text-center font-bold text-white shadow-xl shadow-primary/20"
+          >
+            Go to Dashboard
+          </Link>
+        </div>
+      </motion.div>
+    </nav>
+  );
+};
+
+export default LandingNavbar;
