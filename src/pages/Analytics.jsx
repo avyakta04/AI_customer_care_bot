@@ -9,7 +9,11 @@ import {
   BrainCircuit,
   Calendar,
   Download,
-  Filter
+  Filter,
+  Zap,
+  Activity,
+  UserCheck,
+  AlertTriangle
 } from 'lucide-react';
 import GlassCard from '../components/GlassCard';
 import StatCard from '../components/StatCard';
@@ -19,7 +23,8 @@ import {
   Doughnut, 
   Radar, 
   Bar,
-  Pie
+  Pie,
+  PolarArea
 } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -31,7 +36,8 @@ import {
   LineElement,
   BarElement,
   CategoryScale,
-  LinearScale
+  LinearScale,
+  Filler,
 } from 'chart.js';
 
 ChartJS.register(
@@ -43,7 +49,8 @@ ChartJS.register(
   LineElement,
   BarElement,
   CategoryScale,
-  LinearScale
+  LinearScale,
+  Filler
 );
 
 const Analytics = () => {
@@ -53,7 +60,23 @@ const Analytics = () => {
     plugins: {
       legend: {
         position: 'bottom',
-        labels: { color: 'rgba(255, 255, 255, 0.5)', font: { size: 10 }, padding: 20, usePointStyle: true }
+        labels: { 
+          color: 'rgba(255, 255, 255, 0.5)', 
+          font: { size: 10, family: "'Inter', sans-serif" }, 
+          padding: 20, 
+          usePointStyle: true,
+          boxWidth: 8
+        }
+      },
+      tooltip: {
+        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+        titleColor: '#fff',
+        bodyColor: 'rgba(255, 255, 255, 0.7)',
+        borderColor: 'rgba(255, 255, 255, 0.1)',
+        borderWidth: 1,
+        padding: 12,
+        cornerRadius: 8,
+        displayColors: true
       }
     }
   };
@@ -61,213 +84,332 @@ const Analytics = () => {
   const emotionData = {
     labels: ['Happy', 'Frustrated', 'Angry', 'Confused', 'Neutral'],
     datasets: [{
-      data: [35, 25, 10, 15, 15],
+      data: [42, 18, 8, 12, 20],
       backgroundColor: [
-        'rgba(16, 185, 129, 0.6)',
-        'rgba(245, 158, 11, 0.6)',
-        'rgba(239, 68, 68, 0.6)',
-        'rgba(249, 115, 22, 0.6)',
+        'rgba(16, 185, 129, 0.5)',
+        'rgba(245, 158, 11, 0.5)',
+        'rgba(239, 68, 68, 0.5)',
+        'rgba(249, 115, 22, 0.5)',
+        'rgba(6, 182, 212, 0.5)',
+      ],
+      hoverBackgroundColor: [
+        '#10b981', '#f59e0b', '#ef4444', '#f97316', '#06b6d4'
+      ],
+      borderColor: 'rgba(255, 255, 255, 0.05)',
+      borderWidth: 2,
+    }]
+  };
+
+  const escalationTrendData = {
+    labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+    datasets: [
+      {
+        label: 'Escalations',
+        data: [15, 12, 18, 10, 8, 14, 9],
+        borderColor: '#ef4444',
+        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+      },
+      {
+        label: 'Resolved',
+        data: [85, 88, 82, 90, 92, 86, 91],
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+      }
+    ]
+  };
+
+  const successRateData = {
+    labels: ['Direct Resolution', 'AI Handled', 'Human Handoff'],
+    datasets: [{
+      data: [65, 25, 10],
+      backgroundColor: [
+        'rgba(139, 92, 246, 0.6)',
         'rgba(6, 182, 212, 0.6)',
+        'rgba(245, 158, 11, 0.6)',
       ],
       borderColor: 'rgba(255, 255, 255, 0.1)',
       borderWidth: 1,
     }]
   };
 
-  const trendData = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  const csatRadarData = {
+    labels: ['Response Speed', 'Accuracy', 'Empathy', 'Complexity', 'Stability', 'Context'],
     datasets: [
       {
-        label: 'Satisfaction',
-        data: [85, 88, 82, 94, 91, 95, 98],
+        label: 'Current Month',
+        data: [92, 88, 85, 78, 95, 82],
+        backgroundColor: 'rgba(139, 92, 246, 0.2)',
         borderColor: '#8b5cf6',
-        backgroundColor: 'rgba(139, 92, 246, 0.1)',
-        fill: true,
-        tension: 0.4
+        borderWidth: 2,
+        pointBackgroundColor: '#8b5cf6',
       },
       {
-        label: 'Interventions',
-        data: [12, 10, 15, 8, 11, 7, 5],
-        borderColor: '#ef4444',
-        backgroundColor: 'rgba(239, 68, 68, 0.1)',
-        fill: true,
-        tension: 0.4
+        label: 'Target',
+        data: [95, 95, 90, 85, 98, 90],
+        backgroundColor: 'transparent',
+        borderColor: 'rgba(255, 255, 255, 0.2)',
+        borderWidth: 1,
+        borderDash: [5, 5],
+        pointRadius: 0,
       }
     ]
   };
 
-  const capabilityData = {
-    labels: ['Empathy', 'Reasoning', 'Accuracy', 'Context', 'Speed', 'Stability'],
+  const interventionData = {
+    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00'],
     datasets: [{
-      label: 'AI Performance Index',
-      data: [88, 92, 95, 84, 98, 91],
-      backgroundColor: 'rgba(6, 182, 212, 0.2)',
-      borderColor: '#06b6d4',
+      label: 'Supervisor Interventions',
+      data: [2, 5, 12, 8, 15, 6],
+      backgroundColor: 'rgba(245, 158, 11, 0.2)',
+      borderColor: '#f59e0b',
       borderWidth: 2,
+      fill: true,
+      tension: 0.5
     }]
   };
 
-  const successData = {
-    labels: ['Resolution', 'Escalation', 'Fallback'],
-    datasets: [{
-      label: 'Success Rate',
-      data: [78, 15, 7],
-      backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
-      hoverOffset: 4
-    }]
+  const learningEfficiencyData = {
+    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+    datasets: [
+      {
+        label: 'Standard AI',
+        data: [65, 68, 70, 72],
+        borderColor: 'rgba(255, 255, 255, 0.3)',
+        borderDash: [5, 5],
+        backgroundColor: 'transparent',
+        tension: 0.3
+      },
+      {
+        label: 'Hindsight AI',
+        data: [65, 75, 88, 94],
+        borderColor: '#06b6d4',
+        backgroundColor: 'rgba(6, 182, 212, 0.1)',
+        fill: true,
+        tension: 0.3
+      }
+    ]
   };
 
   return (
-    <div className="space-y-8 pb-20">
+    <div className="space-y-8 pb-20 fade-in">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">Enterprise Analytics</h1>
-          <p className="text-white/40 mt-1">Deep-layer performance benchmarks and emotional demographics.</p>
+          <motion.h1 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-4xl font-bold text-white tracking-tight flex items-center gap-3"
+          >
+            <Activity className="w-8 h-8 text-primary-neon" />
+            Neural Analytics <span className="text-primary-neon font-light text-xl">v4.0</span>
+          </motion.h1>
+          <p className="text-white/40 mt-1 uppercase tracking-[0.3em] text-[10px] font-bold">Deep-layer performance benchmarks & emotional intelligence datasets</p>
         </div>
         <div className="flex gap-3">
-          <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-xs font-bold text-white/60">
-            <Calendar className="w-4 h-4" />
-            Last 30 Days
+          <div className="flex items-center gap-4 px-4 py-2 bg-white/[0.03] border border-white/10 rounded-xl">
+            <div className="flex flex-col">
+              <span className="text-[9px] text-white/30 uppercase font-bold tracking-widest">Active Model</span>
+              <span className="text-xs text-white font-bold">GPT-4.0-O1 Hindsight</span>
+            </div>
+            <div className="w-2 h-2 rounded-full bg-accent-neon animate-pulse" />
           </div>
-          <button className="p-2.5 bg-white/5 border border-white/10 rounded-xl text-white/50 hover:text-white transition-all">
-            <Filter className="w-5 h-5" />
-          </button>
-          <button className="flex items-center gap-2 px-6 py-2 bg-primary text-white rounded-xl font-bold text-sm shadow-lg shadow-primary/20">
+          <button className="flex items-center gap-2 px-6 py-2 bg-primary/20 border border-primary/30 text-white rounded-xl font-bold text-sm hover:bg-primary/30 transition-all">
             <Download className="w-4 h-4" />
-            Export Insights
+            Report.pdf
           </button>
         </div>
       </div>
 
       {/* Stats Cards Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard label="Avg. Satisfaction" value={92} target={95} suffix="%" trend="up" percentage="+4.2%" />
-        <StatCard label="Inference Speed" value={142} target={120} suffix="ms" trend="up" percentage="-15ms" />
-        <StatCard label="Escalation Rate" value={12} target={15} suffix="%" trend="down" percentage="-3.1%" />
-        <StatCard label="Success Rate" value={98.8} target={99.5} suffix="%" trend="up" percentage="+0.4%" />
+        <StatCard label="Emotional Resonance" value={88.4} target={95} suffix="%" trend="up" percentage="+12.4%" />
+        <StatCard label="Inference Latency" value={142} target={120} suffix="ms" trend="down" percentage="-14ms" />
+        <StatCard label="Critical Escalations" value={8} target={15} suffix="%" trend="up" percentage="-4.2%" />
+        <StatCard label="Resolution Speed" value={42} target={30} suffix="s" trend="up" percentage="-12s" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Main Trend Chart */}
-        <GlassCard className="lg:col-span-2 min-h-[400px] border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent">
+      {/* Main Grid Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        {/* Escalation Trends - 8 Cols */}
+        <GlassCard className="lg:col-span-8 min-h-[400px] border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent">
            <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                 <TrendingUp className="w-5 h-5 text-primary-neon" />
-                 <h3 className="text-sm font-bold text-white uppercase tracking-widest">Growth & Intervention Trends</h3>
+                 <div className="p-2 bg-red-500/10 rounded-lg">
+                   <AlertTriangle className="w-4 h-4 text-red-500" />
+                 </div>
+                 <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Escalation & Resolution Flux</h3>
+              </div>
+              <div className="flex gap-2">
+                <span className="px-2 py-1 bg-white/5 rounded text-[10px] text-white/40">Real-time</span>
               </div>
            </div>
            <div className="h-[300px]">
               <Line 
-                 data={trendData} 
+                 data={escalationTrendData} 
                  options={{
                     ...commonOptions,
                     scales: {
-                       x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.3)', font: { size: 10 } } },
-                       y: { grid: { color: 'rgba(255,255,255,0.05)' }, border: { display: false }, ticks: { color: 'rgba(255,255,255,0.3)', font: { size: 10 } } }
+                       x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } },
+                       y: { grid: { color: 'rgba(255,255,255,0.05)' }, border: { display: false }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } }
                     }
                  }} 
               />
            </div>
         </GlassCard>
 
-        {/* Emotion Dist Chart */}
-        <GlassCard className="border-white/5">
+        {/* Emotion Dist - 4 Cols */}
+        <GlassCard className="lg:col-span-4 border-white/5">
            <div className="flex items-center gap-3 mb-8">
-              <PieIcon className="w-5 h-5 text-secondary-neon" />
-              <h3 className="text-sm font-bold text-white uppercase tracking-widest">Emotion Demographics</h3>
+              <div className="p-2 bg-secondary/10 rounded-lg">
+                <PieIcon className="w-4 h-4 text-secondary-neon" />
+              </div>
+              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Emotion Demographics</h3>
            </div>
            <div className="h-[300px]">
               <Doughnut 
                  data={emotionData} 
                  options={{
                     ...commonOptions,
-                    cutout: '70%',
+                    cutout: '75%',
                     plugins: { ...commonOptions.plugins, legend: { position: 'bottom' } }
                  }} 
               />
            </div>
         </GlassCard>
+
+        {/* Conversation Success - 4 Cols */}
+        <GlassCard className="lg:col-span-4 border-white/5">
+           <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <ShieldCheck className="w-4 h-4 text-primary-neon" />
+              </div>
+              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Success Rate Outcome</h3>
+           </div>
+           <div className="h-[280px]">
+              <Pie 
+                data={successRateData} 
+                options={commonOptions} 
+              />
+           </div>
+        </GlassCard>
+
+        {/* CSAT Radar - 4 Cols */}
+        <GlassCard className="lg:col-span-4 border-white/5">
+           <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-accent/10 rounded-lg">
+                <UserCheck className="w-4 h-4 text-accent-neon" />
+              </div>
+              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Satisfaction Vectors</h3>
+           </div>
+           <div className="h-[280px]">
+              <Radar 
+                data={csatRadarData} 
+                options={{
+                   ...commonOptions,
+                   scales: {
+                      r: {
+                         angleLines: { color: 'rgba(255,255,255,0.05)' },
+                         grid: { color: 'rgba(255,255,255,0.05)' },
+                         suggestedMin: 50,
+                         pointLabels: { color: 'rgba(255,255,255,0.4)', font: { size: 8, weight: 'bold' } },
+                         ticks: { display: false }
+                      }
+                   }
+                }} 
+              />
+           </div>
+        </GlassCard>
+
+        {/* Frustration Heatmap - 4 Cols */}
+        <GlassCard className="lg:col-span-4 border-white/5 overflow-hidden">
+           <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-orange-500/10 rounded-lg">
+                <Users className="w-4 h-4 text-orange-500" />
+              </div>
+              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Frustration Heatmap</h3>
+           </div>
+           <div className="h-[200px]">
+               <RiskHeatmap />
+           </div>
+           <div className="mt-8 flex justify-between items-center px-2">
+              <div className="flex flex-col">
+                <span className="text-[10px] text-white/40 uppercase font-black">Critical Zones</span>
+                <span className="text-xs text-white font-bold">12 Active Latencies</span>
+              </div>
+              <div className="flex -space-x-2">
+                {[1,2,3].map(i => (
+                  <div key={i} className="w-6 h-6 rounded-full border border-slate-900 bg-slate-800 flex items-center justify-center text-[8px] font-bold text-white/50">
+                    S{i}
+                  </div>
+                ))}
+              </div>
+           </div>
+        </GlassCard>
+
+        {/* Learning Efficiency - 7 Cols */}
+        <GlassCard className="lg:col-span-7 border-white/5 bg-gradient-to-r from-primary/5 to-transparent">
+           <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-cyan-500/10 rounded-lg">
+                <Zap className="w-4 h-4 text-cyan-400" />
+              </div>
+              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Learning Efficiency Engine</h3>
+           </div>
+           <div className="h-[250px]">
+              <Line 
+                data={learningEfficiencyData} 
+                options={{
+                   ...commonOptions,
+                   scales: {
+                      x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } },
+                      y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } }
+                   }
+                }} 
+              />
+           </div>
+        </GlassCard>
+
+        {/* Supervisor Interventions - 5 Cols */}
+        <GlassCard className="lg:col-span-5 border-white/5">
+           <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-amber-500/10 rounded-lg">
+                <ShieldCheck className="w-4 h-4 text-amber-500" />
+              </div>
+              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Supervisor Drift</h3>
+           </div>
+           <div className="h-[250px]">
+              <Bar 
+                data={interventionData} 
+                options={{
+                   ...commonOptions,
+                   borderRadius: 4,
+                   scales: {
+                      x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } },
+                      y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } }
+                   }
+                }} 
+              />
+           </div>
+        </GlassCard>
+
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-         {/* Success Rate Pie */}
-         <GlassCard className="border-white/5">
-            <div className="flex items-center gap-3 mb-8">
-               <ShieldCheck className="w-5 h-5 text-accent-neon" />
-               <h3 className="text-sm font-bold text-white uppercase tracking-widest">Outcome Ratios</h3>
-            </div>
-            <div className="h-[250px]">
-               <Pie data={successData} options={commonOptions} />
-            </div>
-         </GlassCard>
-
-         {/* Capability Radar */}
-         <GlassCard className="border-white/5">
-            <div className="flex items-center gap-3 mb-8">
-               <BrainCircuit className="w-5 h-5 text-primary-neon" />
-               <h3 className="text-sm font-bold text-white uppercase tracking-widest">Model Capability Index</h3>
-            </div>
-            <div className="h-[250px]">
-               <Radar 
-                 data={capabilityData} 
-                 options={{
-                    ...commonOptions,
-                    scales: {
-                       r: {
-                          angleLines: { color: 'rgba(255,255,255,0.05)' },
-                          grid: { color: 'rgba(255,255,255,0.05)' },
-                          suggestedMin: 50,
-                          pointLabels: { color: 'rgba(255,255,255,0.5)', font: { size: 9 } },
-                          ticks: { display: false }
-                       }
-                    }
-                 }} 
-               />
-            </div>
-         </GlassCard>
-
-         {/* Frustration Heatmap Wrapper */}
-         <GlassCard className="border-white/5">
-            <div className="flex items-center gap-3 mb-8">
-               <Users className="w-5 h-5 text-orange-500" />
-               <h3 className="text-sm font-bold text-white uppercase tracking-widest">Frustration Heatmap</h3>
-            </div>
-            <div className="h-[250px]">
-                <RiskHeatmap />
-                <div className="mt-8 flex justify-between items-center px-4">
-                   <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded bg-accent/20" />
-                      <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em]">Neutral</span>
-                   </div>
-                   <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded bg-amber-500/50" />
-                      <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em]">Rising</span>
-                   </div>
-                   <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded bg-red-500/80 shadow-[0_0_8px_rgba(239,68,68,0.3)]" />
-                      <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em]">Critical</span>
-                   </div>
-                </div>
-            </div>
-         </GlassCard>
+      {/* Footer Branding */}
+      <div className="pt-10 flex items-center justify-between border-t border-white/5 opacity-30">
+        <div className="flex items-center gap-2">
+           <BrainCircuit className="w-4 h-4" />
+           <span className="text-[10px] font-black uppercase tracking-[0.4em]">Neural Core OS</span>
+        </div>
+        <span className="text-[10px] font-medium">Session ID: NC-882-991-X</span>
       </div>
-
-      {/* Learning Efficiency Bar */}
-      <GlassCard className="bg-gradient-to-r from-primary/10 via-secondary/10 to-transparent border-primary/20">
-         <div className="flex flex-col md:flex-row items-center gap-8 py-2">
-            <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center text-primary-neon flex-shrink-0">
-               <Zap className="w-8 h-8" />
-            </div>
-            <div className="flex-1 text-center md:text-left">
-               <h3 className="text-xl font-bold text-white mb-2">Neural Learning Efficiency: 94.2%</h3>
-               <p className="text-sm text-white/50">The Hindsight Engine has improved response quality by an average of 12.4% across all emotional sectors this month.</p>
-            </div>
-            <div className="w-full md:w-64 h-3 bg-white/5 rounded-full overflow-hidden">
-               <motion.div initial={{ width: 0 }} animate={{ width: '94.2%' }} className="h-full bg-gradient-to-r from-primary to-secondary neon-glow" />
-            </div>
-         </div>
-      </GlassCard>
     </div>
   );
 };

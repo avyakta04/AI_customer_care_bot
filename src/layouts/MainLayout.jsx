@@ -1,10 +1,19 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MainLayout = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isAuth = localStorage.getItem('isAuthenticated');
+    if (isAuth !== 'true') {
+      navigate('/login');
+    }
+  }, [navigate]);
+
   return (
     <div className="min-h-screen bg-background text-slate-200">
       <Sidebar />

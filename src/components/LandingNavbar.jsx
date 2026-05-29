@@ -27,6 +27,12 @@ const LandingNavbar = () => {
               {item}
             </a>
           ))}
+          <Link 
+            to="/login" 
+            className="text-sm font-semibold text-white/60 hover:text-white transition-colors uppercase tracking-wider"
+          >
+            Sign In
+          </Link>
           <div className="h-6 w-px bg-white/10 mx-2" />
           <Link 
             to="/dashboard" 
@@ -60,10 +66,18 @@ const LandingNavbar = () => {
             </a>
           ))}
           <Link 
-            to="/dashboard" 
-            className="mt-4 px-6 py-4 bg-primary rounded-2xl text-center font-bold text-white shadow-xl shadow-primary/20"
+            to="/login" 
+            className="mt-4 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-center font-bold text-white hover:bg-white/10 transition-all"
+            onClick={() => setIsOpen(false)}
           >
-            Go to Dashboard
+            Sign In
+          </Link>
+          <Link 
+            to="/dashboard" 
+            className="px-6 py-4 bg-primary rounded-2xl text-center font-bold text-white shadow-xl shadow-primary/20"
+            onClick={() => setIsOpen(false)}
+          >
+            Launch Dashboard
           </Link>
         </div>
       </motion.div>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -8,15 +8,40 @@ function cn(...inputs) {
 }
 
 const GlassCard = ({ children, className, hover = true }) => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const cardRef = useRef(null);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
   return (
     <motion.div
-      whileHover={hover ? { scale: 1.01, translateY: -2 } : {}}
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      whileHover={hover ? { translateY: -4, shadow: "0 20px 40px rgba(0,0,0,0.4)" } : {}}
       className={cn(
-        "glass-card p-6 relative overflow-hidden group",
+        "glass-card p-8 relative overflow-hidden group border-white/10 bg-white/[0.03]",
         className
       )}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Dynamic Shine Effect */}
+      <motion.div
+        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              650px circle at ${mouseX}px ${mouseY}px,
+              rgba(255, 255, 255, 0.08),
+              transparent 80%
+            )
+          `,
+        }}
+      />
+      
       <div className="relative z-10">
         {children}
       </div>

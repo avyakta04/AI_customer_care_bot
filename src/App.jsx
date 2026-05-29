@@ -9,6 +9,11 @@ import AISupervisor from './pages/AISupervisor';
 import HindsightLearning from './pages/HindsightLearning';
 import Analytics from './pages/Analytics';
 
+// Auth Pages
+import Login from './pages/auth/Login';
+import Signup from './pages/auth/Signup';
+import ForgotPassword from './pages/auth/ForgotPassword';
+
 // Placeholder components for other routes
 const PlaceholderPage = ({ title }) => (
   <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
@@ -21,6 +26,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Auth Routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
         {/* Landing Page Route */}
         <Route path="/" element={<Landing />} />
 
