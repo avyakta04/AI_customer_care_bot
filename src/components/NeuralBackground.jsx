@@ -17,6 +17,36 @@ const NeuralBackground = () => {
     const connectionDistance = 120;
     const mouse = { x: null, y: null, radius: 150 };
 
+    // Moving soft colored light blobs
+    const blobs = [
+      {
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.15,
+        vy: (Math.random() - 0.5) * 0.15,
+        radius: 350,
+        color: 'rgba(139, 92, 246, 0.035)' // Violet
+      },
+      {
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.15,
+        vy: (Math.random() - 0.5) * 0.15,
+        radius: 400,
+        color: 'rgba(6, 182, 212, 0.035)' // Cyan
+      },
+      {
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.15,
+        vy: (Math.random() - 0.5) * 0.15,
+        radius: 320,
+        color: 'rgba(244, 63, 94, 0.02)' // Pink/Rose
+      }
+    ];
+
+    let time = 0;
+
     class Particle {
       constructor() {
         this.x = Math.random() * width;
@@ -84,7 +114,65 @@ const NeuralBackground = () => {
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw connections first
+      // 1. Draw Waving Aurora Background Effect
+      time += 0.0015;
+      ctx.save();
+      ctx.globalCompositeOperation = 'screen';
+      
+      for (let wave = 0; wave < 3; wave++) {
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+        
+        // Plot curvy sine wave path
+        for (let x = 0; x <= width; x += 30) {
+          const baseHeight = height * 0.75;
+          const sineFactor = Math.sin(x * 0.003 + time + wave * (Math.PI / 1.5)) * 60;
+          const cosFactor = Math.cos(x * 0.0015 - time) * 30;
+          const y = baseHeight + sineFactor + cosFactor;
+          ctx.lineTo(x, y);
+        }
+        
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.closePath();
+
+        const grad = ctx.createLinearGradient(0, height * 0.6, 0, height);
+        grad.addColorStop(0, 'transparent');
+        
+        if (wave === 0) {
+          grad.addColorStop(0.3, 'rgba(16, 185, 129, 0.025)'); // Emerald Green
+        } else if (wave === 1) {
+          grad.addColorStop(0.4, 'rgba(6, 182, 212, 0.025)');  // Cyan
+        } else {
+          grad.addColorStop(0.5, 'rgba(139, 92, 246, 0.02)');  // Violet
+        }
+        
+        grad.addColorStop(0.9, 'transparent');
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+      ctx.restore();
+
+      // 2. Draw Moving Soft Light Blobs
+      blobs.forEach(b => {
+        b.x += b.vx;
+        b.y += b.vy;
+
+        // Bounce
+        if (b.x < 0 || b.x > width) b.vx *= -1;
+        if (b.y < 0 || b.y > height) b.vy *= -1;
+
+        const grad = ctx.createRadialGradient(b.x, b.y, 5, b.x, b.y, b.radius);
+        grad.addColorStop(0, b.color);
+        grad.addColorStop(0.5, b.color.replace('0.035', '0.015').replace('0.02', '0.008'));
+        grad.addColorStop(1, 'transparent');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // 3. Draw Connected Particles
       for (let i = 0; i < particles.length; i++) {
         const p1 = particles[i];
         p1.update();
