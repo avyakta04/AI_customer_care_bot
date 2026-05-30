@@ -13,13 +13,19 @@ const Waveform = ({ isActive = false }) => {
                Math.random() * 80 + 20,
                Math.random() * 40 + 10
              ]
-           } : { height: 4 }}
+           } : {
+             height: [
+               Math.sin(i * 0.5) * 8 + 12,
+               Math.cos(i * 0.3) * 6 + 10,
+               Math.sin(i * 0.5) * 8 + 12
+             ]
+           }}
            transition={{
              repeat: Infinity,
-             duration: 0.5 + Math.random() * 0.5,
+             duration: isActive ? (0.5 + Math.random() * 0.5) : (1.5 + Math.random() * 1.5),
              ease: "easeInOut"
            }}
-           className={`w-1 rounded-full ${isActive ? 'bg-gradient-to-t from-primary to-secondary neon-glow' : 'bg-white/10'}`}
+           className={`w-1 rounded-full transition-colors duration-500 ${isActive ? 'bg-gradient-to-t from-primary to-secondary neon-glow' : 'bg-white/20'}`}
         />
       ))}
     </div>

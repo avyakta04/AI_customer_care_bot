@@ -8,6 +8,7 @@ import MemoryRetrieval from './pages/MemoryRetrieval';
 import AISupervisor from './pages/AISupervisor';
 import HindsightLearning from './pages/HindsightLearning';
 import Analytics from './pages/Analytics';
+import Settings from './pages/Settings';
 
 // Auth Pages
 import Login from './pages/auth/Login';
@@ -43,7 +44,7 @@ function App() {
           <Route path="memory" element={<MemoryRetrieval />} />
           <Route path="learning" element={<HindsightLearning />} />
           <Route path="analytics" element={<Analytics />} />
-          <Route path="settings" element={<PlaceholderPage title="Settings" />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </BrowserRouter>

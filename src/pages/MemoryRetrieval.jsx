@@ -32,23 +32,73 @@ const MemoryRetrieval = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [activeStep, setActiveStep] = useState(-1);
   const [foundMemories, setFoundMemories] = useState([]);
+  const [logs, setLogs] = useState([
+    { t: "14:30:05", msg: "VECTOR_DIMENSIONS: 384 (all-MiniLM-L6-v2)", type: "info" },
+    { t: "14:30:06", msg: "DB_INDEX_PATH: ./chroma_persistence/v4", type: "info" }
+  ]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (isSearching) return;
+      const messages = [
+        "CHROMA_QUERY: select * from cache where similarity > 0.78",
+        "SEMANTIC_PARSE: keyword='credential mismatch', weights=loaded",
+        "COSINE_SIMILARITY: computing distances for block 0xBF92",
+        "VDB_CACHE: cache hit for key_signature '0x-A492'",
+        "CONTEXT_COMPACTION: merged 3 memory layers, compression=0.88",
+        "INDEX_OPTIMIZER: pruning dead synapses from local registry",
+        "NEURAL_EMBEDDING: generated 384 float tensor",
+        "METRIC_STORE: query_latency=12ms nodes_scanned=241"
+      ];
+      const newLog = {
+        t: new Date().toLocaleTimeString([], { hour12: false }),
+        msg: messages[Math.floor(Math.random() * messages.length)],
+        type: Math.random() > 0.85 ? 'warning' : 'info'
+      };
+      setLogs(prev => [...prev.slice(-6), newLog]);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [isSearching]);
 
   const startSearch = () => {
     setIsSearching(true);
     setFoundMemories([]);
     setActiveStep(0);
     
+    // Clear and start search logs
+    setLogs([
+      { t: new Date().toLocaleTimeString([], { hour12: false }), msg: "QUERY_INPUT_RECEIVED: 'credential mismatch dashboard urgent'", type: "info" }
+    ]);
+
     // Simulate pipeline progression
     let step = 0;
     const interval = setInterval(() => {
       step++;
       setActiveStep(step);
+      
+      const stepMsgs = [
+        "GENERATING_EMBEDDING: MiniLM-L6 model initialized",
+        "CHROMADB_SCAN: cosine distance similarity metric applied",
+        "SEMANTIC_HITS: 3 matches verified",
+      ];
+      
+      setLogs(prev => [...prev, {
+        t: new Date().toLocaleTimeString([], { hour12: false }),
+        msg: stepMsgs[step - 1] || "PIPELINE_RESOLVED: context injected",
+        type: step === 3 ? "success" : "info"
+      }]);
+
       if (step === 3) {
         clearInterval(interval);
         setTimeout(() => {
           setFoundMemories(mockMemories);
           setIsSearching(false);
           setActiveStep(-1);
+          setLogs(prev => [...prev, {
+            t: new Date().toLocaleTimeString([], { hour12: false }),
+            msg: "EXECUTION_COMPLETE: Context ready for AI response generation",
+            type: "success"
+          }]);
         }, 1000);
       }
     }, 1200);
@@ -65,7 +115,7 @@ const MemoryRetrieval = () => {
         <button 
           onClick={startSearch}
           disabled={isSearching}
-          className="px-6 py-3 bg-secondary/20 border border-secondary/30 rounded-2xl font-bold text-sm text-secondary-neon hover:bg-secondary/30 transition-all flex items-center gap-3 disabled:opacity-50"
+          className="px-6 py-3 bg-secondary/20 border border-secondary/30 rounded-2xl font-bold text-sm text-secondary-neon hover:bg-secondary/30 transition-all flex items-center gap-3 disabled:opacity-50 active:scale-[0.98]"
         >
           <RefreshCcw className={`w-4 h-4 ${isSearching ? 'animate-spin' : ''}`} />
           RE-GENERATE CONTEXT
@@ -105,7 +155,7 @@ const MemoryRetrieval = () => {
                      <motion.div
                        animate={activeStep === i ? { scale: [1, 1.15, 1], rotate: [0, 5, -5, 0] } : {}}
                        className={`w-20 h-20 rounded-[2rem] border flex items-center justify-center transition-all duration-500 ${
-                         activeStep >= i ? 'bg-white/5 border-white/20' : 'bg-transparent border-white/5 opacity-20'
+                         activeStep >= i ? 'bg-white/5 border-white/20 shadow-[0_0_15px_rgba(6,182,212,0.2)]' : 'bg-transparent border-white/5 opacity-20'
                        }`}
                      >
                        <step.icon className={`w-8 h-8 ${activeStep >= i ? step.color : 'text-white'}`} />
@@ -123,14 +173,18 @@ const MemoryRetrieval = () => {
                      )}
                    </div>
                    {i < searchSteps.length - 1 && (
-                     <div className="flex-1 px-4 mb-4">
-                        <div className="h-px bg-gradient-to-r from-white/10 via-white/5 to-white/10 w-full relative">
-                           {activeStep >= i && (
+                     <div className="flex-1 px-4 mb-4 relative">
+                        <div className="h-1 bg-white/5 w-full relative rounded-full overflow-hidden">
+                           {(activeStep === i || isSearching) && (
                              <motion.div 
-                               initial={{ width: 0 }}
-                               animate={{ width: '100%' }}
-                               transition={{ duration: 1.2 }}
-                               className="absolute inset-0 bg-secondary-neon shadow-[0_0_10px_rgba(6,182,212,0.5)]"
+                               initial={{ left: '-100%' }}
+                               animate={{ left: '100%' }}
+                               transition={{ 
+                                 repeat: Infinity, 
+                                 duration: 1.2, 
+                                 ease: 'linear' 
+                               }}
+                               className="absolute h-full w-16 bg-gradient-to-r from-transparent via-secondary-neon to-transparent shadow-[0_0_10px_rgba(6,182,212,0.8)]"
                              />
                            )}
                         </div>
@@ -140,43 +194,23 @@ const MemoryRetrieval = () => {
                ))}
             </div>
 
-            <div className="text-center max-w-2xl">
+            <div className="text-center max-w-2xl w-full">
                <h3 className="text-sm font-bold text-white/40 uppercase tracking-widest mb-6">Execution Log</h3>
-               <div className="bg-black/20 p-6 rounded-2xl border border-white/5 font-mono text-left space-y-3">
-                 <p className="text-xs text-secondary-neon/60 flex gap-2">
-                   <span className="text-white/20 font-bold">14:30:05</span>
-                   <span className="text-white/40">{">>"}</span>
-                   <span>VECTOR_DIMENSIONS: <span className="text-white">384 (all-MiniLM-L6-v2)</span></span>
-                 </p>
-                 <p className="text-xs text-secondary-neon/60 flex gap-2">
-                   <span className="text-white/20 font-bold">14:30:06</span>
-                   <span className="text-white/40">{">>"}</span>
-                   <span>DB_INDEX_PATH: <span className="text-white">./chroma_persistence/v4</span></span>
-                 </p>
-                 <AnimatePresence>
-                   {activeStep >= 2 && (
-                     <motion.p 
-                       initial={{ opacity: 0, x: -10 }}
-                       animate={{ opacity: 1, x: 0 }}
-                       className="text-xs text-accent-neon flex gap-2"
-                     >
-                       <span className="text-white/20 font-bold">14:30:07</span>
-                       <span className="text-white/40">{">>"}</span>
-                       <span>SEMANTIC_HITS: <span className="font-bold underline">3 MATCHES_FOUND</span></span>
-                     </motion.p>
-                   )}
-                 </AnimatePresence>
-                 <AnimatePresence>
-                   {activeStep === -1 && foundMemories.length > 0 && (
-                     <motion.p 
-                       initial={{ opacity: 0 }}
-                       animate={{ opacity: 1 }}
-                       className="text-[10px] text-white/20 uppercase tracking-tighter pt-4 border-t border-white/5"
-                     >
-                       Context ready for AI response generation.
-                     </motion.p>
-                   )}
-                 </AnimatePresence>
+               <div className="bg-black/20 p-6 rounded-2xl border border-white/5 font-mono text-left space-y-2 min-h-[160px]">
+                 {logs.map((log, idx) => (
+                   <motion.p 
+                     key={idx}
+                     initial={{ opacity: 0, x: -10 }}
+                     animate={{ opacity: 1, x: 0 }}
+                     className={`text-xs flex gap-2 ${
+                       log.type === 'success' ? 'text-accent-neon' : log.type === 'warning' ? 'text-amber-400' : 'text-secondary-neon/60'
+                     }`}
+                   >
+                     <span className="text-white/20 font-bold">{log.t}</span>
+                     <span className="text-white/40">{">>"}</span>
+                     <span>{log.msg}</span>
+                   </motion.p>
+                 ))}
                </div>
             </div>
           </div>

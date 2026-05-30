@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
+import NeuralBackground from '../components/NeuralBackground';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MainLayout = () => {
@@ -15,11 +16,12 @@ const MainLayout = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-background text-slate-200">
+    <div className="min-h-screen bg-background text-slate-200 relative overflow-hidden">
+      <NeuralBackground />
       <Sidebar />
       <Navbar />
       
-      <main className="pl-72 pt-20 min-h-screen">
+      <main className="pl-72 pt-20 min-h-screen relative z-10">
         <div className="p-8 max-w-[1600px] mx-auto">
           <AnimatePresence mode="wait">
             <motion.div

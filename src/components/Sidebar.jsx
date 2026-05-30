@@ -15,14 +15,14 @@ import {
 import { motion } from 'framer-motion';
 
 const menuItems = [
-  { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
-  { icon: MessageSquare, label: 'Live Chat', path: '/dashboard/chat' },
-  { icon: Mic2, label: 'Voice Analysis', path: '/dashboard/voice' },
-  { icon: ShieldCheck, label: 'AI Supervisor', path: '/dashboard/supervisor' },
-  { icon: Database, label: 'Memory Retrieval', path: '/dashboard/memory' },
-  { icon: History, label: 'Hindsight Learning', path: '/dashboard/learning' },
-  { icon: BarChart3, label: 'Analytics', path: '/dashboard/analytics' },
-  { icon: Settings, label: 'Settings', path: '/dashboard/settings' },
+  { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', color: 'text-cyan-400', activeBg: 'from-cyan-500/[0.08] to-transparent', border: 'border-cyan-500/20' },
+  { icon: MessageSquare, label: 'Live Chat', path: '/dashboard/chat', color: 'text-violet-400', activeBg: 'from-violet-500/[0.08] to-transparent', border: 'border-violet-500/20' },
+  { icon: Mic2, label: 'Voice Analysis', path: '/dashboard/voice', color: 'text-pink-400', activeBg: 'from-pink-500/[0.08] to-transparent', border: 'border-pink-500/20' },
+  { icon: ShieldCheck, label: 'AI Supervisor', path: '/dashboard/supervisor', color: 'text-emerald-400', activeBg: 'from-emerald-500/[0.08] to-transparent', border: 'border-emerald-500/20' },
+  { icon: Database, label: 'Memory Retrieval', path: '/dashboard/memory', color: 'text-amber-400', activeBg: 'from-amber-500/[0.08] to-transparent', border: 'border-amber-500/20' },
+  { icon: History, label: 'Hindsight Learning', path: '/dashboard/learning', color: 'text-fuchsia-400', activeBg: 'from-fuchsia-500/[0.08] to-transparent', border: 'border-fuchsia-500/20' },
+  { icon: BarChart3, label: 'Analytics', path: '/dashboard/analytics', color: 'text-sky-400', activeBg: 'from-sky-500/[0.08] to-transparent', border: 'border-sky-500/20' },
+  { icon: Settings, label: 'Settings', path: '/dashboard/settings', color: 'text-slate-400', activeBg: 'from-slate-500/[0.08] to-transparent', border: 'border-slate-500/20' },
 ];
 
 const Sidebar = () => {
@@ -57,13 +57,13 @@ const Sidebar = () => {
             className={({ isActive }) => `
               flex items-center gap-3.5 px-4 py-3 rounded-2xl transition-all duration-500 group relative overflow-hidden
               ${isActive 
-                ? 'bg-white/[0.08] text-white border border-white/10' 
+                ? `bg-gradient-to-r ${item.activeBg} text-white border ${item.border} shadow-[0_0_15px_rgba(255,255,255,0.02)]` 
                 : 'text-white/40 hover:text-white/80 hover:bg-white/[0.03]'}
             `}
           >
             {({ isActive }) => (
               <>
-                <item.icon className={`w-5 h-5 transition-transform duration-500 group-hover:scale-110 ${isActive ? 'text-violet-400' : ''}`} />
+                <item.icon className={`w-5 h-5 transition-transform duration-500 group-hover:scale-110 ${isActive ? item.color : 'text-white/40'}`} />
                 <span className={`text-sm font-semibold tracking-wide ${isActive ? 'translate-x-0.5 transition-transform' : ''}`}>
                   {item.label}
                 </span>
@@ -71,7 +71,7 @@ const Sidebar = () => {
                 {isActive && (
                   <motion.div 
                     layoutId="active-nav-bg"
-                    className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-transparent pointer-events-none"
+                    className={`absolute inset-0 bg-gradient-to-r ${item.activeBg} pointer-events-none`}
                     initial={false}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
@@ -80,7 +80,7 @@ const Sidebar = () => {
                 {isActive && (
                   <motion.div 
                     layoutId="active-indicator"
-                    className="ml-auto w-1 h-4 rounded-full bg-violet-400 shadow-[0_0_10px_rgba(139,92,246,0.8)]"
+                    className={`ml-auto w-1 h-4 rounded-full bg-gradient-to-b from-white/30 to-white/10`}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}

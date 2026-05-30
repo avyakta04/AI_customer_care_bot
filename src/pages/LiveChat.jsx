@@ -22,13 +22,60 @@ const initialMessages = [
   { id: 2, text: "Hello, I've been trying to access my enterprise dashboard for the last hour but I keep getting a credential mismatch error. This is very frustrating as I have a deadline.", isAI: false, timestamp: "10:01 AM" },
 ];
 
+const personas = [
+  {
+    name: "VIP Outage",
+    emoji: "😡",
+    emotion: "Urgent",
+    confidence: 98,
+    text: "This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars! I need immediate support!",
+    tags: ["SERVER_DOWN", "VIP_SUPPORT", "FINANCIAL_LOSS", "ESCALATION"],
+    response: "I understand the extreme urgency of this database outage. I have immediately activated our VIP backup node and routed your request to the Tier 3 Supervisor. Synchronizing emergency redundancy cluster now."
+  },
+  {
+    name: "Confused Trialist",
+    emoji: "🤔",
+    emotion: "Confused",
+    confidence: 85,
+    text: "Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response. Can you help?",
+    tags: ["WEBHOOK_ERR", "DOCS_DESYNC", "API_PAYLOAD", "INTEGRATION"],
+    response: "I see a format mismatch in our webhook documentation payload definition. Let me pull the current production JSON schema. I am updating your local environment configurations now. Try resending the payload."
+  },
+  {
+    name: "Happy Advocate",
+    emoji: "😄",
+    emotion: "Happy",
+    confidence: 95,
+    text: "Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team for this outstanding upgrade!",
+    tags: ["LATENCY_NOMINAL", "PRODUCT_LOVE", "SPEECH_SPEED", "LOYALTY"],
+    response: "We are absolutely thrilled to hear the voice translation module is meeting your standards! Your feedback has been synchronized with the core product weights to keep high-frequency performance optimized."
+  }
+];
+
 const LiveChat = () => {
   const [messages, setMessages] = useState(initialMessages);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [reasoningStep, setReasoningStep] = useState(0); // 0 = Idle, 1 = Analyzing, 2 = Memory, 3 = Supervisor, 4 = Generating
   const [currentEmotion, setCurrentEmotion] = useState({ type: 'Frustrated', confidence: 88 });
   const [isStreaming, setIsStreaming] = useState(false);
+  const [activeTags, setActiveTags] = useState(['AUTH_CORE', 'TOKEN_SYNC', 'UI_BLOCKER', 'LATENCY']);
   const scrollRef = useRef(null);
+
+  const getGlowClass = () => {
+    switch (currentEmotion.type) {
+      case 'Urgent':
+      case 'Frustrated':
+      case 'Angry':
+        return 'shadow-[0_0_30px_rgba(239,68,68,0.15)] border-red-500/20';
+      case 'Happy':
+        return 'shadow-[0_0_30px_rgba(16,185,129,0.15)] border-emerald-500/20';
+      case 'Confused':
+        return 'shadow-[0_0_30px_rgba(245,158,11,0.15)] border-amber-500/20';
+      default:
+        return 'shadow-[0_0_30px_rgba(139,92,246,0.15)] border-violet-500/20';
+    }
+  };
 
   const scrollToBottom = () => {
     if (scrollRef.current) {
@@ -57,20 +104,51 @@ const LiveChat = () => {
 
   const simulateAIResponse = (userText) => {
     setIsTyping(true);
+    setReasoningStep(1);
     
-    // Simulate emotion change based on keywords
-    if (userText.toLowerCase().includes("urgent") || userText.toLowerCase().includes("deadline")) {
-      setCurrentEmotion({ type: 'Urgent', confidence: 94 });
+    // Check if the user text matches a predefined persona
+    const matchingPersona = personas.find(p => p.text === userText);
+    
+    if (matchingPersona) {
+      setCurrentEmotion({ type: matchingPersona.emotion, confidence: matchingPersona.confidence });
+      setActiveTags(matchingPersona.tags);
     } else {
-      setCurrentEmotion({ type: 'Neutral', confidence: 91 });
+      // Simulate emotion change based on keywords
+      if (userText.toLowerCase().includes("urgent") || userText.toLowerCase().includes("deadline")) {
+        setCurrentEmotion({ type: 'Urgent', confidence: 94 });
+        setActiveTags(['URGENT_TICKET', 'ESCALATION', 'BLOCKER']);
+      } else {
+        setCurrentEmotion({ type: 'Neutral', confidence: 91 });
+        setActiveTags(['GENERAL_QUERY', 'AI_STANDBY']);
+      }
     }
+
+    // Step 2: Memory Retrieval
+    setTimeout(() => {
+      setReasoningStep(2);
+    }, 600);
+
+    // Step 3: Supervisor Review
+    setTimeout(() => {
+      setReasoningStep(3);
+    }, 1200);
+
+    // Step 4: Generating Response
+    setTimeout(() => {
+      setReasoningStep(4);
+    }, 1800);
 
     setTimeout(() => {
       setIsTyping(false);
+      setReasoningStep(0);
       setIsStreaming(true);
       
       const aiResponseId = Date.now() + 1;
-      const fullText = "I understand the urgency regarding your deadline. I've initiated a deep-scan of your credential cache. It appears there was a sync delay with the global auth server. I am re-validating your token now. Please try again in 30 seconds.";
+      const fullText = matchingPersona 
+        ? matchingPersona.response
+        : userText.toLowerCase().includes("urgent") || userText.toLowerCase().includes("deadline")
+        ? "I understand the urgency regarding your deadline. I've initiated a deep-scan of your credential cache. It appears there was a sync delay with the global auth server. I am re-validating your token now. Please try again in 30 seconds."
+        : "I have completed a vector search across historical interactions. I see you requested support regarding auth cache synchronization. I have updated the context parameters and established a new secure session token. Try refreshing your view now.";
       
       let currentIdx = 0;
       const streamingMsg = {
@@ -107,7 +185,7 @@ const LiveChat = () => {
           });
         }
       }, 30);
-    }, 1500);
+    }, 2400);
   };
 
   return (
@@ -140,7 +218,7 @@ const LiveChat = () => {
         </AnimatePresence>
 
         {/* Conversation Area */}
-        <GlassCard className="flex-1 p-0 flex flex-col overflow-hidden relative border-white/[0.05] rounded-[2.5rem]">
+        <GlassCard className={`flex-1 p-0 flex flex-col overflow-hidden relative border-white/[0.05] rounded-[2.5rem] transition-all duration-700 ${getGlowClass()}`}>
           <div className="px-8 py-5 border-b border-white/[0.05] flex items-center justify-between bg-white/[0.01] backdrop-blur-md">
             <div className="flex items-center gap-4">
               <div className="relative">
@@ -184,16 +262,43 @@ const LiveChat = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="flex gap-4 mb-6"
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.1)]">
-                  <BrainCircuit className="w-6 h-6 animate-pulse" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.1)] animate-pulse">
+                  <BrainCircuit className="w-6 h-6" />
                 </div>
-                <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-5 rounded-[1.5rem] rounded-tl-none flex items-center gap-3">
-                  <div className="flex gap-1.5">
-                    <motion.div animate={{ scale: [1, 1.3, 1] }} transition={{ repeat: Infinity, duration: 1, delay: 0 }} className="w-1.5 h-1.5 rounded-full bg-violet-400 shadow-[0_0_8px_rgba(139,92,246,0.5)]" />
-                    <motion.div animate={{ scale: [1, 1.3, 1] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 rounded-full bg-violet-400/60" />
-                    <motion.div animate={{ scale: [1, 1.3, 1] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} className="w-1.5 h-1.5 rounded-full bg-violet-400/30" />
+                <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 rounded-[2rem] rounded-tl-none flex flex-col gap-4 min-w-[320px]">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[10px] font-mono text-white/40 uppercase tracking-[0.2em] font-black">Neural Reasoning Active</span>
+                    <span className="w-2 h-2 rounded-full bg-violet-500 animate-ping" />
                   </div>
-                  <span className="text-[11px] font-mono text-white/30 uppercase tracking-[0.2em] font-bold">Neural Processing...</span>
+                  <div className="space-y-2">
+                    {[
+                      { step: 1, label: 'Analyzing Intent & Semantics' },
+                      { step: 2, label: 'Retrieving Vector Context' },
+                      { step: 3, label: 'Supervisor Evaluation & Hallucination Scan' },
+                      { step: 4, label: 'Response Generation Engaged' }
+                    ].map((s) => {
+                      const isActive = reasoningStep === s.step;
+                      const isDone = reasoningStep > s.step;
+                      return (
+                        <div key={s.step} className="flex items-center gap-3 text-xs">
+                          <div className={`w-4 h-4 rounded-full flex items-center justify-center border text-[9px] font-mono transition-all duration-300 ${
+                            isDone 
+                              ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400' 
+                              : isActive 
+                              ? 'bg-violet-500/20 border-violet-500/50 text-violet-400 animate-pulse shadow-[0_0_8px_rgba(139,92,246,0.4)]'
+                              : 'bg-white/5 border-white/10 text-white/20'
+                          }`}>
+                            {isDone ? '✓' : s.step}
+                          </div>
+                          <span className={`font-mono tracking-tight transition-colors duration-300 ${
+                            isDone ? 'text-white/40' : isActive ? 'text-white font-bold' : 'text-white/20'
+                          }`}>
+                            {s.label}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -238,22 +343,114 @@ const LiveChat = () => {
 
       {/* Emotion Monitoring Sidebar */}
       <div className="w-full lg:w-96 flex flex-col gap-6">
+        {/* Customer Persona Simulator Card */}
+        <GlassCard className="border-white/[0.05] rounded-[2.5rem] bg-white/[0.02] p-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2 rounded-xl bg-violet-500/10 border border-violet-500/20">
+              <Sparkles className="w-5 h-5 text-violet-400" />
+            </div>
+            <h3 className="text-sm font-black text-white uppercase tracking-widest">Simulator Personas</h3>
+          </div>
+          <div className="space-y-4">
+            {personas.map((persona) => (
+              <motion.button
+                key={persona.name}
+                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.03)' }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => {
+                  setInputValue(persona.text);
+                  setCurrentEmotion({ type: persona.emotion, confidence: persona.confidence });
+                  setActiveTags(persona.tags);
+                }}
+                className="w-full text-left p-4 rounded-2xl bg-white/[0.01] border border-white/5 hover:border-violet-500/30 transition-all flex items-start gap-3.5 group"
+              >
+                <span className="text-2xl mt-0.5">{persona.emoji}</span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-center">
+                    <h4 className="text-xs font-black text-white group-hover:text-violet-300 transition-colors uppercase tracking-wider">{persona.name}</h4>
+                    <span className="text-[9px] font-mono text-white/30 uppercase tracking-widest font-black">{persona.emotion}</span>
+                  </div>
+                  <p className="text-[10px] text-white/40 mt-1 truncate font-medium">{persona.text}</p>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+        </GlassCard>
+
         <GlassCard className="border-white/[0.05] rounded-[2.5rem] bg-white/[0.02]">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
-                <Activity className="w-5 h-5 text-cyan-400" />
+                <Activity className="w-5 h-5 text-cyan-400 animate-pulse" />
               </div>
               <h3 className="text-sm font-black text-white uppercase tracking-widest">Emotion Core</h3>
             </div>
-            <div className="px-2 py-0.5 rounded bg-emerald-500/10 text-[9px] font-bold text-emerald-400 uppercase tracking-tighter">Live Scan</div>
+            <div className="px-2 py-0.5 rounded bg-emerald-500/10 text-[9px] font-bold text-emerald-400 uppercase tracking-tighter animate-pulse">Live Scan</div>
           </div>
           
           <div className="space-y-6">
             <div className="p-6 rounded-[2rem] bg-white/[0.01] border border-white/[0.05] relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] mb-5">Primary Detection</p>
-              <EmotionBadge type={currentEmotion.type} confidence={currentEmotion.confidence} />
+              
+              {/* Dynamic Emotion Ring */}
+              <div className="flex flex-col items-center justify-center my-6 relative">
+                <svg width="120" height="120" className="rotate-[-90deg]">
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="48"
+                    stroke="rgba(255,255,255,0.03)"
+                    strokeWidth="6"
+                    fill="transparent"
+                  />
+                  <motion.circle
+                    cx="60"
+                    cy="60"
+                    r="48"
+                    stroke={
+                      currentEmotion.type === 'Urgent' || currentEmotion.type === 'Frustrated' ? '#ef4444' :
+                      currentEmotion.type === 'Happy' ? '#10b981' :
+                      currentEmotion.type === 'Confused' ? '#f59e0b' : '#3b82f6'
+                    }
+                    strokeWidth="6"
+                    strokeDasharray={2 * Math.PI * 48}
+                    initial={{ strokeDashoffset: 2 * Math.PI * 48 }}
+                    animate={{ strokeDashoffset: 2 * Math.PI * 48 - (currentEmotion.confidence / 100) * (2 * Math.PI * 48) }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    strokeLinecap="round"
+                    fill="transparent"
+                    style={{
+                      filter: `drop-shadow(0 0 8px ${
+                        currentEmotion.type === 'Urgent' || currentEmotion.type === 'Frustrated' ? 'rgba(239,68,68,0.4)' :
+                        currentEmotion.type === 'Happy' ? 'rgba(16,185,129,0.4)' :
+                        currentEmotion.type === 'Confused' ? 'rgba(245,158,11,0.4)' : 'rgba(59,130,246,0.4)'
+                      })`
+                    }}
+                  />
+                </svg>
+                
+                {/* Floating Core */}
+                <motion.div 
+                  animate={{
+                    scale: [1, 1.04, 1],
+                    boxShadow: [
+                      '0 0 10px rgba(255,255,255,0.05)',
+                      '0 0 20px rgba(139,92,246,0.2)',
+                      '0 0 10px rgba(255,255,255,0.05)'
+                    ]
+                  }}
+                  transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                  className="absolute w-16 h-16 rounded-full bg-slate-900 border border-white/10 flex flex-col items-center justify-center z-10"
+                >
+                  <span className="text-sm font-black text-white tracking-tighter leading-none">{currentEmotion.confidence}%</span>
+                  <span className="text-[7px] font-mono text-white/30 uppercase tracking-widest mt-1">CONF</span>
+                </motion.div>
+              </div>
+
+              <div className="flex justify-center mb-6">
+                <EmotionBadge type={currentEmotion.type} confidence={currentEmotion.confidence} />
+              </div>
               
               <div className="mt-8 space-y-3">
                 <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-white/40">
@@ -265,7 +462,7 @@ const LiveChat = () => {
                     initial={{ width: 0 }}
                     animate={{ width: `${currentEmotion.confidence}%` }}
                     transition={{ duration: 1.5, cubicBezier: [0.16, 1, 0.3, 1] }}
-                    className={`h-full rounded-full bg-gradient-to-r ${currentEmotion.type === 'Urgent' ? 'from-red-500 via-orange-500 to-amber-500 shadow-[0_0_15px_rgba(239,68,68,0.5)]' : 'from-indigo-500 via-violet-500 to-purple-500 shadow-[0_0_15px_rgba(139,92,246,0.5)]'}`}
+                    className={`h-full rounded-full bg-gradient-to-r ${currentEmotion.type === 'Urgent' || currentEmotion.type === 'Frustrated' ? 'from-red-500 via-orange-500 to-amber-500 shadow-[0_0_15px_rgba(239,68,68,0.5)]' : 'from-indigo-500 via-violet-500 to-purple-500 shadow-[0_0_15px_rgba(139,92,246,0.5)]'}`}
                   />
                 </div>
               </div>
@@ -295,7 +492,7 @@ const LiveChat = () => {
             <div>
               <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] mb-4">Detected Intents</p>
               <div className="flex flex-wrap gap-2.5">
-                {['AUTH_CORE', 'TOKEN_SYNC', 'UI_BLOCKER', 'LATENCY'].map(tag => (
+                {activeTags.map(tag => (
                   <motion.span 
                     whileHover={{ scale: 1.05, backgroundColor: 'rgba(99, 102, 241, 0.2)' }}
                     key={tag} 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   BarChart3, 
@@ -54,6 +54,42 @@ ChartJS.register(
 );
 
 const Analytics = () => {
+  const [escalations, setEscalations] = useState([15, 12, 18, 10, 8, 14, 9]);
+  const [resolved, setResolved] = useState([85, 88, 82, 90, 92, 86, 91]);
+  const [emotions, setEmotions] = useState([42, 18, 8, 12, 20]);
+  const [csat, setCsat] = useState([92, 88, 85, 78, 95, 82]);
+  const [interventions, setInterventions] = useState([2, 5, 12, 8, 15, 6]);
+
+  const [resonance, setResonance] = useState(88.4);
+  const [latency, setLatency] = useState(142);
+  const [escalationRate, setEscalationRate] = useState(8);
+  const [resSpeed, setResSpeed] = useState(42);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Simulate real-time metric shifts
+      setEscalations(prev => [...prev.slice(1), Math.max(4, Math.min(25, prev[prev.length - 1] + Math.round((Math.random() - 0.5) * 6)))]);
+      setResolved(prev => [...prev.slice(1), Math.max(70, Math.min(99, prev[prev.length - 1] + Math.round((Math.random() - 0.5) * 8)))]);
+      
+      setEmotions(prev => {
+        const next = prev.map(val => Math.max(5, Math.min(50, val + Math.round((Math.random() - 0.5) * 4))));
+        const sum = next.reduce((a, b) => a + b, 0);
+        return next.map(v => Math.round((v / sum) * 100)); // Normalize
+      });
+
+      setCsat(prev => prev.map(v => Math.max(70, Math.min(98, v + Math.round((Math.random() - 0.5) * 4)))));
+      setInterventions(prev => prev.map(v => Math.max(0, Math.min(25, v + Math.round((Math.random() - 0.5) * 5)))));
+
+      // Oscillate Stat Cards
+      setResonance(prev => Math.max(82, Math.min(96, prev + (Math.random() - 0.5) * 2)));
+      setLatency(prev => Math.max(110, Math.min(160, prev + Math.round((Math.random() - 0.5) * 10))));
+      setEscalationRate(prev => Math.max(4, Math.min(14, prev + (Math.random() > 0.85 ? (Math.random() > 0.5 ? 1 : -1) : 0))));
+      setResSpeed(prev => Math.max(25, Math.min(55, prev + Math.round((Math.random() - 0.5) * 6))));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const commonOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -84,7 +120,7 @@ const Analytics = () => {
   const emotionData = {
     labels: ['Happy', 'Frustrated', 'Angry', 'Confused', 'Neutral'],
     datasets: [{
-      data: [42, 18, 8, 12, 20],
+      data: emotions,
       backgroundColor: [
         'rgba(16, 185, 129, 0.5)',
         'rgba(245, 158, 11, 0.5)',
@@ -105,7 +141,7 @@ const Analytics = () => {
     datasets: [
       {
         label: 'Escalations',
-        data: [15, 12, 18, 10, 8, 14, 9],
+        data: escalations,
         borderColor: '#ef4444',
         backgroundColor: 'rgba(239, 68, 68, 0.1)',
         fill: true,
@@ -115,7 +151,7 @@ const Analytics = () => {
       },
       {
         label: 'Resolved',
-        data: [85, 88, 82, 90, 92, 86, 91],
+        data: resolved,
         borderColor: '#10b981',
         backgroundColor: 'rgba(16, 185, 129, 0.1)',
         fill: true,
@@ -145,7 +181,7 @@ const Analytics = () => {
     datasets: [
       {
         label: 'Current Month',
-        data: [92, 88, 85, 78, 95, 82],
+        data: csat,
         backgroundColor: 'rgba(139, 92, 246, 0.2)',
         borderColor: '#8b5cf6',
         borderWidth: 2,
@@ -167,7 +203,7 @@ const Analytics = () => {
     labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00'],
     datasets: [{
       label: 'Supervisor Interventions',
-      data: [2, 5, 12, 8, 15, 6],
+      data: interventions,
       backgroundColor: 'rgba(245, 158, 11, 0.2)',
       borderColor: '#f59e0b',
       borderWidth: 2,
@@ -230,10 +266,10 @@ const Analytics = () => {
 
       {/* Stats Cards Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard label="Emotional Resonance" value={88.4} target={95} suffix="%" trend="up" percentage="+12.4%" />
-        <StatCard label="Inference Latency" value={142} target={120} suffix="ms" trend="down" percentage="-14ms" />
-        <StatCard label="Critical Escalations" value={8} target={15} suffix="%" trend="up" percentage="-4.2%" />
-        <StatCard label="Resolution Speed" value={42} target={30} suffix="s" trend="up" percentage="-12s" />
+        <StatCard label="Emotional Resonance" value={resonance} target={95} suffix="%" trend="up" percentage="+12.4%" />
+        <StatCard label="Inference Latency" value={latency} target={120} suffix="ms" trend="down" percentage="-14ms" />
+        <StatCard label="Critical Escalations" value={escalationRate} target={15} suffix="%" trend="up" percentage="-4.2%" />
+        <StatCard label="Resolution Speed" value={resSpeed} target={30} suffix="s" trend="up" percentage="-12s" />
       </div>
 
       {/* Main Grid Charts */}
