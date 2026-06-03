@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import LandingNavbar from '../components/LandingNavbar';
 import GlassCard from '../components/GlassCard';
+import AICoreVisualizer from '../components/AICoreVisualizer';
 
 // -------------------------------------------------------------
 // LIVE IMMERSIVE CANVAS BACKGROUND
@@ -279,8 +280,8 @@ const Landing = () => {
         {/* Dynamic HUD Layout grid */}
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-stretch mb-16">
           
-          {/* LEFT SIDE: LIVE SYSTEM STATUS PANEL (3 Cols) */}
-          <div className="xl:col-span-3 flex flex-col gap-6">
+          {/* LEFT SIDE: LIVE SYSTEM STATUS PANEL (2 Cols) */}
+          <div className="xl:col-span-2 flex flex-col gap-6">
             <GlassCard className="flex-1 p-6 flex flex-col justify-between border-slate-200/80 bg-white/70 shadow-sm relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-violet-600/5 rounded-full blur-2xl" />
               <div>
@@ -367,93 +368,35 @@ const Landing = () => {
             </GlassCard>
           </div>
 
-          {/* CENTER: HERO & MASSIVE DYNAMIC AI CORE (6 Cols) */}
-          <div className="xl:col-span-6 flex flex-col justify-between items-center text-center relative p-8 rounded-[2.5rem] border border-slate-200/80 bg-white/70 shadow-sm overflow-hidden">
-            {/* Background elements in card */}
-            <div className="absolute inset-0 bg-grid-pattern opacity-[0.015] pointer-events-none" />
-
-            {/* Sub-badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-slate-200/60 shadow-sm relative z-20 mb-4"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-violet-600 animate-spin-slow" />
-              <span className="text-[9px] font-black text-slate-800 uppercase tracking-[0.25em]">Emotional Intelligence OS</span>
-            </motion.div>
-
-            {/* Center Core HUD Area */}
-            <div className="w-full my-auto flex flex-col items-center relative min-h-[380px] justify-center">
-              
-              {/* Massive Outer Sci-Fi HUD Circular Ring (SVG spinning track) */}
-              <div className="absolute w-[460px] h-[460px] pointer-events-none opacity-50">
-                <svg viewBox="0 0 100 100" className="w-full h-full animate-spin-slow">
-                  <defs>
-                    <linearGradient id="orbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.5" />
-                      <stop offset="50%" stopColor="#A855F7" stopOpacity="0.15" />
-                      <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.5" />
-                    </linearGradient>
-                  </defs>
-                  <circle cx="50" cy="50" r="48" fill="none" stroke="url(#orbitGrad)" strokeWidth="0.8" strokeDasharray="10 15 40 10 5 5" />
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(6, 182, 212, 0.2)" strokeWidth="0.5" strokeDasharray="2 8" />
-                </svg>
-              </div>
-
-              {/* Central Pulsating Energy nucleus */}
-              <motion.div 
-                animate={{ scale: [1, 1.1, 1], rotate: -360 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                className="absolute w-56 h-56 rounded-full bg-gradient-to-tr from-violet-600/20 via-fuchsia-500/10 to-cyan-400/25 flex items-center justify-center filter blur-xl pointer-events-none"
-              />
-              <motion.div 
-                animate={{ scale: [1, 1.18, 1] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute w-36 h-36 rounded-full bg-gradient-to-tr from-violet-600/35 to-cyan-500/35 border-2 border-white/80 shadow-[0_0_50px_rgba(139,92,246,0.5),_0_0_20px_rgba(6,182,212,0.3)] flex items-center justify-center pointer-events-none"
+          {/* CENTER: HERO & MASSIVE DYNAMIC AI CORE (8 Cols) */}
+          <div className="xl:col-span-8 flex flex-col gap-6 justify-between">
+            <div className="text-center flex flex-col items-center">
+              {/* Sub-badge */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-slate-200/60 shadow-sm relative z-20 mb-4"
               >
-                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-lg border border-violet-100">
-                  <BrainCircuit className="w-10 h-10 text-violet-600 animate-pulse" />
-                </div>
+                <Sparkles className="w-3.5 h-3.5 text-violet-600 animate-spin-slow" />
+                <span className="text-[9px] font-black text-slate-800 uppercase tracking-[0.25em]">Emotional Intelligence OS</span>
               </motion.div>
 
-              {/* Orbiting Ring 1 (Dashed violet track) */}
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-                className="absolute w-80 h-80 rounded-full border-2 border-dashed border-violet-500/30 pointer-events-none"
-              />
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[0.9] mb-2 select-none">
+                INTELLIGENCE <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-500 animate-pulse-slow">UNLEASHED</span>
+              </h1>
+              <p className="text-[10px] text-slate-500 font-semibold tracking-wide uppercase max-w-sm leading-relaxed mb-1">
+                Bridge user emotion with real-time vector memory systems & supervisor shields.
+              </p>
+            </div>
 
-              {/* Orbiting Ring 2 with Flowing Dots (More visible & glowing) */}
-              <motion.div 
-                animate={{ rotate: -360 }}
-                transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[380px] h-[380px] rounded-full border border-cyan-500/35 pointer-events-none flex items-center justify-between p-3"
-              >
-                <span className="w-3.5 h-3.5 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.9)] border border-white" />
-                <span className="w-3.5 h-3.5 rounded-full bg-violet-400 shadow-[0_0_12px_rgba(139,92,246,0.9)] border border-white" />
-              </motion.div>
-
-              {/* Orbiting Ring 3 */}
-              <motion.div 
-                animate={{ rotate: 180 }}
-                transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[440px] h-[440px] rounded-full border border-slate-300 pointer-events-none opacity-40"
-              />
-
-              {/* Central OS Title Overlaid */}
-              <div className="relative z-10 pointer-events-none select-none max-w-xl mx-auto mt-28">
-                <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-[0.9]">
-                  INTELLIGENCE <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-500 animate-pulse-slow">UNLEASHED</span>
-                </h1>
-                <p className="text-xs text-slate-500 font-semibold tracking-wide uppercase mt-4 max-w-sm mx-auto leading-relaxed">
-                  Bridge user emotion with real-time vector memory systems & supervisor shields.
-                </p>
-              </div>
+            {/* Massive Interactive 3D Orbit Visualizer centerpiece */}
+            <div className="relative z-10 w-full flex-1">
+              <AICoreVisualizer />
             </div>
 
             {/* Launch Console CTA Action */}
-            <div className="relative z-20 flex flex-wrap gap-4 justify-center items-center mt-6 w-full">
+            <div className="relative z-20 flex flex-wrap gap-4 justify-center items-center w-full">
               <Link 
                 to="/dashboard" 
                 style={{ transform: `translate(${mouseOffset.x * 0.2}px, ${mouseOffset.y * 0.2}px)` }}
@@ -473,8 +416,8 @@ const Landing = () => {
             </div>
           </div>
 
-          {/* RIGHT SIDE: INTERACTIVE AI PROCESSING ORBIT (3 Cols) */}
-          <div className="xl:col-span-3 flex flex-col justify-between">
+          {/* RIGHT SIDE: INTERACTIVE AI PROCESSING ORBIT (2 Cols) */}
+          <div className="xl:col-span-2 flex flex-col justify-between">
             <GlassCard className="flex-1 p-6 flex flex-col justify-between border-slate-200/80 bg-white/70 shadow-sm relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-24 h-24 bg-cyan-600/5 rounded-full blur-2xl" />
               
