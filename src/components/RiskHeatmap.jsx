@@ -42,21 +42,21 @@ const RiskHeatmap = () => {
 
       <div className="grid grid-cols-5 grid-rows-5 gap-1.5 h-full">
         {cells.map((cell, i) => {
-          let bgColor = 'bg-white/5';
-          let borderColor = 'border-white/5';
+          let bgColor = 'bg-slate-100';
+          let borderColor = 'border-slate-200';
           let glowColor = '';
 
           if (cell.val > 80) {
-            bgColor = 'bg-red-500/20';
-            borderColor = 'border-red-500/30';
-            glowColor = 'shadow-[0_0_12px_rgba(239,68,68,0.25)]';
+            bgColor = 'bg-red-100';
+            borderColor = 'border-red-200';
+            glowColor = 'shadow-sm';
           } else if (cell.val > 50) {
-            bgColor = 'bg-amber-500/10';
-            borderColor = 'border-amber-500/20';
-            glowColor = 'shadow-[0_0_8px_rgba(245,158,11,0.15)]';
+            bgColor = 'bg-amber-100';
+            borderColor = 'border-amber-200';
+            glowColor = 'shadow-sm';
           } else {
-            bgColor = 'bg-accent/5';
-            borderColor = 'border-accent/10';
+            bgColor = 'bg-emerald-50';
+            borderColor = 'border-emerald-100';
           }
 
           return (
@@ -66,7 +66,7 @@ const RiskHeatmap = () => {
               animate={{ 
                 opacity: 1, 
                 scale: 1,
-                backgroundColor: cell.pulse ? [undefined, 'rgba(255,255,255,0.08)', undefined] : undefined
+                backgroundColor: cell.pulse ? [undefined, 'rgba(15,23,42,0.02)', undefined] : undefined
               }}
               transition={{ 
                 delay: i * 0.01,
@@ -74,11 +74,11 @@ const RiskHeatmap = () => {
               }}
               className={`rounded-sm border ${bgColor} ${borderColor} ${glowColor} relative flex items-center justify-center group overflow-hidden cursor-crosshair transition-all duration-700`}
             >
-              <div className={`w-[2px] h-[2px] rounded-full ${cell.val > 80 ? 'bg-red-500 shadow-[0_0_5px_#ef4444]' : 'bg-white/10'}`} />
+              <div className={`w-[2px] h-[2px] rounded-full ${cell.val > 80 ? 'bg-red-500' : 'bg-slate-300'}`} />
               
               {/* Corner markings for tech look */}
-              <div className="absolute top-0 left-0 w-1 h-1 border-t border-l border-white/15 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-0 right-0 w-1 h-1 border-b border-r border-white/15 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 left-0 w-1 h-1 border-t border-l border-slate-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 right-0 w-1 h-1 border-b border-r border-slate-300 opacity-0 group-hover:opacity-100 transition-opacity" />
             </motion.div>
           );
         })}

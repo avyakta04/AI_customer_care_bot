@@ -16,7 +16,7 @@ const MainLayout = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-background text-slate-200 relative overflow-hidden">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 relative overflow-hidden">
       <NeuralBackground />
       <Sidebar />
       <Navbar />
@@ -39,9 +39,9 @@ const MainLayout = () => {
 
       {/* Futuristic Grid Background */}
       <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] brightness-100 contrast-150" />
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] animate-pulse-slow delay-1000" />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] brightness-100 contrast-150" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] animate-pulse-slow" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] animate-pulse-slow delay-1000" />
       </div>
     </div>
   );

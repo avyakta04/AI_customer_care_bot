@@ -218,27 +218,27 @@ const LiveChat = () => {
         </AnimatePresence>
 
         {/* Conversation Area */}
-        <GlassCard className={`flex-1 p-0 flex flex-col overflow-hidden relative border-white/[0.05] rounded-[2.5rem] transition-all duration-700 ${getGlowClass()}`}>
-          <div className="px-8 py-5 border-b border-white/[0.05] flex items-center justify-between bg-white/[0.01] backdrop-blur-md">
+        <GlassCard className={`flex-1 p-0 flex flex-col overflow-hidden relative border-slate-200/80 rounded-[2.5rem] transition-all duration-700 ${getGlowClass()}`}>
+          <div className="px-8 py-5 border-b border-slate-200/80 flex items-center justify-between bg-slate-50/40 backdrop-blur-md">
             <div className="flex items-center gap-4">
               <div className="relative">
                 <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-white shadow-lg">
                   <BrainCircuit className="w-6 h-6" />
                 </div>
-                <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-slate-950 flex items-center justify-center border border-white/10">
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-white flex items-center justify-center border border-slate-200">
                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
               </div>
               <div>
-                <h3 className="text-sm font-black text-white uppercase tracking-wider">Session Engage</h3>
-                <p className="text-[10px] text-white/40 font-bold uppercase tracking-[0.1em]">Core v4.0 Active</p>
+                <h3 className="text-sm font-black text-slate-800 uppercase tracking-wider">Session Engage</h3>
+                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.1em]">Core v4.0 Active</p>
               </div>
             </div>
             
             <div className="hidden sm:flex items-center gap-3">
-              <div className="px-3 py-1.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-2 group hover:border-violet-500/30 transition-colors cursor-default">
-                <ShieldCheck className="w-3.5 h-3.5 text-violet-400 group-hover:scale-110 transition-transform" />
-                <span className="text-[10px] font-bold text-white/60 uppercase tracking-widest">Protocol Secured</span>
+              <div className="px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2 group hover:border-violet-500/30 transition-colors cursor-default">
+                <ShieldCheck className="w-3.5 h-3.5 text-violet-500 group-hover:scale-110 transition-transform" />
+                <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">Protocol Secured</span>
               </div>
             </div>
           </div>
@@ -262,12 +262,12 @@ const LiveChat = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="flex gap-4 mb-6"
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 shadow-[0_0_15px_rgba(139,92,246,0.1)] animate-pulse">
+                <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-600 shadow-sm animate-pulse">
                   <BrainCircuit className="w-6 h-6" />
                 </div>
-                <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 rounded-[2rem] rounded-tl-none flex flex-col gap-4 min-w-[320px]">
+                <div className="bg-slate-50 border border-slate-200 p-6 rounded-[2rem] rounded-tl-none flex flex-col gap-4 min-w-[320px] shadow-sm">
                   <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-mono text-white/40 uppercase tracking-[0.2em] font-black">Neural Reasoning Active</span>
+                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.2em] font-black">Neural Reasoning Active</span>
                     <span className="w-2 h-2 rounded-full bg-violet-500 animate-ping" />
                   </div>
                   <div className="space-y-2">
@@ -283,15 +283,15 @@ const LiveChat = () => {
                         <div key={s.step} className="flex items-center gap-3 text-xs">
                           <div className={`w-4 h-4 rounded-full flex items-center justify-center border text-[9px] font-mono transition-all duration-300 ${
                             isDone 
-                              ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400' 
+                              ? 'bg-emerald-50 border border-emerald-200 text-emerald-600' 
                               : isActive 
-                              ? 'bg-violet-500/20 border-violet-500/50 text-violet-400 animate-pulse shadow-[0_0_8px_rgba(139,92,246,0.4)]'
-                              : 'bg-white/5 border-white/10 text-white/20'
+                              ? 'bg-violet-50 border border-violet-200 text-violet-600 animate-pulse shadow-sm'
+                              : 'bg-slate-100 border-slate-200 text-slate-400'
                           }`}>
                             {isDone ? '✓' : s.step}
                           </div>
                           <span className={`font-mono tracking-tight transition-colors duration-300 ${
-                            isDone ? 'text-white/40' : isActive ? 'text-white font-bold' : 'text-white/20'
+                            isDone ? 'text-slate-400' : isActive ? 'text-slate-900 font-bold' : 'text-slate-350'
                           }`}>
                             {s.label}
                           </span>
@@ -305,7 +305,7 @@ const LiveChat = () => {
           </div>
 
           {/* Input Area */}
-          <div className="p-6 bg-white/[0.01] backdrop-blur-2xl border-t border-white/[0.05]">
+          <div className="p-6 bg-slate-50/50 border-t border-slate-200">
             <div className="max-w-4xl mx-auto flex items-end gap-4">
               <div className="flex-1 relative group">
                 <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent group-focus-within:via-violet-500 transition-all" />
@@ -314,28 +314,28 @@ const LiveChat = () => {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleSend())}
                   placeholder="Enter message or use /commands..."
-                  className="w-full bg-white/[0.03] border border-white/10 rounded-[2rem] p-5 pr-14 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-violet-500/30 focus:bg-white/[0.05] transition-all resize-none min-h-[64px] max-h-48 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"
+                  className="w-full bg-white border border-slate-200 rounded-[2rem] p-5 pr-14 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-violet-500/30 transition-all resize-none min-h-[64px] max-h-48 shadow-sm"
                   rows={1}
                 />
-                <button className="absolute right-5 bottom-5 p-1 text-white/20 hover:text-white transition-colors group">
+                <button className="absolute right-5 bottom-5 p-1 text-slate-400 hover:text-slate-800 transition-colors group">
                   <Command className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                 </button>
               </div>
               <div className="flex gap-3">
-                <button className="p-5 bg-white/[0.03] border border-white/10 rounded-[2rem] text-white/30 hover:text-violet-400 hover:bg-violet-500/10 transition-all group active:scale-95 shadow-lg">
+                <button className="p-5 bg-slate-100 border border-slate-250 rounded-[2rem] text-slate-400 hover:text-violet-600 hover:bg-violet-50 transition-all group active:scale-95 shadow-sm">
                   <Mic className="w-5 h-5 transition-transform group-hover:scale-110" />
                 </button>
                 <button 
                   onClick={handleSend}
                   disabled={!inputValue.trim() || isStreaming}
-                  className="p-5 bg-violet-600 text-white rounded-[2rem] shadow-[0_10px_30px_rgba(139,92,246,0.3)] hover:shadow-[0_15px_40px_rgba(139,92,246,0.4)] hover:-translate-y-1 transition-all disabled:opacity-50 disabled:translate-y-0 disabled:shadow-none active:scale-95 group"
+                  className="p-5 bg-violet-600 text-white rounded-[2rem] shadow-sm hover:brightness-110 transition-all disabled:opacity-50 active:scale-95 group"
                 >
                   <Send className="w-5 h-5 fill-current group-hover:rotate-12 transition-transform" />
                 </button>
               </div>
             </div>
             <div className="mt-3 flex justify-center">
-              <p className="text-[10px] text-white/20 font-bold uppercase tracking-[0.2em]">Press Ent to send • Shift+Ent for newline</p>
+              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">Press Ent to send • Shift+Ent for newline</p>
             </div>
           </div>
         </GlassCard>
@@ -344,54 +344,54 @@ const LiveChat = () => {
       {/* Emotion Monitoring Sidebar */}
       <div className="w-full lg:w-96 flex flex-col gap-6">
         {/* Customer Persona Simulator Card */}
-        <GlassCard className="border-white/[0.05] rounded-[2.5rem] bg-white/[0.02] p-8">
+        <GlassCard className="border-slate-200/80 rounded-[2.5rem] bg-white/70 shadow-sm p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="p-2 rounded-xl bg-violet-500/10 border border-violet-500/20">
-              <Sparkles className="w-5 h-5 text-violet-400" />
+              <Sparkles className="w-5 h-5 text-violet-500" />
             </div>
-            <h3 className="text-sm font-black text-white uppercase tracking-widest">Simulator Personas</h3>
+            <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">Simulator Personas</h3>
           </div>
           <div className="space-y-4">
             {personas.map((persona) => (
               <motion.button
                 key={persona.name}
-                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.03)' }}
+                whileHover={{ scale: 1.02, backgroundColor: 'rgba(248, 250, 252, 0.8)' }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => {
                   setInputValue(persona.text);
                   setCurrentEmotion({ type: persona.emotion, confidence: persona.confidence });
                   setActiveTags(persona.tags);
                 }}
-                className="w-full text-left p-4 rounded-2xl bg-white/[0.01] border border-white/5 hover:border-violet-500/30 transition-all flex items-start gap-3.5 group"
+                className="w-full text-left p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-500/30 transition-all flex items-start gap-3.5 group"
               >
                 <span className="text-2xl mt-0.5">{persona.emoji}</span>
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-center">
-                    <h4 className="text-xs font-black text-white group-hover:text-violet-300 transition-colors uppercase tracking-wider">{persona.name}</h4>
-                    <span className="text-[9px] font-mono text-white/30 uppercase tracking-widest font-black">{persona.emotion}</span>
+                    <h4 className="text-xs font-black text-slate-700 group-hover:text-violet-600 transition-colors uppercase tracking-wider">{persona.name}</h4>
+                    <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest font-black">{persona.emotion}</span>
                   </div>
-                  <p className="text-[10px] text-white/40 mt-1 truncate font-medium">{persona.text}</p>
+                  <p className="text-[10px] text-slate-500 mt-1 truncate font-medium">{persona.text}</p>
                 </div>
               </motion.button>
             ))}
           </div>
         </GlassCard>
 
-        <GlassCard className="border-white/[0.05] rounded-[2.5rem] bg-white/[0.02]">
+        <GlassCard className="border-slate-200/80 rounded-[2.5rem] bg-white/70 shadow-sm">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
-                <Activity className="w-5 h-5 text-cyan-400 animate-pulse" />
+              <div className="p-2 rounded-xl bg-violet-500/10 border border-violet-500/20">
+                <Activity className="w-5 h-5 text-violet-500 animate-pulse" />
               </div>
-              <h3 className="text-sm font-black text-white uppercase tracking-widest">Emotion Core</h3>
+              <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">Emotion Core</h3>
             </div>
-            <div className="px-2 py-0.5 rounded bg-emerald-500/10 text-[9px] font-bold text-emerald-400 uppercase tracking-tighter animate-pulse">Live Scan</div>
+            <div className="px-2 py-0.5 rounded bg-emerald-500/10 text-[9px] font-bold text-emerald-600 uppercase tracking-tighter animate-pulse">Live Scan</div>
           </div>
           
           <div className="space-y-6">
-            <div className="p-6 rounded-[2rem] bg-white/[0.01] border border-white/[0.05] relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] mb-5">Primary Detection</p>
+            <div className="p-6 rounded-[2rem] bg-slate-50 border border-slate-200 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-5">Primary Detection</p>
               
               {/* Dynamic Emotion Ring */}
               <div className="flex flex-col items-center justify-center my-6 relative">
@@ -400,7 +400,7 @@ const LiveChat = () => {
                     cx="60"
                     cy="60"
                     r="48"
-                    stroke="rgba(255,255,255,0.03)"
+                    stroke="rgba(15,23,42,0.05)"
                     strokeWidth="6"
                     fill="transparent"
                   />
@@ -421,10 +421,10 @@ const LiveChat = () => {
                     strokeLinecap="round"
                     fill="transparent"
                     style={{
-                      filter: `drop-shadow(0 0 8px ${
-                        currentEmotion.type === 'Urgent' || currentEmotion.type === 'Frustrated' ? 'rgba(239,68,68,0.4)' :
-                        currentEmotion.type === 'Happy' ? 'rgba(16,185,129,0.4)' :
-                        currentEmotion.type === 'Confused' ? 'rgba(245,158,11,0.4)' : 'rgba(59,130,246,0.4)'
+                      filter: `drop-shadow(0 0 6px ${
+                        currentEmotion.type === 'Urgent' || currentEmotion.type === 'Frustrated' ? 'rgba(239,68,68,0.2)' :
+                        currentEmotion.type === 'Happy' ? 'rgba(16,185,129,0.2)' :
+                        currentEmotion.type === 'Confused' ? 'rgba(245,158,11,0.2)' : 'rgba(59,130,246,0.2)'
                       })`
                     }}
                   />
@@ -435,68 +435,68 @@ const LiveChat = () => {
                   animate={{
                     scale: [1, 1.04, 1],
                     boxShadow: [
-                      '0 0 10px rgba(255,255,255,0.05)',
-                      '0 0 20px rgba(139,92,246,0.2)',
-                      '0 0 10px rgba(255,255,255,0.05)'
+                      '0 0 10px rgba(15,23,42,0.02)',
+                      '0 0 20px rgba(139,92,246,0.1)',
+                      '0 0 10px rgba(15,23,42,0.02)'
                     ]
                   }}
                   transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                  className="absolute w-16 h-16 rounded-full bg-slate-900 border border-white/10 flex flex-col items-center justify-center z-10"
+                  className="absolute w-16 h-16 rounded-full bg-white border border-slate-200 flex flex-col items-center justify-center z-10 shadow-md"
                 >
-                  <span className="text-sm font-black text-white tracking-tighter leading-none">{currentEmotion.confidence}%</span>
-                  <span className="text-[7px] font-mono text-white/30 uppercase tracking-widest mt-1">CONF</span>
+                  <span className="text-sm font-black text-slate-800 tracking-tighter leading-none">{currentEmotion.confidence}%</span>
+                  <span className="text-[7px] font-mono text-slate-400 uppercase tracking-widest mt-1">CONF</span>
                 </motion.div>
               </div>
-
+ 
               <div className="flex justify-center mb-6">
                 <EmotionBadge type={currentEmotion.type} confidence={currentEmotion.confidence} />
               </div>
               
               <div className="mt-8 space-y-3">
-                <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-white/40">
+                <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-slate-400">
                   <span>Confidence Scale</span>
-                  <span className="text-white">{currentEmotion.confidence}%</span>
+                  <span className="text-slate-800">{currentEmotion.confidence}%</span>
                 </div>
-                <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden p-[1px]">
+                <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden p-[1px]">
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: `${currentEmotion.confidence}%` }}
                     transition={{ duration: 1.5, cubicBezier: [0.16, 1, 0.3, 1] }}
-                    className={`h-full rounded-full bg-gradient-to-r ${currentEmotion.type === 'Urgent' || currentEmotion.type === 'Frustrated' ? 'from-red-500 via-orange-500 to-amber-500 shadow-[0_0_15px_rgba(239,68,68,0.5)]' : 'from-indigo-500 via-violet-500 to-purple-500 shadow-[0_0_15px_rgba(139,92,246,0.5)]'}`}
+                    className={`h-full rounded-full bg-gradient-to-r ${currentEmotion.type === 'Urgent' || currentEmotion.type === 'Frustrated' ? 'from-red-500 via-orange-500 to-amber-500' : 'from-indigo-500 via-violet-500 to-purple-500'}`}
                   />
                 </div>
               </div>
             </div>
-
-            <div className="p-6 rounded-[2rem] bg-gradient-to-br from-violet-500/10 to-transparent border border-violet-500/10">
+ 
+            <div className="p-6 rounded-[2rem] bg-gradient-to-br from-violet-50 to-transparent border border-violet-100">
               <div className="flex items-center gap-3 mb-4">
-                <Sparkles className="w-4 h-4 text-violet-400" />
-                <span className="text-[11px] font-black text-white uppercase tracking-[0.1em]">AI Adaptive Tone</span>
+                <Sparkles className="w-4 h-4 text-violet-500" />
+                <span className="text-[11px] font-black text-slate-800 uppercase tracking-[0.1em]">AI Adaptive Tone</span>
               </div>
-              <p className="text-xs text-white/50 leading-relaxed font-medium italic">
+              <p className="text-xs text-slate-600 leading-relaxed font-medium italic">
                 "System recalibrating response parameters to account for user frustration spikes. Priority: Empathy + Resolution."
               </p>
             </div>
           </div>
         </GlassCard>
-
-        <GlassCard className="border-white/[0.05] flex-1 p-8 rounded-[2.5rem] bg-white/[0.02]">
+ 
+        <GlassCard className="border-slate-200/80 flex-1 p-8 rounded-[2.5rem] bg-white/70 shadow-sm">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20">
-              <Info className="w-5 h-5 text-indigo-400" />
+              <Info className="w-5 h-5 text-indigo-500" />
             </div>
-            <h3 className="text-sm font-black text-white uppercase tracking-widest">Neural Insights</h3>
+            <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">Neural Insights</h3>
           </div>
           
           <div className="space-y-8">
             <div>
-              <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em] mb-4">Detected Intents</p>
+              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">Detected Intents</p>
               <div className="flex flex-wrap gap-2.5">
                 {activeTags.map(tag => (
                   <motion.span 
-                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(99, 102, 241, 0.2)' }}
+                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(99, 102, 241, 0.1)' }}
                     key={tag} 
-                    className="px-3 py-1.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-[10px] font-mono font-bold text-indigo-300"
+                    className="px-3 py-1.5 rounded-xl bg-indigo-50 border border-indigo-100 text-[10px] font-mono font-bold text-indigo-600"
                   >
                     {tag}
                   </motion.span>
@@ -504,10 +504,10 @@ const LiveChat = () => {
               </div>
             </div>
             
-            <div className="pt-6 border-t border-white/[0.05]">
+            <div className="pt-6 border-t border-slate-200">
               <div className="flex justify-between items-center mb-4">
-                <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.2em]">Accuracy Index</p>
-                <span className="text-[10px] font-bold text-emerald-400 tracking-[0.2em]">A+ GRADE</span>
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Accuracy Index</p>
+                <span className="text-[10px] font-bold text-emerald-600 tracking-[0.2em]">A+ GRADE</span>
               </div>
               <div className="flex items-end gap-1.5 h-10">
                 {[45, 65, 85, 95, 100, 90, 80].map((h, i) => (
@@ -516,7 +516,7 @@ const LiveChat = () => {
                     initial={{ height: 0 }}
                     animate={{ height: `${h}%` }}
                     transition={{ delay: i * 0.1, duration: 1, ease: "circOut" }}
-                    className={`flex-1 rounded-t-sm ${i < 5 ? 'bg-gradient-to-t from-emerald-500/50 to-emerald-400' : 'bg-white/5'}`}
+                    className={`flex-1 rounded-t-sm ${i < 5 ? 'bg-gradient-to-t from-emerald-500/50 to-emerald-400' : 'bg-slate-100'}`}
                   />
                 ))}
               </div>

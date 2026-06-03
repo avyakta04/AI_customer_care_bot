@@ -7,11 +7,11 @@ const MetricGauge = ({ label, value, color = 'primary', size = 'md' }) => {
   const strokeDashoffset = circumference - (value / 100) * circumference;
 
   const colorMap = {
-    primary: { stroke: '#8b5cf6', glow: 'rgba(139,92,246,0.3)' },
-    secondary: { stroke: '#06b6d4', glow: 'rgba(6,182,212,0.3)' },
-    accent: { stroke: '#10b981', glow: 'rgba(16,185,129,0.3)' },
-    danger: { stroke: '#ef4444', glow: 'rgba(239,68,68,0.3)' },
-    warning: { stroke: '#f59e0b', glow: 'rgba(245,158,11,0.3)' },
+    primary: { stroke: '#7c3aed', glow: 'rgba(124,58,237,0.1)' },
+    secondary: { stroke: '#06b6d4', glow: 'rgba(6,182,212,0.1)' },
+    accent: { stroke: '#10b981', glow: 'rgba(16,185,129,0.1)' },
+    danger: { stroke: '#ef4444', glow: 'rgba(239,68,68,0.1)' },
+    warning: { stroke: '#f59e0b', glow: 'rgba(245,158,11,0.1)' },
   };
 
   const selectedColor = colorMap[color] || colorMap.primary;
@@ -31,7 +31,7 @@ const MetricGauge = ({ label, value, color = 'primary', size = 'md' }) => {
             stroke="currentColor"
             strokeWidth="4"
             fill="transparent"
-            className="text-white/5"
+            className="text-slate-100"
           />
           <motion.circle
             cx={size === 'lg' ? 55 : 45}
@@ -45,14 +45,14 @@ const MetricGauge = ({ label, value, color = 'primary', size = 'md' }) => {
             transition={{ duration: 1.5, ease: "easeOut" }}
             strokeLinecap="round"
             fill="transparent"
-            style={{ filter: `drop-shadow(0 0 4px ${selectedColor.glow})` }}
+            style={{ filter: `drop-shadow(0 0 3px ${selectedColor.glow})` }}
           />
         </svg>
         <div className="absolute flex flex-col items-center">
-          <span className="text-xl font-bold text-white tracking-tighter">{value}%</span>
+          <span className="text-xl font-bold text-slate-800 tracking-tighter">{value}%</span>
         </div>
       </div>
-      <p className="mt-2 text-[9px] font-bold text-white/30 uppercase tracking-[0.2em]">{label}</p>
+      <p className="mt-2 text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em]">{label}</p>
     </div>
   );
 };

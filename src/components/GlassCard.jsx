@@ -22,9 +22,9 @@ const GlassCard = ({ children, className, hover = true }) => {
     <motion.div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      whileHover={hover ? { translateY: -4, shadow: "0 20px 40px rgba(0,0,0,0.4)" } : {}}
+      whileHover={hover ? { translateY: -4, shadow: "0 20px 40px rgba(0,0,0,0.06)" } : {}}
       className={cn(
-        "glass-card p-8 relative overflow-hidden group border-white/10 bg-white/[0.03]",
+        "glass-card p-8 relative overflow-hidden group border-slate-200/60 bg-white/70",
         className
       )}
     >
@@ -35,7 +35,7 @@ const GlassCard = ({ children, className, hover = true }) => {
           background: useMotionTemplate`
             radial-gradient(
               650px circle at ${mouseX}px ${mouseY}px,
-              rgba(255, 255, 255, 0.08),
+              rgba(124, 58, 237, 0.04),
               transparent 80%
             )
           `,

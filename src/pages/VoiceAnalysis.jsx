@@ -187,8 +187,8 @@ const VoiceAnalysis = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">Voice Emotion Analysis</h1>
-          <p className="text-white/40 mt-1">Real-time spectral analysis and sentiment extraction.</p>
+          <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Voice Emotion Analysis</h1>
+          <p className="text-slate-500 mt-1">Real-time spectral analysis and sentiment extraction.</p>
         </div>
         <div className="flex gap-4">
           <button 
@@ -203,14 +203,14 @@ const VoiceAnalysis = () => {
              }}
              className={`px-6 py-3 rounded-2xl font-bold text-sm flex items-center gap-3 transition-all ${
                isRecording 
-               ? 'bg-red-500/20 border border-red-500/30 text-red-500 neon-glow animate-pulse' 
-               : 'bg-primary text-white shadow-lg shadow-primary/20 hover:brightness-110 active:scale-[0.98]'
+               ? 'bg-red-50 border border-red-200 text-red-600 animate-pulse shadow-sm' 
+               : 'bg-violet-600 text-white shadow-sm hover:brightness-110 active:scale-[0.98]'
              }`}
           >
             {isRecording ? <Square className="w-4 h-4 fill-current animate-spin" /> : <Play className="w-4 h-4 fill-current" />}
             {isRecording ? 'STOP ANALYSIS' : 'START RECORDING'}
           </button>
-          <button className="p-3 bg-white/5 border border-white/10 rounded-2xl text-white/50 hover:text-white transition-all active:scale-[0.95]">
+          <button className="p-3 bg-slate-50 border border-slate-200 rounded-2xl text-slate-500 hover:text-slate-800 transition-all active:scale-[0.95]">
             <RotateCcw className="w-5 h-5" />
           </button>
         </div>
@@ -218,10 +218,10 @@ const VoiceAnalysis = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Visualizer Panel */}
-        <GlassCard className="lg:col-span-2 flex flex-col justify-center min-h-[400px] border-white/5">
+        <GlassCard className="lg:col-span-2 flex flex-col justify-center min-h-[400px] border-slate-200/80 bg-white/70 shadow-sm">
           <div className="absolute top-6 left-6 flex items-center gap-2">
-            <div className={`w-3 h-3 rounded-full ${isRecording ? 'bg-red-500 animate-pulse' : 'bg-white/10 animate-ping'}`} />
-            <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em]">
+            <div className={`w-3 h-3 rounded-full ${isRecording ? 'bg-red-500 animate-pulse' : 'bg-slate-200 animate-ping'}`} />
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em]">
               {isRecording ? 'Live Spectral Input' : 'Microphone Standby'}
             </span>
           </div>
@@ -236,16 +236,16 @@ const VoiceAnalysis = () => {
         {/* Confidence & Transcription */}
         <div className="space-y-8">
           {/* Vocal Sample Soundboard */}
-          <GlassCard className="border-white/5 p-6">
+          <GlassCard className="border-slate-200/80 p-6 bg-white/70 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
-              <Mic className="w-5 h-5 text-violet-400 animate-pulse" />
-              <h3 className="text-xs font-bold text-white uppercase tracking-widest">Vocal Simulator Board</h3>
+              <Mic className="w-5 h-5 text-violet-550 animate-pulse" />
+              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-widest">Vocal Simulator Board</h3>
             </div>
             <div className="space-y-3">
               {audioSamples.map((sample) => (
                 <motion.button
                   key={sample.title}
-                  whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.03)' }}
+                  whileHover={{ scale: 1.02, backgroundColor: 'rgba(15,23,42,0.02)' }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
                     setSelectedSample(sample);
@@ -257,26 +257,26 @@ const VoiceAnalysis = () => {
                   }}
                   className={`w-full text-left p-3.5 rounded-xl border transition-all flex flex-col ${
                     selectedSample?.title === sample.title && isRecording
-                      ? 'border-violet-500 bg-violet-500/5'
-                      : 'border-white/5 bg-white/[0.01] hover:border-white/25'
+                      ? 'border-violet-500 bg-violet-50'
+                      : 'border-slate-200 bg-slate-50 hover:border-slate-300'
                   }`}
                 >
                   <div className="flex justify-between items-center w-full">
-                    <span className="text-[11px] font-black text-white uppercase tracking-wider">{sample.title}</span>
+                    <span className="text-[11px] font-black text-slate-700 uppercase tracking-wider">{sample.title}</span>
                     {selectedSample?.title === sample.title && isRecording && (
-                      <span className="text-[8px] font-mono text-violet-400 uppercase tracking-widest font-black animate-pulse">STREAMING</span>
+                      <span className="text-[8px] font-mono text-violet-600 uppercase tracking-widest font-black animate-pulse">STREAMING</span>
                     )}
                   </div>
-                  <span className="text-[9px] text-white/40 mt-1 font-semibold">{sample.desc}</span>
+                  <span className="text-[9px] text-slate-550 mt-1 font-semibold">{sample.desc}</span>
                 </motion.button>
               ))}
             </div>
           </GlassCard>
 
-          <GlassCard className="border-white/5">
+          <GlassCard className="border-slate-200/80 bg-white/70 shadow-sm">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xs font-bold text-white uppercase tracking-widest">Sentiment Confidence</h3>
-              <Crosshair className="w-4 h-4 text-primary-neon animate-spin-slow" />
+              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-widest">Sentiment Confidence</h3>
+              <Crosshair className="w-4 h-4 text-violet-500 animate-spin-slow" />
             </div>
             
             <div className="space-y-5">
@@ -286,16 +286,16 @@ const VoiceAnalysis = () => {
                 { label: 'Neutral', val: isRecording ? (selectedSample ? selectedSample.neutrality : Math.max(0, Math.round(10 - Math.sin(Date.now() / 2000) * 5))) : 0, color: 'bg-blue-500' },
               ].map((item) => (
                 <div key={item.label} className="space-y-2">
-                  <div className="flex justify-between text-[10px] font-bold text-white/60">
+                  <div className="flex justify-between text-[10px] font-bold text-slate-550">
                     <span>{item.label}</span>
                     <span>{item.val}%</span>
                   </div>
-                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                  <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
                     <motion.div 
                       initial={{ width: 0 }}
                       animate={{ width: `${item.val}%` }}
                       transition={{ duration: 0.3 }}
-                      className={`h-full ${item.color} shadow-[0_0_10px_rgba(0,0,0,0.5)]`}
+                      className={`h-full ${item.color} shadow-[0_1px_3px_rgba(15,23,42,0.1)]`}
                     />
                   </div>
                 </div>
@@ -303,15 +303,15 @@ const VoiceAnalysis = () => {
             </div>
           </GlassCard>
 
-          <GlassCard className="border-white/5 flex-1 min-h-[200px] relative overflow-hidden">
+          <GlassCard className="border-slate-200/80 bg-white/70 shadow-sm flex-1 min-h-[200px] relative overflow-hidden">
              <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl" />
-             <h3 className="text-xs font-bold text-white uppercase tracking-widest mb-4">Transcription Preview</h3>
-             <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 h-[120px] overflow-y-auto">
-               <p className={`text-sm leading-relaxed transition-all ${isRecording ? 'text-white/80' : 'text-white/10 italic'}`}>
+             <h3 className="text-xs font-bold text-slate-800 uppercase tracking-widest mb-4">Transcription Preview</h3>
+             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 h-[120px] overflow-y-auto">
+               <p className={`text-sm leading-relaxed transition-all ${isRecording ? 'text-slate-700 font-medium' : 'text-slate-300 italic'}`}>
                  {isRecording 
                    ? (displayedTranscription || "Waiting for stream text segment...") 
                    : "Waiting for voice input stream..."}
-                 {isRecording && <span className="inline-block w-1 h-4 bg-primary-neon ml-1 animate-pulse" />}
+                 {isRecording && <span className="inline-block w-1 h-4 bg-violet-500 ml-1 animate-pulse" />}
                </p>
              </div>
           </GlassCard>
@@ -322,12 +322,12 @@ const VoiceAnalysis = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <GlassCard>
            <div className="flex items-center gap-3 mb-4">
-             <Volume2 className="w-4 h-4 text-primary-neon" />
-             <span className="text-[10px] font-bold text-white/40 uppercase">Speech Intensity</span>
+             <Volume2 className="w-4 h-4 text-violet-600" />
+             <span className="text-[10px] font-bold text-slate-400 uppercase">Speech Intensity</span>
            </div>
            <div className="flex items-end gap-2">
-             <span className="text-3xl font-bold text-white tracking-tighter">{Math.round(intensity)}</span>
-             <span className="text-[10px] text-white/30 font-bold mb-1.5">dB</span>
+             <span className="text-3xl font-bold text-slate-900 tracking-tighter">{Math.round(intensity)}</span>
+             <span className="text-[10px] text-slate-400 font-bold mb-1.5">dB</span>
            </div>
            <div className="h-12 mt-4">
               <Line data={getChartData(intensityHistory, '#8b5cf6')} options={chartOptions} />
@@ -336,12 +336,12 @@ const VoiceAnalysis = () => {
 
         <GlassCard>
            <div className="flex items-center gap-3 mb-4">
-             <Wifi className="w-4 h-4 text-secondary-neon" />
-             <span className="text-[10px] font-bold text-white/40 uppercase">Fundamental Pitch</span>
+             <Wifi className="w-4 h-4 text-cyan-600" />
+             <span className="text-[10px] font-bold text-slate-400 uppercase">Fundamental Pitch</span>
            </div>
            <div className="flex items-end gap-2">
-              <span className="text-3xl font-bold text-white tracking-tighter">{Math.round(pitch)}</span>
-              <span className="text-[10px] text-white/30 font-bold mb-1.5">Hz</span>
+              <span className="text-3xl font-bold text-slate-900 tracking-tighter">{Math.round(pitch)}</span>
+              <span className="text-[10px] text-slate-400 font-bold mb-1.5">Hz</span>
            </div>
            <div className="h-12 mt-4">
               <Line data={getChartData(pitchHistory, '#06b6d4')} options={chartOptions} />
@@ -350,12 +350,12 @@ const VoiceAnalysis = () => {
 
         <GlassCard>
            <div className="flex items-center gap-3 mb-4">
-             <Zap className="w-4 h-4 text-accent-neon" />
-             <span className="text-[10px] font-bold text-white/40 uppercase">Stress Index</span>
+             <Zap className="w-4 h-4 text-emerald-600" />
+             <span className="text-[10px] font-bold text-slate-400 uppercase">Stress Index</span>
            </div>
-           <div className="flex items-end gap-2 text-accent-neon">
+           <div className="flex items-end gap-2 text-emerald-600">
               <span className="text-3xl font-bold tracking-tighter">{isRecording ? 'HIGH' : 'LOW'}</span>
-              <span className="text-[10px] text-white/30 font-bold mb-1.5 ml-2">LEVEL_{isRecording ? '3' : '1'} ({Math.round(stress)}%)</span>
+              <span className="text-[10px] text-slate-450 font-bold mb-1.5 ml-2">LEVEL_{isRecording ? '3' : '1'} ({Math.round(stress)}%)</span>
            </div>
            <div className="h-12 mt-4">
               <Line data={getChartData(stressHistory, '#10b981')} options={chartOptions} />
@@ -364,12 +364,12 @@ const VoiceAnalysis = () => {
 
         <GlassCard>
            <div className="flex items-center gap-3 mb-4">
-             <BarChart className="w-4 h-4 text-amber-500" />
-             <span className="text-[10px] font-bold text-white/40 uppercase">Information Density</span>
+             <BarChart className="w-4 h-4 text-amber-600" />
+             <span className="text-[10px] font-bold text-slate-400 uppercase">Information Density</span>
            </div>
            <div className="flex items-end gap-2">
-              <span className="text-3xl font-bold text-white tracking-tighter">{density.toFixed(2)}</span>
-              <span className="text-[10px] text-white/30 font-bold mb-1.5">bits/s</span>
+              <span className="text-3xl font-bold text-slate-900 tracking-tighter">{density.toFixed(2)}</span>
+              <span className="text-[10px] text-slate-400 font-bold mb-1.5">bits/s</span>
            </div>
            <div className="h-12 mt-4">
               <Line data={getChartData(densityHistory, '#f59e0b')} options={chartOptions} />

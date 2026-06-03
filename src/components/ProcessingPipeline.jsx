@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Mic, FileText, Activity, Brain } from 'lucide-react';
 
 const steps = [
-  { icon: Mic, label: 'Voice Input', color: 'text-white' },
+  { icon: Mic, label: 'Voice Input', color: 'text-slate-800' },
   { icon: FileText, label: 'Whisper STT', color: 'text-primary-neon' },
   { icon: Activity, label: 'Librosa FE', color: 'text-secondary-neon' },
   { icon: Brain, label: 'Emotion Detection', color: 'text-accent-neon' },
@@ -18,17 +18,17 @@ const ProcessingPipeline = ({ currentStep = 0 }) => {
             <motion.div
               animate={currentStep === i ? {
                 scale: [1, 1.2, 1],
-                borderColor: ['rgba(255,255,255,0.1)', 'rgba(139,92,246,0.5)', 'rgba(255,255,255,0.1)']
+                borderColor: ['rgba(226,232,240,0.5)', 'rgba(124,58,237,0.5)', 'rgba(226,232,240,0.5)']
               } : {}}
               transition={{ repeat: Infinity, duration: 2 }}
               className={`w-14 h-14 rounded-2xl border flex items-center justify-center transition-all ${
-                currentStep >= i ? 'bg-white/5 border-white/20 shadow-xl' : 'bg-transparent border-white/5 opacity-30'
+                currentStep >= i ? 'bg-slate-100 border-slate-200 shadow-sm' : 'bg-transparent border-slate-200/50 opacity-30'
               }`}
             >
-              <step.icon className={`w-6 h-6 ${currentStep >= i ? step.color : 'text-white/20'}`} />
+              <step.icon className={`w-6 h-6 ${currentStep >= i ? step.color : 'text-slate-300'}`} />
             </motion.div>
             <span className={`text-[9px] font-bold uppercase tracking-[0.2em] transition-all ${
-              currentStep >= i ? 'text-white/80' : 'text-white/10'
+              currentStep >= i ? 'text-slate-700' : 'text-slate-300'
             }`}>
               {step.label}
             </span>
@@ -40,7 +40,7 @@ const ProcessingPipeline = ({ currentStep = 0 }) => {
             )}
           </div>
           {i < steps.length - 1 && (
-            <div className="flex-1 h-px bg-gradient-to-r from-white/10 via-white/5 to-white/10 mx-4" />
+            <div className="flex-1 h-px bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 mx-4" />
           )}
         </React.Fragment>
       ))}

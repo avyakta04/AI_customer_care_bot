@@ -7,13 +7,13 @@ const LandingNavbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] bg-background/50 backdrop-blur-xl border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/80 backdrop-blur-xl border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center neon-glow group-hover:scale-110 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
             <BrainCircuit className="text-white w-6 h-6" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-white">E-Aware <span className="text-primary-neon">AI</span></span>
+          <span className="text-xl font-bold tracking-tight text-slate-850">E-Aware <span className="text-violet-600 font-black">AI</span></span>
         </Link>
 
         {/* Desktop Nav */}
@@ -22,28 +22,28 @@ const LandingNavbar = () => {
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              className="text-sm font-medium text-white/60 hover:text-white transition-colors"
+              className="text-sm font-medium text-slate-500 hover:text-slate-800 transition-colors"
             >
               {item}
             </a>
           ))}
           <Link 
             to="/login" 
-            className="text-sm font-semibold text-white/60 hover:text-white transition-colors uppercase tracking-wider"
+            className="text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors uppercase tracking-wider"
           >
             Sign In
           </Link>
-          <div className="h-6 w-px bg-white/10 mx-2" />
+          <div className="h-6 w-px bg-slate-200 mx-2" />
           <Link 
             to="/dashboard" 
-            className="px-5 py-2.5 bg-primary/20 border border-primary/30 rounded-xl text-sm font-bold text-white hover:bg-primary/30 transition-all shadow-lg shadow-primary/10"
+            className="px-5 py-2.5 bg-violet-600 rounded-xl text-sm font-bold text-white hover:brightness-110 shadow-sm transition-all"
           >
             Launch Dashboard
           </Link>
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-slate-800" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X /> : <Menu />}
         </button>
       </div>
@@ -52,14 +52,14 @@ const LandingNavbar = () => {
       <motion.div 
         initial={false}
         animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
-        className="md:hidden overflow-hidden bg-background/95 border-b border-white/5 px-6"
+        className="md:hidden overflow-hidden bg-white/95 border-b border-slate-200 px-6"
       >
         <div className="flex flex-col gap-4 py-8">
           {['Features', 'Workflow', 'Hindsight', 'Analytics'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}
-              className="text-lg font-medium text-white/70"
+              className="text-lg font-medium text-slate-650"
               onClick={() => setIsOpen(false)}
             >
               {item}
@@ -67,14 +67,14 @@ const LandingNavbar = () => {
           ))}
           <Link 
             to="/login" 
-            className="mt-4 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-center font-bold text-white hover:bg-white/10 transition-all"
+            className="mt-4 px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-center font-bold text-slate-850 hover:bg-slate-100 transition-all"
             onClick={() => setIsOpen(false)}
           >
             Sign In
           </Link>
           <Link 
             to="/dashboard" 
-            className="px-6 py-4 bg-primary rounded-2xl text-center font-bold text-white shadow-xl shadow-primary/20"
+            className="px-6 py-4 bg-violet-600 rounded-2xl text-center font-bold text-white shadow-sm"
             onClick={() => setIsOpen(false)}
           >
             Launch Dashboard

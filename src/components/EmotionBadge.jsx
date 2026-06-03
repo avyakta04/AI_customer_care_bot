@@ -48,8 +48,8 @@ const EmotionBadge = ({ type = 'Neutral', confidence = 95 }) => {
       <span className={`text-[10px] font-bold uppercase tracking-wider ${emotion.color}`}>
         {type}
       </span>
-      <div className="w-px h-3 bg-white/10 mx-0.5" />
-      <span className="text-[10px] font-mono text-white/40">
+      <div className="w-px h-3 bg-slate-200 mx-0.5" />
+      <span className="text-[10px] font-mono text-slate-500">
         {confidence}%
       </span>
     </motion.div>

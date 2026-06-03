@@ -16,9 +16,9 @@ const nodes = [
     title: 'Emotion Detection Engine',
     desc: 'Real-time speech & text tone processing',
     icon: Activity,
-    color: 'text-violet-400',
-    borderColor: 'border-violet-500/30',
-    glowColor: 'rgba(139, 92, 246, 0.4)',
+    color: 'text-violet-600',
+    borderColor: 'border-violet-200/80',
+    glowColor: 'rgba(139, 92, 246, 0.15)',
     states: ['SCANNING_INPUT', 'TREAT_ANALYSIS', 'NOMINAL_STATE'],
   },
   {
@@ -26,9 +26,9 @@ const nodes = [
     title: 'Vector Memory Retrieval',
     desc: 'Semantic context lookup via ChromaDB',
     icon: Database,
-    color: 'text-cyan-400',
-    borderColor: 'border-cyan-500/30',
-    glowColor: 'rgba(6, 182, 212, 0.4)',
+    color: 'text-cyan-650',
+    borderColor: 'border-cyan-200/80',
+    glowColor: 'rgba(6, 182, 212, 0.15)',
     states: ['VECTOR_SEARCH', 'CONTEXT_INJECTION', 'VERIFIED_CACHE'],
   },
   {
@@ -36,9 +36,9 @@ const nodes = [
     title: 'AI Supervisor Shield',
     desc: 'Hallucination & safety verification layer',
     icon: ShieldCheck,
-    color: 'text-emerald-400',
-    borderColor: 'border-emerald-500/30',
-    glowColor: 'rgba(16, 185, 129, 0.4)',
+    color: 'text-amber-600',
+    borderColor: 'border-amber-200/80',
+    glowColor: 'rgba(217, 119, 6, 0.15)',
     states: ['POLICING_SAFETY', 'SYNTAX_CHECK', 'NOMINAL_SECURE'],
   },
   {
@@ -46,9 +46,9 @@ const nodes = [
     title: 'Hindsight Learning Core',
     desc: 'Offline reinforcement learning optimization',
     icon: History,
-    color: 'text-amber-400',
-    borderColor: 'border-amber-500/30',
-    glowColor: 'rgba(245, 158, 11, 0.4)',
+    color: 'text-emerald-600',
+    borderColor: 'border-emerald-200/80',
+    glowColor: 'rgba(16, 185, 129, 0.15)',
     states: ['COMPILING_WEIGHTS', 'SYNCING_NODES', 'WEIGHTS_NOMINAL'],
   }
 ];
@@ -78,9 +78,9 @@ const CoreArchitecturePipeline = () => {
   }, [activeStep]);
 
   return (
-    <div className="p-6 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.05] relative overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]">
+    <div className="p-8 rounded-[2.5rem] bg-white/70 border border-slate-200/80 relative overflow-hidden shadow-sm backdrop-blur-md">
       {/* Decorative Cyber Grid Background */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] pointer-events-none" />
       <div className="absolute top-0 right-0 w-80 h-80 bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-600/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -88,15 +88,15 @@ const CoreArchitecturePipeline = () => {
       <div className="flex items-center justify-between mb-8 relative z-10">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-violet-500/10 border border-violet-500/20 rounded-xl">
-            <Cpu className="w-5 h-5 text-violet-400 animate-spin-slow" />
+            <Cpu className="w-5 h-5 text-violet-600 animate-spin-slow" />
           </div>
           <div>
-            <h3 className="text-sm font-black text-white uppercase tracking-widest">Neural System Architecture</h3>
-            <p className="text-[10px] text-white/40 uppercase font-mono tracking-wider mt-0.5">End-to-End Operating Pipeline</p>
+            <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">Neural System Architecture</h3>
+            <p className="text-[10px] text-slate-400 uppercase font-mono tracking-wider mt-0.5">End-to-End Operating Pipeline</p>
           </div>
         </div>
-        <div className="px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-2 animate-pulse">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+        <div className="px-3 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200 text-[9px] font-bold text-emerald-600 uppercase tracking-widest flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
           Core Operating System Online
         </div>
       </div>
@@ -115,8 +115,8 @@ const CoreArchitecturePipeline = () => {
                 <div 
                   className="absolute inset-0 rounded-[2rem] transition-all duration-700 pointer-events-none opacity-0 group-hover:opacity-100"
                   style={{
-                    boxShadow: `0 0 40px ${node.glowColor}`,
-                    background: `radial-gradient(circle at center, ${node.glowColor.replace('0.4', '0.03')} 0%, transparent 70%)`
+                    boxShadow: `0 0 30px ${node.glowColor}`,
+                    background: `radial-gradient(circle at center, ${node.glowColor.replace('0.15', '0.05')} 0%, transparent 70%)`
                   }}
                 />
 
@@ -124,19 +124,19 @@ const CoreArchitecturePipeline = () => {
                   <div 
                     className="absolute inset-0 rounded-[2rem] transition-all duration-700 pointer-events-none"
                     style={{
-                      boxShadow: `0 0 30px ${node.glowColor}`,
-                      border: `1px solid ${node.glowColor.replace('0.4', '0.6')}`
+                      boxShadow: `0 0 20px ${node.glowColor}`,
+                      border: `1px solid ${node.glowColor.replace('0.15', '0.4')}`
                     }}
                   />
                 )}
 
-                <div className={`p-6 rounded-[2rem] border transition-all duration-500 bg-slate-950/40 backdrop-blur-md relative h-full flex flex-col justify-between ${
-                  isActive ? 'border-transparent shadow-2xl' : 'border-white/5 hover:border-white/20'
+                <div className={`p-6 rounded-[2rem] border transition-all duration-500 bg-white relative h-full flex flex-col justify-between shadow-sm ${
+                  isActive ? 'border-transparent shadow-md scale-[1.01]' : 'border-slate-200/80 hover:border-slate-300'
                 }`}>
                   <div>
                     {/* Header: Icon & Pulse Indicator */}
                     <div className="flex justify-between items-start mb-6">
-                      <div className={`p-3 rounded-2xl bg-white/[0.03] border border-white/5 ${node.color} shadow-lg transition-transform group-hover:scale-110 duration-300`}>
+                      <div className={`p-3 rounded-2xl bg-slate-50 border border-slate-200/60 ${node.color} shadow-sm transition-transform group-hover:scale-110 duration-300`}>
                         <Icon className="w-5 h-5" />
                       </div>
                       
@@ -147,19 +147,19 @@ const CoreArchitecturePipeline = () => {
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                         </span>
                       ) : (
-                        <div className="w-1.5 h-1.5 rounded-full bg-white/10 mt-2 mr-1" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-slate-200 mt-2 mr-1" />
                       )}
                     </div>
 
-                    <h4 className="text-xs font-bold text-white tracking-wider uppercase mb-1">{node.title}</h4>
-                    <p className="text-[10px] text-white/40 leading-relaxed font-semibold mb-6">{node.desc}</p>
+                    <h4 className="text-xs font-bold text-slate-800 tracking-wider uppercase mb-1">{node.title}</h4>
+                    <p className="text-[10px] text-slate-500 leading-relaxed font-semibold mb-6">{node.desc}</p>
                   </div>
 
                   {/* Node State Display */}
-                  <div className="pt-4 border-t border-white/[0.05] flex items-center justify-between">
-                    <span className="text-[8px] font-mono font-bold text-white/30 uppercase tracking-widest">STATE</span>
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[8px] font-mono font-bold text-slate-400 uppercase tracking-widest">STATE</span>
                     <span className={`text-[9px] font-mono font-black uppercase tracking-widest transition-all ${
-                      isActive ? node.color + ' animate-pulse' : 'text-white/60'
+                      isActive ? node.color + ' animate-pulse' : 'text-slate-600'
                     }`}>
                       {statusText}
                     </span>
@@ -172,7 +172,7 @@ const CoreArchitecturePipeline = () => {
                 <div className="hidden lg:flex items-center justify-center shrink-0 w-0 h-0 relative">
                   <div className="absolute left-[calc(-0.5rem)] z-20 pointer-events-none flex items-center justify-center">
                     <ArrowRight className={`w-4 h-4 transition-colors ${
-                      isActive ? 'text-cyan-400 scale-125' : 'text-white/10'
+                      isActive ? 'text-violet-500 scale-125' : 'text-slate-300'
                     }`} />
                   </div>
                   {/* Pulse flow animation */}
@@ -181,7 +181,7 @@ const CoreArchitecturePipeline = () => {
                       initial={{ x: -100, opacity: 0 }}
                       animate={{ x: 100, opacity: [0, 1, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
-                      className="absolute h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4] z-30"
+                      className="absolute h-1.5 w-1.5 rounded-full bg-violet-500 shadow-[0_0_8px_rgba(139,92,246,0.5)] z-30"
                     />
                   )}
                 </div>

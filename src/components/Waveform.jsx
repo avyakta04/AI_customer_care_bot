@@ -25,7 +25,7 @@ const Waveform = ({ isActive = false }) => {
              duration: isActive ? (0.5 + Math.random() * 0.5) : (1.5 + Math.random() * 1.5),
              ease: "easeInOut"
            }}
-           className={`w-1 rounded-full transition-colors duration-500 ${isActive ? 'bg-gradient-to-t from-primary to-secondary neon-glow' : 'bg-white/20'}`}
+           className={`w-1 rounded-full transition-colors duration-500 ${isActive ? 'bg-gradient-to-t from-[#8B5CF6] via-[#A855F7] to-[#22D3EE]' : 'bg-slate-200'}`}
         />
       ))}
     </div>

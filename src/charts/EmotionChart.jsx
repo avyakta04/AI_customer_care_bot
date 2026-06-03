@@ -45,10 +45,10 @@ const EmotionChart = () => {
     scales: {
       y: {
         grid: {
-          color: 'rgba(255, 255, 255, 0.05)',
+          color: 'rgba(15, 23, 42, 0.05)',
         },
         ticks: {
-          color: 'rgba(255, 255, 255, 0.3)',
+          color: 'rgba(15, 23, 42, 0.4)',
           font: { size: 10 }
         }
       },
@@ -57,7 +57,7 @@ const EmotionChart = () => {
           display: false,
         },
         ticks: {
-          color: 'rgba(255, 255, 255, 0.3)',
+          color: 'rgba(15, 23, 42, 0.4)',
           font: { size: 10 }
         }
       }

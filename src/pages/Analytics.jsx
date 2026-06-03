@@ -97,7 +97,7 @@ const Analytics = () => {
       legend: {
         position: 'bottom',
         labels: { 
-          color: 'rgba(255, 255, 255, 0.5)', 
+          color: 'rgba(15, 23, 42, 0.6)', 
           font: { size: 10, family: "'Inter', sans-serif" }, 
           padding: 20, 
           usePointStyle: true,
@@ -105,10 +105,10 @@ const Analytics = () => {
         }
       },
       tooltip: {
-        backgroundColor: 'rgba(15, 23, 42, 0.9)',
-        titleColor: '#fff',
-        bodyColor: 'rgba(255, 255, 255, 0.7)',
-        borderColor: 'rgba(255, 255, 255, 0.1)',
+        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        titleColor: '#0f172a',
+        bodyColor: 'rgba(15, 23, 42, 0.7)',
+        borderColor: 'rgba(15, 23, 42, 0.1)',
         borderWidth: 1,
         padding: 12,
         cornerRadius: 8,
@@ -131,7 +131,7 @@ const Analytics = () => {
       hoverBackgroundColor: [
         '#10b981', '#f59e0b', '#ef4444', '#f97316', '#06b6d4'
       ],
-      borderColor: 'rgba(255, 255, 255, 0.05)',
+      borderColor: 'rgba(15, 23, 42, 0.05)',
       borderWidth: 2,
     }]
   };
@@ -171,7 +171,7 @@ const Analytics = () => {
         'rgba(6, 182, 212, 0.6)',
         'rgba(245, 158, 11, 0.6)',
       ],
-      borderColor: 'rgba(255, 255, 255, 0.1)',
+      borderColor: 'rgba(15, 23, 42, 0.05)',
       borderWidth: 1,
     }]
   };
@@ -191,7 +191,7 @@ const Analytics = () => {
         label: 'Target',
         data: [95, 95, 90, 85, 98, 90],
         backgroundColor: 'transparent',
-        borderColor: 'rgba(255, 255, 255, 0.2)',
+        borderColor: 'rgba(15, 23, 42, 0.1)',
         borderWidth: 1,
         borderDash: [5, 5],
         pointRadius: 0,
@@ -218,7 +218,7 @@ const Analytics = () => {
       {
         label: 'Standard AI',
         data: [65, 68, 70, 72],
-        borderColor: 'rgba(255, 255, 255, 0.3)',
+        borderColor: 'rgba(15, 23, 42, 0.2)',
         borderDash: [5, 5],
         backgroundColor: 'transparent',
         tension: 0.3
@@ -242,22 +242,22 @@ const Analytics = () => {
           <motion.h1 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-4xl font-bold text-white tracking-tight flex items-center gap-3"
+            className="text-4xl font-bold text-slate-900 tracking-tight flex items-center gap-3"
           >
-            <Activity className="w-8 h-8 text-primary-neon" />
-            Neural Analytics <span className="text-primary-neon font-light text-xl">v4.0</span>
+            <Activity className="w-8 h-8 text-violet-600" />
+            Neural Analytics <span className="text-violet-600 font-light text-xl">v4.0</span>
           </motion.h1>
-          <p className="text-white/40 mt-1 uppercase tracking-[0.3em] text-[10px] font-bold">Deep-layer performance benchmarks & emotional intelligence datasets</p>
+          <p className="text-slate-500 mt-1 uppercase tracking-[0.3em] text-[10px] font-bold">Deep-layer performance benchmarks & emotional intelligence datasets</p>
         </div>
         <div className="flex gap-3">
-          <div className="flex items-center gap-4 px-4 py-2 bg-white/[0.03] border border-white/10 rounded-xl">
+          <div className="flex items-center gap-4 px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl">
             <div className="flex flex-col">
-              <span className="text-[9px] text-white/30 uppercase font-bold tracking-widest">Active Model</span>
-              <span className="text-xs text-white font-bold">GPT-4.0-O1 Hindsight</span>
+              <span className="text-[9px] text-slate-400 uppercase font-bold tracking-widest">Active Model</span>
+              <span className="text-xs text-slate-800 font-bold">GPT-4.0-O1 Hindsight</span>
             </div>
-            <div className="w-2 h-2 rounded-full bg-accent-neon animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           </div>
-          <button className="flex items-center gap-2 px-6 py-2 bg-primary/20 border border-primary/30 text-white rounded-xl font-bold text-sm hover:bg-primary/30 transition-all">
+          <button className="flex items-center gap-2 px-6 py-2 bg-violet-600 text-white rounded-xl font-bold text-sm hover:brightness-110 shadow-sm transition-all">
             <Download className="w-4 h-4" />
             Report.pdf
           </button>
@@ -276,16 +276,16 @@ const Analytics = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Escalation Trends - 8 Cols */}
-        <GlassCard className="lg:col-span-8 min-h-[400px] border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent">
+        <GlassCard className="lg:col-span-8 min-h-[400px] border-slate-200/80 bg-white/70 shadow-sm">
            <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
-                 <div className="p-2 bg-red-500/10 rounded-lg">
-                   <AlertTriangle className="w-4 h-4 text-red-500" />
+                 <div className="p-2 bg-red-50 rounded-lg">
+                    <AlertTriangle className="w-4 h-4 text-red-500" />
                  </div>
-                 <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Escalation & Resolution Flux</h3>
+                 <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Escalation & Resolution Flux</h3>
               </div>
               <div className="flex gap-2">
-                <span className="px-2 py-1 bg-white/5 rounded text-[10px] text-white/40">Real-time</span>
+                <span className="px-2 py-1 bg-slate-100 rounded text-[10px] text-slate-500 font-bold">Real-time</span>
               </div>
            </div>
            <div className="h-[300px]">
@@ -294,8 +294,8 @@ const Analytics = () => {
                  options={{
                     ...commonOptions,
                     scales: {
-                       x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } },
-                       y: { grid: { color: 'rgba(255,255,255,0.05)' }, border: { display: false }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } }
+                       x: { grid: { display: false }, ticks: { color: 'rgba(15,23,42,0.4)', font: { size: 9 } } },
+                       y: { grid: { color: 'rgba(15,23,42,0.05)' }, border: { display: false }, ticks: { color: 'rgba(15,23,42,0.4)', font: { size: 9 } } }
                     }
                  }} 
               />
@@ -303,12 +303,12 @@ const Analytics = () => {
         </GlassCard>
 
         {/* Emotion Dist - 4 Cols */}
-        <GlassCard className="lg:col-span-4 border-white/5">
+        <GlassCard className="lg:col-span-4 border-slate-200/80 bg-white/70 shadow-sm">
            <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-secondary/10 rounded-lg">
-                <PieIcon className="w-4 h-4 text-secondary-neon" />
+              <div className="p-2 bg-cyan-50 rounded-lg">
+                 <PieIcon className="w-4 h-4 text-cyan-600" />
               </div>
-              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Emotion Demographics</h3>
+              <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Emotion Demographics</h3>
            </div>
            <div className="h-[300px]">
               <Doughnut 
@@ -317,121 +317,121 @@ const Analytics = () => {
                     ...commonOptions,
                     cutout: '75%',
                     plugins: { ...commonOptions.plugins, legend: { position: 'bottom' } }
-                 }} 
+                  }} 
               />
            </div>
         </GlassCard>
 
         {/* Conversation Success - 4 Cols */}
-        <GlassCard className="lg:col-span-4 border-white/5">
+        <GlassCard className="lg:col-span-4 border-slate-200/80 bg-white/70 shadow-sm">
            <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <ShieldCheck className="w-4 h-4 text-primary-neon" />
+              <div className="p-2 bg-violet-50 rounded-lg">
+                 <ShieldCheck className="w-4 h-4 text-violet-600" />
               </div>
-              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Success Rate Outcome</h3>
+              <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Success Rate Outcome</h3>
            </div>
            <div className="h-[280px]">
               <Pie 
-                data={successRateData} 
-                options={commonOptions} 
+                 data={successRateData} 
+                 options={commonOptions} 
               />
            </div>
         </GlassCard>
 
         {/* CSAT Radar - 4 Cols */}
-        <GlassCard className="lg:col-span-4 border-white/5">
+        <GlassCard className="lg:col-span-4 border-slate-200/80 bg-white/70 shadow-sm">
            <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-accent/10 rounded-lg">
-                <UserCheck className="w-4 h-4 text-accent-neon" />
+              <div className="p-2 bg-emerald-50 rounded-lg">
+                 <UserCheck className="w-4 h-4 text-emerald-600" />
               </div>
-              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Satisfaction Vectors</h3>
+              <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Satisfaction Vectors</h3>
            </div>
            <div className="h-[280px]">
               <Radar 
-                data={csatRadarData} 
-                options={{
-                   ...commonOptions,
-                   scales: {
-                      r: {
-                         angleLines: { color: 'rgba(255,255,255,0.05)' },
-                         grid: { color: 'rgba(255,255,255,0.05)' },
-                         suggestedMin: 50,
-                         pointLabels: { color: 'rgba(255,255,255,0.4)', font: { size: 8, weight: 'bold' } },
-                         ticks: { display: false }
-                      }
-                   }
-                }} 
+                 data={csatRadarData} 
+                 options={{
+                    ...commonOptions,
+                    scales: {
+                       r: {
+                          angleLines: { color: 'rgba(15,23,42,0.05)' },
+                          grid: { color: 'rgba(15,23,42,0.05)' },
+                          suggestedMin: 50,
+                          pointLabels: { color: 'rgba(15,23,42,0.6)', font: { size: 8, weight: 'bold' } },
+                          ticks: { display: false }
+                       }
+                    }
+                 }} 
               />
            </div>
         </GlassCard>
 
         {/* Frustration Heatmap - 4 Cols */}
-        <GlassCard className="lg:col-span-4 border-white/5 overflow-hidden">
+        <GlassCard className="lg:col-span-4 border-slate-200/80 bg-white/70 shadow-sm overflow-hidden">
            <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-orange-500/10 rounded-lg">
-                <Users className="w-4 h-4 text-orange-500" />
+              <div className="p-2 bg-orange-50 rounded-lg">
+                 <Users className="w-4 h-4 text-orange-500" />
               </div>
-              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Frustration Heatmap</h3>
+              <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Frustration Heatmap</h3>
            </div>
            <div className="h-[200px]">
-               <RiskHeatmap />
+                <RiskHeatmap />
            </div>
            <div className="mt-8 flex justify-between items-center px-2">
               <div className="flex flex-col">
-                <span className="text-[10px] text-white/40 uppercase font-black">Critical Zones</span>
-                <span className="text-xs text-white font-bold">12 Active Latencies</span>
+                 <span className="text-[10px] text-slate-400 uppercase font-black">Critical Zones</span>
+                 <span className="text-xs text-slate-800 font-bold">12 Active Latencies</span>
               </div>
               <div className="flex -space-x-2">
-                {[1,2,3].map(i => (
-                  <div key={i} className="w-6 h-6 rounded-full border border-slate-900 bg-slate-800 flex items-center justify-center text-[8px] font-bold text-white/50">
-                    S{i}
-                  </div>
-                ))}
+                 {[1,2,3].map(i => (
+                   <div key={i} className="w-6 h-6 rounded-full border border-slate-200 bg-slate-100 flex items-center justify-center text-[8px] font-bold text-slate-500">
+                     S{i}
+                   </div>
+                 ))}
               </div>
            </div>
         </GlassCard>
 
         {/* Learning Efficiency - 7 Cols */}
-        <GlassCard className="lg:col-span-7 border-white/5 bg-gradient-to-r from-primary/5 to-transparent">
+        <GlassCard className="lg:col-span-7 border-slate-200/80 bg-white/70 shadow-sm">
            <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-cyan-500/10 rounded-lg">
-                <Zap className="w-4 h-4 text-cyan-400" />
+              <div className="p-2 bg-cyan-50 rounded-lg">
+                 <Zap className="w-4 h-4 text-cyan-600" />
               </div>
-              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Learning Efficiency Engine</h3>
+              <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Learning Efficiency Engine</h3>
            </div>
            <div className="h-[250px]">
               <Line 
-                data={learningEfficiencyData} 
-                options={{
-                   ...commonOptions,
-                   scales: {
-                      x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } },
-                      y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } }
-                   }
-                }} 
+                 data={learningEfficiencyData} 
+                 options={{
+                    ...commonOptions,
+                    scales: {
+                       x: { grid: { display: false }, ticks: { color: 'rgba(15,23,42,0.4)', font: { size: 9 } } },
+                       y: { grid: { color: 'rgba(15,23,42,0.05)' }, ticks: { color: 'rgba(15,23,42,0.4)', font: { size: 9 } } }
+                    }
+                 }} 
               />
            </div>
         </GlassCard>
 
         {/* Supervisor Interventions - 5 Cols */}
-        <GlassCard className="lg:col-span-5 border-white/5">
+        <GlassCard className="lg:col-span-5 border-slate-200/80 bg-white/70 shadow-sm">
            <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-amber-500/10 rounded-lg">
-                <ShieldCheck className="w-4 h-4 text-amber-500" />
+              <div className="p-2 bg-amber-50 rounded-lg">
+                 <ShieldCheck className="w-4 h-4 text-amber-600" />
               </div>
-              <h3 className="text-xs font-black text-white uppercase tracking-[0.2em]">Supervisor Drift</h3>
+              <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Supervisor Drift</h3>
            </div>
            <div className="h-[250px]">
               <Bar 
-                data={interventionData} 
-                options={{
-                   ...commonOptions,
-                   borderRadius: 4,
-                   scales: {
-                      x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } },
-                      y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: 'rgba(255,255,255,0.2)', font: { size: 9 } } }
-                   }
-                }} 
+                 data={interventionData} 
+                 options={{
+                    ...commonOptions,
+                    borderRadius: 4,
+                    scales: {
+                       x: { grid: { display: false }, ticks: { color: 'rgba(15,23,42,0.4)', font: { size: 9 } } },
+                       y: { grid: { color: 'rgba(15,23,42,0.05)' }, ticks: { color: 'rgba(15,23,42,0.4)', font: { size: 9 } } }
+                    }
+                 }} 
               />
            </div>
         </GlassCard>
@@ -439,12 +439,12 @@ const Analytics = () => {
       </div>
 
       {/* Footer Branding */}
-      <div className="pt-10 flex items-center justify-between border-t border-white/5 opacity-30">
-        <div className="flex items-center gap-2">
+      <div className="pt-10 flex items-center justify-between border-t border-slate-200 opacity-50">
+        <div className="flex items-center gap-2 text-slate-500">
            <BrainCircuit className="w-4 h-4" />
            <span className="text-[10px] font-black uppercase tracking-[0.4em]">Neural Core OS</span>
         </div>
-        <span className="text-[10px] font-medium">Session ID: NC-882-991-X</span>
+        <span className="text-[10px] font-medium text-slate-400">Session ID: NC-882-991-X</span>
       </div>
     </div>
   );

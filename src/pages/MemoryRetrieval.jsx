@@ -16,10 +16,10 @@ import GlassCard from '../components/GlassCard';
 import VectorCard from '../components/VectorCard';
 
 const searchSteps = [
-  { icon: Search, label: 'Query Input', color: 'text-white' },
-  { icon: Fingerprint, label: 'Embedding (MiniLM)', color: 'text-primary-neon' },
-  { icon: Database, label: 'ChromaDB Search', color: 'text-secondary-neon' },
-  { icon: Link2, label: 'Context Injection', color: 'text-accent-neon' },
+  { icon: Search, label: 'Query Input', color: 'text-slate-800' },
+  { icon: Fingerprint, label: 'Embedding (MiniLM)', color: 'text-violet-600' },
+  { icon: Database, label: 'ChromaDB Search', color: 'text-cyan-600' },
+  { icon: Link2, label: 'Context Injection', color: 'text-emerald-600' },
 ];
 
 const mockMemories = [
@@ -109,13 +109,13 @@ const MemoryRetrieval = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">Semantic Memory Retrieval</h1>
-          <p className="text-white/40 mt-1">Visualizing vector similarity and contextual context construction.</p>
+          <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Semantic Memory Retrieval</h1>
+          <p className="text-slate-500 mt-1">Visualizing vector similarity and contextual context construction.</p>
         </div>
         <button 
           onClick={startSearch}
           disabled={isSearching}
-          className="px-6 py-3 bg-secondary/20 border border-secondary/30 rounded-2xl font-bold text-sm text-secondary-neon hover:bg-secondary/30 transition-all flex items-center gap-3 disabled:opacity-50 active:scale-[0.98]"
+          className="px-6 py-3 bg-cyan-50 border border-cyan-200 rounded-2xl font-bold text-sm text-cyan-600 hover:bg-cyan-100 transition-all flex items-center gap-3 disabled:opacity-50 active:scale-[0.98]"
         >
           <RefreshCcw className={`w-4 h-4 ${isSearching ? 'animate-spin' : ''}`} />
           RE-GENERATE CONTEXT
@@ -124,26 +124,26 @@ const MemoryRetrieval = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Search Pipeline visualization */}
-        <GlassCard className="lg:col-span-8 border-white/5 relative overflow-hidden flex flex-col justify-center min-h-[450px]">
+        <GlassCard className="lg:col-span-8 border-slate-200/80 relative overflow-hidden flex flex-col justify-center min-h-[450px] bg-white/70 shadow-sm">
           {/* Animated Background Flow */}
           <div className="absolute inset-0 pointer-events-none z-0">
-             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.05),transparent)]" />
+             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.02),transparent)]" />
              {isSearching && (
-               <motion.div 
-                 initial={{ opacity: 0 }}
-                 animate={{ opacity: 1 }}
-                 className="absolute inset-0"
-               >
-                 {[...Array(20)].map((_, i) => (
-                   <motion.div
-                     key={i}
-                     initial={{ x: -100, y: Math.random() * 400, opacity: 0 }}
-                     animate={{ x: 1200, opacity: [0, 1, 0] }}
-                     transition={{ repeat: Infinity, duration: 2 + Math.random() * 2, delay: Math.random() * 2 }}
-                     className="absolute w-1 h-1 bg-secondary-neon rounded-full blur-[1px]"
-                   />
-                 ))}
-               </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="absolute inset-0"
+                >
+                  {[...Array(20)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ x: -100, y: Math.random() * 400, opacity: 0 }}
+                      animate={{ x: 1200, opacity: [0, 1, 0] }}
+                      transition={{ repeat: Infinity, duration: 2 + Math.random() * 2, delay: Math.random() * 2 }}
+                      className="absolute w-1.5 h-1.5 bg-cyan-500 rounded-full blur-[1px]"
+                    />
+                  ))}
+                </motion.div>
              )}
           </div>
 
@@ -155,13 +155,13 @@ const MemoryRetrieval = () => {
                      <motion.div
                        animate={activeStep === i ? { scale: [1, 1.15, 1], rotate: [0, 5, -5, 0] } : {}}
                        className={`w-20 h-20 rounded-[2rem] border flex items-center justify-center transition-all duration-500 ${
-                         activeStep >= i ? 'bg-white/5 border-white/20 shadow-[0_0_15px_rgba(6,182,212,0.2)]' : 'bg-transparent border-white/5 opacity-20'
+                         activeStep >= i ? 'bg-white border-slate-200 shadow-md' : 'bg-transparent border-slate-100 opacity-30'
                        }`}
                      >
-                       <step.icon className={`w-8 h-8 ${activeStep >= i ? step.color : 'text-white'}`} />
+                       <step.icon className={`w-8 h-8 ${activeStep >= i ? step.color : 'text-slate-400'}`} />
                      </motion.div>
                      <span className={`text-[10px] font-bold uppercase tracking-[0.2em] transition-all absolute top-24 whitespace-nowrap ${
-                       activeStep >= i ? 'text-white/80' : 'text-white/10'
+                       activeStep >= i ? 'text-slate-700 font-bold' : 'text-slate-300 font-medium'
                      }`}>
                        {step.label}
                      </span>
@@ -174,7 +174,7 @@ const MemoryRetrieval = () => {
                    </div>
                    {i < searchSteps.length - 1 && (
                      <div className="flex-1 px-4 mb-4 relative">
-                        <div className="h-1 bg-white/5 w-full relative rounded-full overflow-hidden">
+                        <div className="h-1 bg-slate-100 w-full relative rounded-full overflow-hidden">
                            {(activeStep === i || isSearching) && (
                              <motion.div 
                                initial={{ left: '-100%' }}
@@ -184,7 +184,7 @@ const MemoryRetrieval = () => {
                                  duration: 1.2, 
                                  ease: 'linear' 
                                }}
-                               className="absolute h-full w-16 bg-gradient-to-r from-transparent via-secondary-neon to-transparent shadow-[0_0_10px_rgba(6,182,212,0.8)]"
+                               className="absolute h-full w-16 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
                              />
                            )}
                         </div>
@@ -195,21 +195,21 @@ const MemoryRetrieval = () => {
             </div>
 
             <div className="text-center max-w-2xl w-full">
-               <h3 className="text-sm font-bold text-white/40 uppercase tracking-widest mb-6">Execution Log</h3>
-               <div className="bg-black/20 p-6 rounded-2xl border border-white/5 font-mono text-left space-y-2 min-h-[160px]">
+               <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Execution Log</h3>
+               <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 font-mono text-left space-y-2 min-h-[160px]">
                  {logs.map((log, idx) => (
-                   <motion.p 
-                     key={idx}
-                     initial={{ opacity: 0, x: -10 }}
-                     animate={{ opacity: 1, x: 0 }}
-                     className={`text-xs flex gap-2 ${
-                       log.type === 'success' ? 'text-accent-neon' : log.type === 'warning' ? 'text-amber-400' : 'text-secondary-neon/60'
-                     }`}
-                   >
-                     <span className="text-white/20 font-bold">{log.t}</span>
-                     <span className="text-white/40">{">>"}</span>
-                     <span>{log.msg}</span>
-                   </motion.p>
+                    <motion.p 
+                      key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className={`text-xs flex gap-2 ${
+                        log.type === 'success' ? 'text-emerald-600 font-semibold' : log.type === 'warning' ? 'text-amber-600 font-semibold' : 'text-cyan-600'
+                      }`}
+                    >
+                      <span className="text-slate-300 font-bold">{log.t}</span>
+                      <span className="text-slate-400">{">>"}</span>
+                      <span>{log.msg}</span>
+                    </motion.p>
                  ))}
                </div>
             </div>
@@ -219,8 +219,8 @@ const MemoryRetrieval = () => {
         {/* Results Sidebar */}
         <div className="lg:col-span-4 space-y-6">
           <div className="flex items-center gap-3 mb-2 px-2">
-            <Layers className="w-5 h-5 text-primary-neon" />
-            <h3 className="text-sm font-bold text-white uppercase tracking-widest">Retrieved Contexts</h3>
+            <Layers className="w-5 h-5 text-violet-600" />
+            <h3 className="text-sm font-bold text-slate-800 uppercase tracking-widest">Retrieved Contexts</h3>
           </div>
 
           <div className="space-y-4">
@@ -236,7 +236,7 @@ const MemoryRetrieval = () => {
                   />
                 ))
               ) : (
-                <div className="flex flex-col items-center justify-center p-12 text-center opacity-20 bg-white/5 border border-dashed border-white/10 rounded-3xl">
+                <div className="flex flex-col items-center justify-center p-12 text-center bg-slate-50 border border-dashed border-slate-200 text-slate-400 rounded-3xl">
                   <Cpu className="w-12 h-12 mb-4" />
                   <p className="text-xs font-bold uppercase tracking-widest">Awaiting Semantic Search</p>
                 </div>
@@ -245,15 +245,15 @@ const MemoryRetrieval = () => {
           </div>
 
           {foundMemories.length > 0 && (
-            <GlassCard className="border-accent-neon/20 bg-accent/5">
+            <GlassCard className="border-emerald-200 bg-emerald-50/50 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
-                <Sparkles className="w-4 h-4 text-accent-neon" />
-                <h4 className="text-[10px] font-bold text-white uppercase tracking-widest">Intelligence Summary</h4>
+                <Sparkles className="w-4 h-4 text-emerald-600" />
+                <h4 className="text-[10px] font-bold text-slate-800 uppercase tracking-widest">Intelligence Summary</h4>
               </div>
-              <p className="text-[11px] text-white/50 leading-relaxed font-medium">
-                The retrieved memory provides <span className="text-white font-bold">historical preference context</span> and <span className="text-white font-bold">known technical blockers</span>, allowing the AI to bypass repetitive troubleshooting steps.
+              <p className="text-[11px] text-slate-600 leading-relaxed font-medium">
+                The retrieved memory provides <span className="text-slate-900 font-semibold">historical preference context</span> and <span className="text-slate-900 font-semibold">known technical blockers</span>, allowing the AI to bypass repetitive troubleshooting steps.
               </p>
-              <button className="w-full mt-4 py-2 text-[9px] font-bold text-accent-neon border border-accent/20 rounded-lg hover:bg-accent/10 transition-all uppercase tracking-[0.2em]">
+              <button className="w-full mt-4 py-2 text-[9px] font-bold text-emerald-700 border border-emerald-200 bg-white rounded-lg hover:bg-emerald-50 transition-all uppercase tracking-[0.2em] shadow-sm">
                 Enhance Response Now
               </button>
             </GlassCard>
