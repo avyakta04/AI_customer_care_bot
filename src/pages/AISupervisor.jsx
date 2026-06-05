@@ -18,7 +18,7 @@ import RiskHeatmap from '../components/RiskHeatmap';
 import { Line } from 'react-chartjs-2';
 
 const AISupervisor = () => {
-  const [activeSession, setActiveSession] = useState('SID_9921_NEURAL');
+  const [activeSession, setActiveSession] = useState('SID_9921_ECHOMIND');
   const [healthScore, setHealthScore] = useState(94);
   const [logs, setLogs] = useState([
     { t: "20:30:10", msg: "INIT_SUPERVISOR_PROTOCOL: ACTIVE", type: "system" },
@@ -105,7 +105,7 @@ const AISupervisor = () => {
                <ShieldCheck className="w-7 h-7 animate-pulse" />
             </div>
             <div>
-               <h1 className="text-3xl font-bold text-slate-900 tracking-tight">AI Supervisor Control</h1>
+               <h1 className="text-3xl font-bold text-slate-900 tracking-tight">ECHOMIND Supervisor Center</h1>
                <div className="flex items-center gap-2 mt-1">
                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em]">Guardian Protocol v4.2 Active</p>
@@ -114,7 +114,7 @@ const AISupervisor = () => {
          </div>
          
          <div className="flex bg-slate-100 border border-slate-200 rounded-2xl p-2 h-14">
-            {['SID_9921_NEURAL', 'SID_4452_TEXT', 'SID_1102_VOICE'].map(sid => (
+            {['SID_9921_ECHOMIND', 'SID_4452_TEXT', 'SID_1102_VOICE'].map(sid => (
               <button 
                 key={sid}
                 onClick={() => setActiveSession(sid)}

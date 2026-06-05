@@ -10,10 +10,16 @@ const LandingNavbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/80 backdrop-blur-xl border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
+          <div className="w-10 h-10 rounded-xl bg-gradient-premium flex items-center justify-center group-hover:scale-110 transition-transform">
             <BrainCircuit className="text-white w-6 h-6" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-slate-850">E-Aware <span className="text-violet-600 font-black">AI</span></span>
+          <div className="flex flex-col">
+            <span className="text-xl font-black tracking-tight leading-none">
+              <span className="text-[#1E3A8A]">ECHO</span>
+              <span className="text-[#D4AF37]">MIND</span>
+            </span>
+            <span className="text-[8px] text-slate-400 font-bold uppercase tracking-[0.15em] mt-0.5">AI Intelligence Platform</span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
@@ -36,7 +42,7 @@ const LandingNavbar = () => {
           <div className="h-6 w-px bg-slate-200 mx-2" />
           <Link 
             to="/dashboard" 
-            className="px-5 py-2.5 bg-violet-600 rounded-xl text-sm font-bold text-white hover:brightness-110 shadow-sm transition-all"
+            className="px-5 py-2.5 bg-[#1E3A8A] rounded-xl text-sm font-bold text-white hover:brightness-110 shadow-sm transition-all"
           >
             Launch Dashboard
           </Link>
@@ -74,7 +80,7 @@ const LandingNavbar = () => {
           </Link>
           <Link 
             to="/dashboard" 
-            className="px-6 py-4 bg-violet-600 rounded-2xl text-center font-bold text-white shadow-sm"
+            className="px-6 py-4 bg-[#1E3A8A] rounded-2xl text-center font-bold text-white shadow-sm"
             onClick={() => setIsOpen(false)}
           >
             Launch Dashboard

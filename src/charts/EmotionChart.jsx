@@ -33,9 +33,9 @@ const EmotionChart = () => {
       },
       tooltip: {
         backgroundColor: 'rgba(15, 23, 42, 0.9)',
-        titleColor: '#8b5cf6',
+        titleColor: '#1E3A8A',
         bodyColor: '#fff',
-        borderColor: 'rgba(139, 92, 246, 0.2)',
+        borderColor: 'rgba(212, 175, 55, 0.2)',
         borderWidth: 1,
         padding: 12,
         boxPadding: 6,
@@ -79,16 +79,16 @@ const EmotionChart = () => {
       {
         label: 'Satisfaction Index',
         data: [65, 78, 72, 85, 82, 90, 88],
-        borderColor: '#8b5cf6',
-        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+        borderColor: '#1E3A8A',
+        backgroundColor: 'rgba(30, 58, 138, 0.1)',
         fill: true,
         borderWidth: 2,
       },
       {
         label: 'Stress Levels',
         data: [30, 25, 45, 35, 28, 20, 22],
-        borderColor: '#06b6d4',
-        backgroundColor: 'rgba(6, 182, 212, 0.05)',
+        borderColor: '#D4AF37',
+        backgroundColor: 'rgba(212, 175, 55, 0.05)',
         fill: true,
         borderWidth: 2,
       }

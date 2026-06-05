@@ -3,36 +3,28 @@ import { Search, Bell, User, Flame, Zap, Database, ShieldAlert, Cpu, Award } fro
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
-  const [activeTheme, setActiveTheme] = useState('purple');
+  const [activeTheme, setActiveTheme] = useState('blue');
 
   const handleThemeChange = (theme) => {
     setActiveTheme(theme);
     const root = document.documentElement;
-    if (theme === 'purple') {
-      root.style.setProperty('--primary', '139, 92, 246');
-      root.style.setProperty('--secondary', '6, 182, 212');
-      root.style.setProperty('--accent', '16, 185, 129');
-    } else if (theme === 'cyan') {
-      root.style.setProperty('--primary', '6, 182, 212');
-      root.style.setProperty('--secondary', '59, 130, 246');
-      root.style.setProperty('--accent', '236, 72, 153');
-    } else if (theme === 'green') {
-      root.style.setProperty('--primary', '16, 185, 129');
-      root.style.setProperty('--secondary', '34, 197, 94');
-      root.style.setProperty('--accent', '139, 92, 246');
-    } else if (theme === 'amber') {
-      root.style.setProperty('--primary', '245, 158, 11');
-      root.style.setProperty('--secondary', '249, 115, 22');
-      root.style.setProperty('--accent', '239, 68, 68');
+    if (theme === 'blue') {
+      root.style.setProperty('--primary', '30, 58, 138');
+      root.style.setProperty('--secondary', '212, 175, 55');
+      root.style.setProperty('--accent', '251, 191, 36');
+    } else if (theme === 'gold') {
+      root.style.setProperty('--primary', '212, 175, 55');
+      root.style.setProperty('--secondary', '30, 58, 138');
+      root.style.setProperty('--accent', '251, 191, 36');
     }
   };
 
   const [engineStates, setEngineStates] = useState({
-    emotion: { name: 'Emotion Engine', state: 'ACTIVE', color: 'bg-violet-500', ping: 'bg-violet-400' },
-    memory: { name: 'Memory Engine', state: 'ACTIVE', color: 'bg-cyan-500', ping: 'bg-cyan-400' },
-    supervisor: { name: 'Supervisor Monitoring', state: 'NOMINAL', color: 'bg-amber-500', ping: 'bg-amber-400' },
-    learning: { name: 'Learning Engine', state: 'RUNNING', color: 'bg-emerald-500', ping: 'bg-emerald-400' },
-    context: { name: 'Context Retrieval', state: 'ACTIVE', color: 'bg-blue-500', ping: 'bg-blue-400' }
+    emotion: { name: 'ECHOMIND Emotion Engine', state: 'ACTIVE', color: 'bg-[#1E3A8A]', ping: 'bg-[#2563EB]' },
+    memory: { name: 'ECHOMIND Memory Core', state: 'ACTIVE', color: 'bg-[#1E3A8A]', ping: 'bg-[#D4AF37]' },
+    supervisor: { name: 'ECHOMIND AI Supervisor', state: 'NOMINAL', color: 'bg-[#D4AF37]', ping: 'bg-[#FBBF24]' },
+    learning: { name: 'ECHOMIND Learning Engine', state: 'RUNNING', color: 'bg-[#D4AF37]', ping: 'bg-[#1E3A8A]' },
+    context: { name: 'Context Retrieval', state: 'ACTIVE', color: 'bg-[#1E3A8A]', ping: 'bg-[#D4AF37]' }
   });
 
   useEffect(() => {
@@ -64,22 +56,22 @@ const Navbar = () => {
   }, []);
 
   const glowColors = {
-    emotion: 'shadow-[0_0_8px_#8b5cf6] bg-violet-400',
-    memory: 'shadow-[0_0_8px_#22d3ee] bg-cyan-400',
-    supervisor: 'shadow-[0_0_8px_#f59e0b] bg-amber-400',
-    learning: 'shadow-[0_0_8px_#10b981] bg-emerald-400',
-    context: 'shadow-[0_0_8px_#3b82f6] bg-blue-400'
+    emotion: 'shadow-[0_0_8px_#1E3A8A] bg-[#2563EB]',
+    memory: 'shadow-[0_0_8px_#D4AF37] bg-[#D4AF37]',
+    supervisor: 'shadow-[0_0_8px_#D4AF37] bg-[#FBBF24]',
+    learning: 'shadow-[0_0_8px_#1E3A8A] bg-[#D4AF37]',
+    context: 'shadow-[0_0_8px_#1E3A8A] bg-[#2563EB]'
   };
 
   return (
-    <header className="h-20 fixed top-0 right-0 left-72 bg-white/40 backdrop-blur-3xl border-b border-slate-200/80 z-40 flex items-center justify-between px-8">
+    <header className="h-20 fixed top-0 right-0 left-72 bg-white/80 backdrop-blur-md border-b border-slate-200 z-40 flex items-center justify-between px-8">
       <div className="flex items-center gap-6">
         <div className="relative group">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-violet-500 transition-colors" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#1E3A8A] transition-colors" />
           <input 
             type="text" 
             placeholder="Search AI parameters..." 
-            className="bg-slate-100 border border-slate-200 rounded-2xl pl-11 pr-5 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-violet-500/50 focus:ring-2 focus:ring-violet-500/10 w-64 transition-all duration-300 focus:w-80 hover:bg-slate-200/50"
+            className="bg-slate-100 border border-slate-200 rounded-2xl pl-11 pr-5 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#1E3A8A]/50 focus:ring-2 focus:ring-[#1E3A8A]/10 w-64 transition-all duration-300 focus:w-80 hover:bg-slate-200/50"
           />
         </div>
         
@@ -114,10 +106,8 @@ const Navbar = () => {
           {/* Cybernetic Theme Selector */}
           <div className="flex items-center gap-1.5 mr-3 bg-slate-50 border border-slate-200 p-1.5 rounded-xl">
             {[
-              { id: 'purple', color: 'bg-[#8b5cf6] border-[#a78bfa]' },
-              { id: 'cyan', color: 'bg-[#06b6d4] border-[#67e8f9]' },
-              { id: 'green', color: 'bg-[#10b981] border-[#34d399]' },
-              { id: 'amber', color: 'bg-[#f59e0b] border-[#fbbf24]' }
+              { id: 'blue', color: 'bg-[#1E3A8A] border-[#2563EB]' },
+              { id: 'gold', color: 'bg-[#D4AF37] border-[#FBBF24]' }
             ].map(t => (
               <button
                 key={t.id}
@@ -132,22 +122,22 @@ const Navbar = () => {
 
           <button className="relative p-2.5 rounded-xl transition-all duration-300 hover:bg-slate-100 group border border-transparent hover:border-slate-200 active:scale-95">
             <Bell className="w-5 h-5 text-slate-400 group-hover:text-slate-800 transition-colors" />
-            <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-violet-500 rounded-full border-2 border-white shadow-[0_0_10px_rgba(139,92,246,0.3)] animate-pulse" />
+            <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-[#D4AF37] rounded-full border-2 border-white shadow-[0_0_10px_rgba(212,175,55,0.3)] animate-pulse" />
           </button>
           
           <button className="p-2.5 rounded-xl transition-all duration-300 hover:bg-slate-100 group border border-transparent hover:border-slate-200 active:scale-95">
-            <Flame className="w-5 h-5 text-slate-400 group-hover:text-amber-500 transition-colors" />
+            <Flame className="w-5 h-5 text-slate-400 group-hover:text-[#D4AF37] transition-colors" />
           </button>
         </div>
 
         <div className="flex items-center gap-3.5 cursor-pointer group">
           <div className="text-right">
-            <p className="text-xs font-bold text-slate-800 leading-none group-hover:text-violet-600 transition-colors">System Admin</p>
-            <p className="text-[10px] text-slate-400 font-semibold mt-1">Neural Level 5</p>
+            <p className="text-xs font-bold text-slate-800 leading-none group-hover:text-[#1E3A8A] transition-colors">System Admin</p>
+            <p className="text-[10px] text-slate-400 font-semibold mt-1">ECHOMIND Level 5</p>
           </div>
-          <div className="w-11 h-11 rounded-2xl bg-gradient-premium/10 border border-slate-200 flex items-center justify-center overflow-hidden group-hover:border-violet-500/50 group-hover:shadow-md transition-all duration-500 relative">
+          <div className="w-11 h-11 rounded-2xl bg-gradient-premium/10 border border-slate-200 flex items-center justify-center overflow-hidden group-hover:border-[#D4AF37]/50 group-hover:shadow-md transition-all duration-500 relative">
             <div className="absolute inset-0 bg-gradient-premium opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-            <User className="text-slate-400 w-5 h-5 group-hover:text-violet-600 transition-all duration-500 group-hover:scale-110 z-10" />
+            <User className="text-slate-400 w-5 h-5 group-hover:text-[#1E3A8A] transition-all duration-500 group-hover:scale-110 z-10" />
           </div>
         </div>
       </div>

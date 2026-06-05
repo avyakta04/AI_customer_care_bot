@@ -15,32 +15,35 @@ import {
 import { motion } from 'framer-motion';
 
 const menuItems = [
-  { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', color: 'text-violet-400', activeBg: 'from-violet-500/[0.08] to-transparent', border: 'border-violet-500/20' },
-  { icon: MessageSquare, label: 'Live Chat', path: '/dashboard/chat', color: 'text-violet-400', activeBg: 'from-violet-500/[0.08] to-transparent', border: 'border-violet-500/20' },
-  { icon: Mic2, label: 'Voice Analysis', path: '/dashboard/voice', color: 'text-pink-400', activeBg: 'from-pink-500/[0.08] to-transparent', border: 'border-pink-500/20' },
-  { icon: ShieldCheck, label: 'AI Supervisor', path: '/dashboard/supervisor', color: 'text-amber-400', activeBg: 'from-amber-500/[0.08] to-transparent', border: 'border-amber-500/20' },
-  { icon: Database, label: 'Memory Retrieval', path: '/dashboard/memory', color: 'text-cyan-400', activeBg: 'from-cyan-500/[0.08] to-transparent', border: 'border-cyan-500/20' },
-  { icon: History, label: 'Hindsight Learning', path: '/dashboard/learning', color: 'text-emerald-400', activeBg: 'from-emerald-500/[0.08] to-transparent', border: 'border-emerald-500/20' },
-  { icon: BarChart3, label: 'Analytics', path: '/dashboard/analytics', color: 'text-sky-400', activeBg: 'from-sky-500/[0.08] to-transparent', border: 'border-sky-500/20' },
-  { icon: Settings, label: 'Settings', path: '/dashboard/settings', color: 'text-slate-400', activeBg: 'from-slate-500/[0.08] to-transparent', border: 'border-slate-500/20' },
+  { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
+  { icon: MessageSquare, label: 'Live Chat', path: '/dashboard/chat' },
+  { icon: Mic2, label: 'Voice Analysis', path: '/dashboard/voice' },
+  { icon: ShieldCheck, label: 'AI Supervisor', path: '/dashboard/supervisor' },
+  { icon: Database, label: 'Memory Retrieval', path: '/dashboard/memory' },
+  { icon: History, label: 'Hindsight Learning', path: '/dashboard/learning' },
+  { icon: BarChart3, label: 'Analytics', path: '/dashboard/analytics' },
+  { icon: Settings, label: 'Settings', path: '/dashboard/settings' },
 ];
 
 const Sidebar = () => {
   return (
-    <aside className="w-72 h-screen fixed left-0 top-0 bg-white/70 backdrop-blur-3xl border-r border-slate-200/80 flex flex-col z-50">
+    <aside className="w-72 h-screen fixed left-0 top-0 bg-white border-r border-slate-200 flex flex-col z-50">
       {/* Branding Section */}
       <div className="p-8 pb-4 flex items-center gap-4">
         <motion.div 
           whileHover={{ rotate: 10, scale: 1.05 }}
-          className="w-12 h-12 rounded-2xl bg-gradient-premium flex items-center justify-center shadow-[0_4px_12px_rgba(124,58,237,0.15)]"
+          className="w-12 h-12 rounded-2xl bg-gradient-premium flex items-center justify-center shadow-[0_4px_12px_rgba(30,58,138,0.15)]"
         >
           <BrainCircuit className="text-white w-7 h-7" />
         </motion.div>
         <div>
-          <h1 className="text-lg font-black tracking-tight text-slate-900 leading-tight">NEURA</h1>
+          <h1 className="text-lg font-black tracking-tight leading-tight">
+            <span className="text-[#1E3A8A]">ECHO</span>
+            <span className="text-[#D4AF37]">MIND</span>
+          </h1>
           <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">ENTERPRISE v4.0</p>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">AI Intelligence Platform</p>
           </div>
         </div>
       </div>
@@ -55,23 +58,23 @@ const Sidebar = () => {
             to={item.path}
             end={item.path === '/dashboard'}
             className={({ isActive }) => `
-              flex items-center gap-3.5 px-4 py-3 rounded-2xl transition-all duration-500 group relative overflow-hidden
+              flex items-center gap-3.5 px-4 py-3 rounded-2xl transition-all duration-300 group relative overflow-hidden
               ${isActive 
-                ? `bg-gradient-to-r ${item.activeBg} text-slate-900 border ${item.border.replace('500/20', '500/10')} shadow-sm` 
-                : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'}
+                ? 'bg-[#1E3A8A] text-white shadow-md border border-[#1E3A8A]/10' 
+                : 'text-slate-555 hover:text-[#1E3A8A] hover:bg-[#D4AF37]/10'}
             `}
           >
             {({ isActive }) => (
               <>
-                <item.icon className={`w-5 h-5 transition-transform duration-500 group-hover:scale-110 ${isActive ? item.color : 'text-slate-400'}`} />
-                <span className={`text-sm font-semibold tracking-wide ${isActive ? 'translate-x-0.5 transition-transform' : ''}`}>
+                <item.icon className={`w-5 h-5 transition-transform duration-300 group-hover:scale-110 relative z-10 ${isActive ? 'text-[#D4AF37]' : 'text-slate-455 group-hover:text-[#1E3A8A]'}`} />
+                <span className={`text-sm font-semibold tracking-wide relative z-10 ${isActive ? 'translate-x-0.5 transition-transform text-white' : ''}`}>
                   {item.label}
                 </span>
                 
                 {isActive && (
                   <motion.div 
                     layoutId="active-nav-bg"
-                    className={`absolute inset-0 bg-gradient-to-r ${item.activeBg} pointer-events-none`}
+                    className="absolute inset-0 bg-[#1E3A8A] pointer-events-none"
                     initial={false}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
@@ -80,7 +83,7 @@ const Sidebar = () => {
                 {isActive && (
                   <motion.div 
                     layoutId="active-indicator"
-                    className={`ml-auto w-1 h-4 rounded-full bg-slate-300`}
+                    className="ml-auto w-1.5 h-4 rounded-full bg-[#D4AF37] relative z-10"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}

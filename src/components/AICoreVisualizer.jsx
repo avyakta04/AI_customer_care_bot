@@ -17,62 +17,62 @@ const SUBSYSTEMS = [
   {
     name: "Emotion Detection",
     icon: Activity,
-    color: "#7C3AED", // Deep Purple
-    accent: "#A855F7", // Electric Violet
+    color: "#1E3A8A", // Royal Blue
+    accent: "#2563EB", // Secondary Blue
     desc: "Acoustic & textual sentiment mapping",
     metric: "94.6% ACC",
     progress: 85,
-    led: "bg-emerald-500 shadow-[0_0_8px_#10b981]"
+    led: "bg-[#1E3A8A] shadow-[0_0_8px_#2563EB]"
   },
   {
     name: "Memory Retrieval",
     icon: Database,
-    color: "#2563EB", // Electric Blue
-    accent: "#06B6D4", // Cyan
+    color: "#1E3A8A", // Royal Blue
+    accent: "#D4AF37", // Luxury Gold
     desc: "Vector memory search hit sequence",
     metric: "98.2% CONF",
     progress: 92,
-    led: "bg-emerald-500 shadow-[0_0_8px_#10b981]"
+    led: "bg-[#D4AF37] shadow-[0_0_8px_#FBBF24]"
   },
   {
     name: "Context Builder",
     icon: BrainCircuit,
-    color: "#A855F7", // Electric Violet
-    accent: "#7C3AED", // Deep Purple
+    color: "#1E3A8A", // Royal Blue
+    accent: "#D4AF37", // Luxury Gold
     desc: "Active dialogue state compilation",
     metric: "12ms LAT",
     progress: 78,
-    led: "bg-cyan-500 shadow-[0_0_8px_#06b6d4]"
+    led: "bg-[#1E3A8A] shadow-[0_0_8px_#2563EB]"
   },
   {
     name: "Response Engine",
     icon: MessageSquare,
-    color: "#7C3AED", // Deep Purple
-    accent: "#2563EB", // Electric Blue
+    color: "#1E3A8A", // Royal Blue
+    accent: "#2563EB", // Secondary Blue
     desc: "Tailored agent synthesis loops",
     metric: "68ms SPEED",
     progress: 88,
-    led: "bg-emerald-500 shadow-[0_0_8px_#10b981]"
+    led: "bg-[#1E3A8A] shadow-[0_0_8px_#2563EB]"
   },
   {
     name: "AI Supervisor",
     icon: ShieldCheck,
-    color: "#2563EB", // Electric Blue
-    accent: "#06B6D4", // Cyan
+    color: "#D4AF37", // Luxury Gold
+    accent: "#FBBF24", // Accent Gold
     desc: "Safe state prompt verification",
     metric: "99.89% SAFE",
     progress: 99,
-    led: "bg-cyan-500 shadow-[0_0_8px_#06b6d4]"
+    led: "bg-[#D4AF37] shadow-[0_0_8px_#FBBF24]"
   },
   {
     name: "Hindsight Learning",
     icon: History,
-    color: "#A855F7", // Electric Violet
-    accent: "#7C3AED", // Deep Purple
+    color: "#D4AF37", // Luxury Gold
+    accent: "#1E3A8A", // Royal Blue
     desc: "Post-event backpropagation optimization",
     metric: "92.4% ADAPT",
     progress: 70,
-    led: "bg-amber-500 shadow-[0_0_8px_#f59e0b]"
+    led: "bg-[#D4AF37] shadow-[0_0_8px_#FBBF24]"
   }
 ];
 
@@ -178,7 +178,7 @@ const AICoreVisualizer = () => {
         }}
       >
         {/* LIGHT AMBIENT RAYS & PARTICLES */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.035)_0%,transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,58,138,0.035)_0%,transparent_60%)] pointer-events-none" />
 
         {/* 1. OUTER SCI-FI GRID RINGS (Jarvis HUD style) */}
         <div 
@@ -193,9 +193,9 @@ const AICoreVisualizer = () => {
 
         <div 
           style={{ transform: `rotateZ(${-time * 12}deg) translateZ(-80px)`, transformStyle: 'preserve-3d' }}
-          className="absolute w-[580px] h-[580px] border border-violet-200/40 rounded-full pointer-events-none opacity-50"
+          className="absolute w-[580px] h-[580px] border border-[#D4AF37]/40 rounded-full pointer-events-none opacity-50"
         >
-          <svg viewBox="0 0 100 100" className="w-full h-full text-violet-500">
+          <svg viewBox="0 0 100 100" className="w-full h-full text-[#D4AF37]">
             <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.3" strokeDasharray="40 10 20 5 10" />
             <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="0.1" strokeDasharray="2" />
           </svg>
@@ -238,7 +238,7 @@ const AICoreVisualizer = () => {
               const isHovered = hoveredIdx === node.index;
               const pathD = `M 0 0 L ${node.x} ${node.y}`;
               
-              const strokeColor = isHovered ? "#2563EB" : "rgba(124, 58, 237, 0.18)";
+              const strokeColor = isHovered ? "#2563EB" : "rgba(30, 58, 138, 0.18)";
               const strokeWidth = isHovered ? 3 : 1.2;
 
               return (
@@ -258,13 +258,13 @@ const AICoreVisualizer = () => {
                     y1="0"
                     x2={node.x}
                     y2={node.y}
-                    stroke="rgba(6, 182, 212, 0.3)"
+                    stroke="rgba(37, 99, 235, 0.3)"
                     strokeWidth="0.5"
                     strokeDasharray="8 8"
                   />
 
                   {/* Flowing energy particles */}
-                  <circle r={isHovered ? 5.5 : 3.5} fill={isHovered ? "#06B6D4" : node.color}>
+                  <circle r={isHovered ? 5.5 : 3.5} fill={isHovered ? "#D4AF37" : node.color}>
                     <animateMotion
                       dur={isHovered ? "1.2s" : "2.4s"}
                       repeatCount="indefinite"
@@ -291,23 +291,23 @@ const AICoreVisualizer = () => {
           className="absolute flex items-center justify-center pointer-events-none"
         >
           {/* Breathing glow fields */}
-          <div className="absolute w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.12)_0%,rgba(6,182,212,0.04)_50%,transparent_70%)] filter blur-xl animate-pulse" />
+          <div className="absolute w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(30,58,138,0.12)_0%,rgba(212,175,55,0.04)_50%,transparent_70%)] filter blur-xl animate-pulse" />
           
           <motion.div 
             animate={{ scale: [1, 1.05, 0.98, 1.02, 1] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-72 h-72 rounded-full border border-slate-200/80 bg-white/75 backdrop-blur-xl shadow-[0_20px_60px_rgba(124,58,237,0.1),0_1px_3px_rgba(0,0,0,0.02)] flex items-center justify-center"
+            className="relative w-72 h-72 rounded-full border border-slate-200/80 bg-white/75 backdrop-blur-xl shadow-[0_20px_60px_rgba(30,58,138,0.1),0_1px_3px_rgba(0,0,0,0.02)] flex items-center justify-center"
           >
             {/* Concentric rotating mechanical gear ring (Clockwise) */}
             <div 
               style={{ transform: `rotate(${time * 45}deg)` }}
-              className="absolute inset-2 border border-dashed border-violet-400/40 rounded-full"
+              className="absolute inset-2 border border-dashed border-[#D4AF37]/45 rounded-full"
             />
             
             {/* Concentric counter-rotating segmented gear ring (Counter-clockwise) */}
             <div 
               style={{ transform: `rotate(${-time * 30}deg)` }}
-              className="absolute inset-5 border-2 border-dotted border-cyan-400/40 rounded-full"
+              className="absolute inset-5 border-2 border-dotted border-[#1E3A8A]/45 rounded-full"
             />
 
             {/* 12 RADIAL ENERGY CHAMBERS (Arc Reactor Nodes) */}
@@ -320,11 +320,11 @@ const AICoreVisualizer = () => {
                     style={{
                       transform: `rotate(${angle}deg) translateY(-108px)`
                     }}
-                    className="absolute w-3.5 h-7 rounded-sm border border-slate-200/60 bg-gradient-to-t from-violet-500/10 via-cyan-400/30 to-white flex flex-col justify-between p-0.5 shadow-sm"
+                    className="absolute w-3.5 h-7 rounded-sm border border-slate-200/60 bg-gradient-to-t from-[#1E3A8A]/10 via-[#D4AF37]/30 to-white flex flex-col justify-between p-0.5 shadow-sm"
                   >
                     {/* Micro indicators inside energy pods */}
-                    <span className="w-full h-1 bg-cyan-400 animate-pulse rounded-full" style={{ animationDelay: `${i * 0.15}s` }} />
-                    <span className="w-full h-1 bg-violet-400 rounded-full" />
+                    <span className="w-full h-1 bg-[#D4AF37] animate-pulse rounded-full" style={{ animationDelay: `${i * 0.15}s` }} />
+                    <span className="w-full h-1 bg-[#1E3A8A] rounded-full" />
                   </div>
                 );
               })}
@@ -337,7 +337,7 @@ const AICoreVisualizer = () => {
                 className="absolute inset-0 opacity-[0.25]"
                 style={{
                   transform: `rotate(${time * 15}deg)`,
-                  backgroundImage: 'radial-gradient(circle, #7C3AED 1px, transparent 1.5px)',
+                  backgroundImage: 'radial-gradient(circle, #1E3A8A 1px, transparent 1.5px)',
                   backgroundSize: '12px 12px'
                 }}
               />
@@ -346,7 +346,7 @@ const AICoreVisualizer = () => {
               <motion.div 
                 animate={{ scale: [1, 1.15, 0.95, 1.1, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute w-24 h-24 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-500 to-cyan-400 shadow-[0_0_40px_rgba(6,182,212,0.5),_inset_0_0_20px_rgba(255,255,255,0.4)] flex flex-col items-center justify-center p-4"
+                className="absolute w-24 h-24 rounded-full bg-gradient-to-tr from-[#1E3A8A] via-[#2563EB] to-[#D4AF37] shadow-[0_0_40px_rgba(212,175,55,0.5),_inset_0_0_20px_rgba(255,255,255,0.4)] flex flex-col items-center justify-center p-4"
               >
                 <Cpu className="w-9 h-9 text-white animate-pulse" />
                 <span className="text-[7px] font-mono font-black text-white tracking-[0.25em] mt-1.5 animate-pulse">SINGULARITY</span>
@@ -354,8 +354,8 @@ const AICoreVisualizer = () => {
 
               {/* Micro Status Indicators around the processor */}
               <div className="absolute inset-1 flex items-center justify-between p-2 pointer-events-none opacity-60">
-                <span className="text-[7px] font-mono font-bold text-violet-600">AC_PWR_ON</span>
-                <span className="text-[7px] font-mono font-bold text-cyan-600">SYS_NOM</span>
+                <span className="text-[7px] font-mono font-bold text-[#1E3A8A]">AC_PWR_ON</span>
+                <span className="text-[7px] font-mono font-bold text-[#D4AF37]">SYS_NOM</span>
               </div>
             </div>
           </motion.div>
@@ -384,8 +384,8 @@ const AICoreVisualizer = () => {
                 <div
                   onMouseEnter={() => setHoveredIdx(node.index)}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  className={`w-56 p-4.5 rounded-2xl bg-white/80 backdrop-blur-lg border border-slate-200/90 shadow-[0_15px_40px_rgba(15,23,42,0.06)] hover:shadow-[0_25px_50px_rgba(37,99,235,0.12)] cursor-pointer transition-all duration-300 ${
-                    isHovered ? 'border-blue-500 ring-2 ring-blue-500/10' : ''
+                  className={`w-56 p-4.5 rounded-2xl bg-white/95 backdrop-blur-lg border border-slate-200/90 shadow-[0_15px_40px_rgba(15,23,42,0.06)] hover:shadow-[0_25px_50px_rgba(212,175,55,0.12)] cursor-pointer transition-all duration-300 ${
+                    isHovered ? 'border-[#D4AF37] ring-2 ring-[#D4AF37]/10' : ''
                   }`}
                 >
                   {/* Ledger Header & LED status */}
@@ -444,7 +444,7 @@ const AICoreVisualizer = () => {
               initial={{ opacity: 0, y: 15, scale: 0.95, translateZ: '120px' }}
               animate={{ opacity: 1, y: 0, scale: 1, translateZ: '120px' }}
               exit={{ opacity: 0, y: 15, scale: 0.95, translateZ: '120px' }}
-              className="absolute bottom-6 left-6 right-6 md:right-auto md:w-[420px] p-6 rounded-2xl bg-white/90 backdrop-blur-xl border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.12)] z-[300]"
+              className="absolute bottom-6 left-6 right-6 md:right-auto md:w-[420px] p-6 rounded-2xl bg-white/95 backdrop-blur-xl border border-[#D4AF37]/25 shadow-[0_20px_50px_rgba(212,175,55,0.08)] z-[300]"
             >
               <div className="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
                 <div 
@@ -454,7 +454,7 @@ const AICoreVisualizer = () => {
                   {React.createElement(SUBSYSTEMS[hoveredIdx].icon, { className: "w-5.5 h-5.5" })}
                 </div>
                 <div>
-                  <h3 className="text-xs font-black text-slate-850 uppercase tracking-widest leading-none">
+                  <h3 className="text-xs font-black text-[#1E3A8A] uppercase tracking-widest leading-none">
                     {SUBSYSTEMS[hoveredIdx].name}
                   </h3>
                   <span className="text-[8px] font-mono text-slate-400 uppercase tracking-wider block mt-1">

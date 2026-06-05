@@ -69,8 +69,8 @@ const Settings = () => {
     <div className="space-y-8 pb-16">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-black text-slate-900 tracking-tight">System Settings</h1>
-        <p className="text-slate-500 mt-1 text-sm font-medium">Fine-tune active neural profiles and safety firewall parameters.</p>
+        <h1 className="text-3xl font-black text-slate-900 tracking-tight">ECHOMIND Settings</h1>
+        <p className="text-slate-500 mt-1 text-sm font-medium">Fine-tune active ECHOMIND profiles and safety firewall parameters.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -81,7 +81,7 @@ const Settings = () => {
           {/* Model Tuning Parameters */}
           <GlassCard className="p-8 border-slate-200/80 bg-white/70 shadow-sm">
             <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-violet-50 border border-violet-200 rounded-xl text-violet-600">
+              <div className="p-2 bg-primary/10 border border-primary/20 rounded-xl text-primary">
                 <Sliders className="w-5 h-5" />
               </div>
               <div>
@@ -95,7 +95,7 @@ const Settings = () => {
               <div className="space-y-3">
                 <div className="flex justify-between text-xs font-bold text-slate-500">
                   <span className="uppercase tracking-wider">Temperature</span>
-                  <span className="font-mono text-violet-600 font-bold">{temperature.toFixed(2)}</span>
+                  <span className="font-mono text-primary font-bold">{temperature.toFixed(2)}</span>
                 </div>
                 <div className="relative">
                   <input 
@@ -105,7 +105,7 @@ const Settings = () => {
                     step="0.05"
                     value={temperature}
                     onChange={(e) => setTemperature(parseFloat(e.target.value))}
-                    className="w-full accent-violet-500 bg-slate-100 h-1.5 rounded-lg appearance-none cursor-pointer"
+                    className="w-full accent-primary bg-slate-100 h-1.5 rounded-lg appearance-none cursor-pointer"
                   />
                   <div className="flex justify-between text-[8px] font-mono text-slate-400 mt-1 px-1">
                     <span>STRICT (0.00)</span>
@@ -118,7 +118,7 @@ const Settings = () => {
               <div className="space-y-3">
                 <div className="flex justify-between text-xs font-bold text-slate-500">
                   <span className="uppercase tracking-wider">Max Generation Tokens</span>
-                  <span className="font-mono text-violet-600 font-bold">{maxTokens} tokens</span>
+                  <span className="font-mono text-primary font-bold">{maxTokens} tokens</span>
                 </div>
                 <div className="relative">
                   <input 
@@ -128,7 +128,7 @@ const Settings = () => {
                     step="128"
                     value={maxTokens}
                     onChange={(e) => setMaxTokens(parseInt(e.target.value))}
-                    className="w-full accent-violet-500 bg-slate-100 h-1.5 rounded-lg appearance-none cursor-pointer"
+                    className="w-full accent-primary bg-slate-100 h-1.5 rounded-lg appearance-none cursor-pointer"
                   />
                   <div className="flex justify-between text-[8px] font-mono text-slate-400 mt-1 px-1">
                     <span>128 TOKENS</span>
@@ -142,7 +142,7 @@ const Settings = () => {
           {/* Active Tone Profile Selection */}
           <GlassCard className="p-8 border-slate-200/80 bg-white/70 shadow-sm">
             <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-pink-50 border border-pink-200 rounded-xl text-pink-600">
+              <div className="p-2 bg-secondary/10 border border-secondary/20 rounded-xl text-secondary">
                 <Smile className="w-5 h-5" />
               </div>
               <div>
@@ -150,7 +150,7 @@ const Settings = () => {
                 <p className="text-[10px] text-slate-400 uppercase font-mono tracking-wider mt-0.5">Select bot interaction persona</p>
               </div>
             </div>
-
+ 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {personas.map((persona) => {
                 const Icon = persona.icon;
@@ -164,11 +164,11 @@ const Settings = () => {
                     onClick={() => setActivePersona(persona.id)}
                     className={`p-6 rounded-2xl border text-left transition-all flex flex-col justify-between h-44 ${
                       isSelected 
-                        ? 'border-pink-500/30 bg-pink-50/50 shadow-sm' 
+                        ? 'border-secondary/30 bg-secondary/5 shadow-sm' 
                         : 'border-slate-200 bg-slate-50 hover:border-slate-300'
                     }`}
                   >
-                    <div className={`p-2.5 rounded-xl bg-white border border-slate-200 ${isSelected ? 'text-pink-600' : 'text-slate-400'}`}>
+                    <div className={`p-2.5 rounded-xl bg-white border border-slate-200 ${isSelected ? 'text-secondary' : 'text-slate-400'}`}>
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
@@ -255,7 +255,7 @@ const Settings = () => {
           {/* Database connections */}
           <GlassCard className="p-8 border-slate-200/80 bg-white/70 shadow-sm">
             <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-cyan-50 border border-cyan-200 rounded-xl text-cyan-600">
+              <div className="p-2 bg-secondary/10 border border-secondary/20 rounded-xl text-secondary">
                 <Database className="w-5 h-5" />
               </div>
               <div>
@@ -263,7 +263,7 @@ const Settings = () => {
                 <p className="text-[10px] text-slate-400 uppercase font-mono tracking-wider mt-0.5">ChromaDB index targets</p>
               </div>
             </div>
-
+ 
             <div className="space-y-6">
               <div className="space-y-2">
                 <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest font-mono">CONNECTION URL</span>
@@ -272,7 +272,7 @@ const Settings = () => {
                     type="text" 
                     value={dbUrl}
                     onChange={(e) => setDbUrl(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-800 focus:outline-none focus:border-cyan-500/30"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-800 focus:outline-none focus:border-secondary/30"
                   />
                   <div className="absolute right-4 p-1 rounded bg-slate-100">
                     <Lock className="w-3.5 h-3.5 text-slate-400" />

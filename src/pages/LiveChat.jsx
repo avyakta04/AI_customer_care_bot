@@ -18,7 +18,7 @@ import EmotionBadge from '../components/EmotionBadge';
 import GlassCard from '../components/GlassCard';
 
 const initialMessages = [
-  { id: 1, text: "Neural connection established. Secure Session ID: 0x-A492-B812. AI Core v4.0 monitoring engaged.", isAI: true, timestamp: "10:00 AM", status: "SYSTEM_INIT" },
+  { id: 1, text: "ECHOMIND connection established. Secure Session ID: 0x-A492-B812. AI Core v4.0 monitoring engaged.", isAI: true, timestamp: "10:00 AM", status: "SYSTEM_INIT" },
   { id: 2, text: "Hello, I've been trying to access my enterprise dashboard for the last hour but I keep getting a credential mismatch error. This is very frustrating as I have a deadline.", isAI: false, timestamp: "10:01 AM" },
 ];
 
@@ -73,7 +73,7 @@ const LiveChat = () => {
       case 'Confused':
         return 'shadow-[0_0_30px_rgba(245,158,11,0.15)] border-amber-500/20';
       default:
-        return 'shadow-[0_0_30px_rgba(139,92,246,0.15)] border-violet-500/20';
+        return 'shadow-[0_0_30px_rgba(30,58,138,0.15)] border-primary/20';
     }
   };
 
@@ -156,7 +156,7 @@ const LiveChat = () => {
         text: "",
         isAI: true,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        status: "NEURAL_STREAMING"
+        status: "ECHOMIND_STREAMING"
       };
 
       setMessages(prev => [...prev, streamingMsg]);
@@ -222,7 +222,7 @@ const LiveChat = () => {
           <div className="px-8 py-5 border-b border-slate-200/80 flex items-center justify-between bg-slate-50/40 backdrop-blur-md">
             <div className="flex items-center gap-4">
               <div className="relative">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-white shadow-lg">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-premium flex items-center justify-center text-white shadow-lg">
                   <BrainCircuit className="w-6 h-6" />
                 </div>
                 <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-white flex items-center justify-center border border-slate-200">
@@ -236,8 +236,8 @@ const LiveChat = () => {
             </div>
             
             <div className="hidden sm:flex items-center gap-3">
-              <div className="px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2 group hover:border-violet-500/30 transition-colors cursor-default">
-                <ShieldCheck className="w-3.5 h-3.5 text-violet-500 group-hover:scale-110 transition-transform" />
+              <div className="px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-2 group hover:border-primary/30 transition-colors cursor-default">
+                <ShieldCheck className="w-3.5 h-3.5 text-primary" />
                 <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">Protocol Secured</span>
               </div>
             </div>
@@ -262,13 +262,13 @@ const LiveChat = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="flex gap-4 mb-6"
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-600 shadow-sm animate-pulse">
+                <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shadow-sm animate-pulse">
                   <BrainCircuit className="w-6 h-6" />
                 </div>
                 <div className="bg-slate-50 border border-slate-200 p-6 rounded-[2rem] rounded-tl-none flex flex-col gap-4 min-w-[320px] shadow-sm">
                   <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.2em] font-black">Neural Reasoning Active</span>
-                    <span className="w-2 h-2 rounded-full bg-violet-500 animate-ping" />
+                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.2em] font-black">ECHOMIND Reasoning Active</span>
+                    <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
                   </div>
                   <div className="space-y-2">
                     {[
@@ -277,15 +277,15 @@ const LiveChat = () => {
                       { step: 3, label: 'Supervisor Evaluation & Hallucination Scan' },
                       { step: 4, label: 'Response Generation Engaged' }
                     ].map((s) => {
-                      const isActive = reasoningStep === s.step;
-                      const isDone = reasoningStep > s.step;
-                      return (
+                       const isActive = reasoningStep === s.step;
+                       const isDone = reasoningStep > s.step;
+                       return (
                         <div key={s.step} className="flex items-center gap-3 text-xs">
                           <div className={`w-4 h-4 rounded-full flex items-center justify-center border text-[9px] font-mono transition-all duration-300 ${
                             isDone 
                               ? 'bg-emerald-50 border border-emerald-200 text-emerald-600' 
                               : isActive 
-                              ? 'bg-violet-50 border border-violet-200 text-violet-600 animate-pulse shadow-sm'
+                              ? 'bg-primary/5 border border-primary/20 text-primary animate-pulse shadow-sm'
                               : 'bg-slate-100 border-slate-200 text-slate-400'
                           }`}>
                             {isDone ? '✓' : s.step}
@@ -308,13 +308,13 @@ const LiveChat = () => {
           <div className="p-6 bg-slate-50/50 border-t border-slate-200">
             <div className="max-w-4xl mx-auto flex items-end gap-4">
               <div className="flex-1 relative group">
-                <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent group-focus-within:via-violet-500 transition-all" />
+                <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent group-focus-within:via-primary transition-all" />
                 <textarea
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleSend())}
                   placeholder="Enter message or use /commands..."
-                  className="w-full bg-white border border-slate-200 rounded-[2rem] p-5 pr-14 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-violet-500/30 transition-all resize-none min-h-[64px] max-h-48 shadow-sm"
+                  className="w-full bg-white border border-slate-200 rounded-[2rem] p-5 pr-14 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-primary/30 transition-all resize-none min-h-[64px] max-h-48 shadow-sm"
                   rows={1}
                 />
                 <button className="absolute right-5 bottom-5 p-1 text-slate-400 hover:text-slate-800 transition-colors group">
@@ -322,13 +322,13 @@ const LiveChat = () => {
                 </button>
               </div>
               <div className="flex gap-3">
-                <button className="p-5 bg-slate-100 border border-slate-250 rounded-[2rem] text-slate-400 hover:text-violet-600 hover:bg-violet-50 transition-all group active:scale-95 shadow-sm">
+                <button className="p-5 bg-slate-100 border border-slate-250 rounded-[2rem] text-slate-400 hover:text-primary hover:bg-primary/5 transition-all group active:scale-95 shadow-sm">
                   <Mic className="w-5 h-5 transition-transform group-hover:scale-110" />
                 </button>
                 <button 
                   onClick={handleSend}
                   disabled={!inputValue.trim() || isStreaming}
-                  className="p-5 bg-violet-600 text-white rounded-[2rem] shadow-sm hover:brightness-110 transition-all disabled:opacity-50 active:scale-95 group"
+                  className="p-5 bg-gradient-premium text-white rounded-[2rem] shadow-sm hover:brightness-110 transition-all disabled:opacity-50 active:scale-95 group"
                 >
                   <Send className="w-5 h-5 fill-current group-hover:rotate-12 transition-transform" />
                 </button>
@@ -346,8 +346,8 @@ const LiveChat = () => {
         {/* Customer Persona Simulator Card */}
         <GlassCard className="border-slate-200/80 rounded-[2.5rem] bg-white/70 shadow-sm p-8">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 rounded-xl bg-violet-500/10 border border-violet-500/20">
-              <Sparkles className="w-5 h-5 text-violet-500" />
+            <div className="p-2 rounded-xl bg-primary/10 border border-primary/20">
+              <Sparkles className="w-5 h-5 text-primary" />
             </div>
             <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">Simulator Personas</h3>
           </div>
@@ -362,12 +362,12 @@ const LiveChat = () => {
                   setCurrentEmotion({ type: persona.emotion, confidence: persona.confidence });
                   setActiveTags(persona.tags);
                 }}
-                className="w-full text-left p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-violet-500/30 transition-all flex items-start gap-3.5 group"
+                className="w-full text-left p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-primary/30 transition-all flex items-start gap-3.5 group"
               >
                 <span className="text-2xl mt-0.5">{persona.emoji}</span>
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-center">
-                    <h4 className="text-xs font-black text-slate-700 group-hover:text-violet-600 transition-colors uppercase tracking-wider">{persona.name}</h4>
+                    <h4 className="text-xs font-black text-slate-700 group-hover:text-primary transition-colors uppercase tracking-wider">{persona.name}</h4>
                     <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest font-black">{persona.emotion}</span>
                   </div>
                   <p className="text-[10px] text-slate-500 mt-1 truncate font-medium">{persona.text}</p>
@@ -380,8 +380,8 @@ const LiveChat = () => {
         <GlassCard className="border-slate-200/80 rounded-[2.5rem] bg-white/70 shadow-sm">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-violet-500/10 border border-violet-500/20">
-                <Activity className="w-5 h-5 text-violet-500 animate-pulse" />
+              <div className="p-2 rounded-xl bg-secondary/10 border border-secondary/20">
+                <Activity className="w-5 h-5 text-secondary animate-pulse" />
               </div>
               <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">Emotion Core</h3>
             </div>
@@ -436,7 +436,7 @@ const LiveChat = () => {
                     scale: [1, 1.04, 1],
                     boxShadow: [
                       '0 0 10px rgba(15,23,42,0.02)',
-                      '0 0 20px rgba(139,92,246,0.1)',
+                      '0 0 20px rgba(30,58,138,0.1)',
                       '0 0 10px rgba(15,23,42,0.02)'
                     ]
                   }}
@@ -462,15 +462,15 @@ const LiveChat = () => {
                     initial={{ width: 0 }}
                     animate={{ width: `${currentEmotion.confidence}%` }}
                     transition={{ duration: 1.5, cubicBezier: [0.16, 1, 0.3, 1] }}
-                    className={`h-full rounded-full bg-gradient-to-r ${currentEmotion.type === 'Urgent' || currentEmotion.type === 'Frustrated' ? 'from-red-500 via-orange-500 to-amber-500' : 'from-indigo-500 via-violet-500 to-purple-500'}`}
+                    className={`h-full rounded-full bg-gradient-to-r ${currentEmotion.type === 'Urgent' || currentEmotion.type === 'Frustrated' ? 'from-red-500 via-orange-500 to-amber-500' : 'from-primary to-secondary'}`}
                   />
                 </div>
               </div>
             </div>
  
-            <div className="p-6 rounded-[2rem] bg-gradient-to-br from-violet-50 to-transparent border border-violet-100">
+            <div className="p-6 rounded-[2rem] bg-gradient-to-br from-primary/5 to-transparent border border-primary/10">
               <div className="flex items-center gap-3 mb-4">
-                <Sparkles className="w-4 h-4 text-violet-500" />
+                <Sparkles className="w-4 h-4 text-primary" />
                 <span className="text-[11px] font-black text-slate-800 uppercase tracking-[0.1em]">AI Adaptive Tone</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed font-medium italic">
@@ -485,7 +485,7 @@ const LiveChat = () => {
             <div className="p-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20">
               <Info className="w-5 h-5 text-indigo-500" />
             </div>
-            <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">Neural Insights</h3>
+            <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">ECHOMIND Insights</h3>
           </div>
           
           <div className="space-y-8">

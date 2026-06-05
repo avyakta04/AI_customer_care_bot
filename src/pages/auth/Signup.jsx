@@ -116,7 +116,7 @@ const Signup = () => {
              <input type="checkbox" required className="w-4 h-4 rounded bg-white/5 border-white/10 text-primary-neon focus:ring-primary-neon ring-offset-slate-950" />
            </div>
            <p className="text-[10px] text-white/30 leading-relaxed uppercase tracking-wider">
-             I authorize the processing of my neural fingerprints and agree to the <span className="text-white/60 font-bold">Protocol Stability Agreement</span>.
+             I authorize the processing of my ECHOMIND profiles and agree to the <span className="text-white/60 font-bold">Protocol Stability Agreement</span>.
            </p>
         </div>
 
@@ -133,7 +133,7 @@ const Signup = () => {
             />
           ) : (
             <>
-              Sync Neural Interface 
+              Sync ECHOMIND Interface 
               <UserPlus className="w-4 h-4" />
             </>
           )}

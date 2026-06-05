@@ -34,7 +34,7 @@ const Login = () => {
     <AuthLayout>
       <div className="mb-8">
         <h2 className="text-2xl font-bold text-white mb-2">Welcome Back</h2>
-        <p className="text-white/50 text-sm">Access your neural dashboard and AI assets.</p>
+        <p className="text-white/50 text-sm">Access your ECHOMIND dashboard and AI assets.</p>
       </div>
 
       <form onSubmit={handleLogin} className="space-y-6">

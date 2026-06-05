@@ -13,42 +13,42 @@ import {
 const nodes = [
   {
     id: 'emotion',
-    title: 'Emotion Detection Engine',
+    title: 'ECHOMIND Emotion Engine',
     desc: 'Real-time speech & text tone processing',
     icon: Activity,
-    color: 'text-violet-600',
-    borderColor: 'border-violet-200/80',
-    glowColor: 'rgba(139, 92, 246, 0.15)',
+    color: 'text-[#1E3A8A]',
+    borderColor: 'border-[#1E3A8A]/20',
+    glowColor: 'rgba(30, 58, 138, 0.15)',
     states: ['SCANNING_INPUT', 'TREAT_ANALYSIS', 'NOMINAL_STATE'],
   },
   {
     id: 'memory',
-    title: 'Vector Memory Retrieval',
+    title: 'ECHOMIND Memory Core',
     desc: 'Semantic context lookup via ChromaDB',
     icon: Database,
-    color: 'text-cyan-650',
-    borderColor: 'border-cyan-200/80',
-    glowColor: 'rgba(6, 182, 212, 0.15)',
+    color: 'text-[#1E3A8A]',
+    borderColor: 'border-[#D4AF37]/20',
+    glowColor: 'rgba(212, 175, 55, 0.15)',
     states: ['VECTOR_SEARCH', 'CONTEXT_INJECTION', 'VERIFIED_CACHE'],
   },
   {
     id: 'supervisor',
-    title: 'AI Supervisor Shield',
+    title: 'ECHOMIND AI Supervisor',
     desc: 'Hallucination & safety verification layer',
     icon: ShieldCheck,
-    color: 'text-amber-600',
-    borderColor: 'border-amber-200/80',
-    glowColor: 'rgba(217, 119, 6, 0.15)',
+    color: 'text-[#D4AF37]',
+    borderColor: 'border-[#D4AF37]/20',
+    glowColor: 'rgba(212, 175, 55, 0.15)',
     states: ['POLICING_SAFETY', 'SYNTAX_CHECK', 'NOMINAL_SECURE'],
   },
   {
     id: 'learning',
-    title: 'Hindsight Learning Core',
+    title: 'ECHOMIND Learning Engine',
     desc: 'Offline reinforcement learning optimization',
     icon: History,
-    color: 'text-emerald-600',
-    borderColor: 'border-emerald-200/80',
-    glowColor: 'rgba(16, 185, 129, 0.15)',
+    color: 'text-[#D4AF37]',
+    borderColor: 'border-[#1E3A8A]/20',
+    glowColor: 'rgba(30, 58, 138, 0.15)',
     states: ['COMPILING_WEIGHTS', 'SYNCING_NODES', 'WEIGHTS_NOMINAL'],
   }
 ];
@@ -91,7 +91,7 @@ const CoreArchitecturePipeline = () => {
             <Cpu className="w-5 h-5 text-violet-600 animate-spin-slow" />
           </div>
           <div>
-            <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">Neural System Architecture</h3>
+            <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest">ECHOMIND System Architecture</h3>
             <p className="text-[10px] text-slate-400 uppercase font-mono tracking-wider mt-0.5">End-to-End Operating Pipeline</p>
           </div>
         </div>

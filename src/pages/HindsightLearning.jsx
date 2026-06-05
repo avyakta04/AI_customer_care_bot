@@ -17,7 +17,7 @@ import { Line, Radar } from 'react-chartjs-2';
 
 const steps = [
   { label: 'User Feedback', icon: Activity },
-  { label: 'Neural Analysis', icon: BrainCircuit },
+  { label: 'ECHOMIND Analysis', icon: BrainCircuit },
   { label: 'Mistake Detection', icon: Target },
   { label: 'Weight Update', icon: RefreshCw },
   { label: 'Optimization', icon: Zap },
@@ -42,7 +42,7 @@ const HindsightLearning = () => {
       category: "FACTUAL_ACCURACY",
       scoreGain: 12,
       original: "The system reboot happens every Sunday at midnight.",
-      improved: "Neural reboots are scheduled for Sundays at 00:00 UTC. During this 5-minute window, read-only mode is active for all non-critical modules."
+      improved: "ECHOMIND reboots are scheduled for Sundays at 00:00 UTC. During this 5-minute window, read-only mode is active for all non-critical modules."
     }
   ]);
 
@@ -139,8 +139,8 @@ const HindsightLearning = () => {
                <History className="w-7 h-7" />
             </div>
             <div>
-               <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Hindsight Learning Engine</h1>
-               <p className="text-slate-500 mt-1">Autonomous self-correction and neural weight optimization cycle.</p>
+               <h1 className="text-3xl font-bold text-slate-900 tracking-tight">ECHOMIND Learning Center</h1>
+               <p className="text-slate-500 mt-1">Autonomous self-correction and ECHOMIND weight optimization cycle.</p>
             </div>
          </div>
          <div className="px-4 py-2 bg-slate-50 border border-slate-205 rounded-xl flex items-center gap-3">

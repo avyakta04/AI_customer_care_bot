@@ -187,7 +187,7 @@ const VoiceAnalysis = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Voice Emotion Analysis</h1>
+          <h1 className="text-3xl font-bold text-slate-900 tracking-tight">ECHOMIND Voice Intelligence</h1>
           <p className="text-slate-500 mt-1">Real-time spectral analysis and sentiment extraction.</p>
         </div>
         <div className="flex gap-4">
@@ -204,7 +204,7 @@ const VoiceAnalysis = () => {
              className={`px-6 py-3 rounded-2xl font-bold text-sm flex items-center gap-3 transition-all ${
                isRecording 
                ? 'bg-red-50 border border-red-200 text-red-600 animate-pulse shadow-sm' 
-               : 'bg-violet-600 text-white shadow-sm hover:brightness-110 active:scale-[0.98]'
+               : 'bg-primary text-white shadow-sm hover:brightness-110 active:scale-[0.98]'
              }`}
           >
             {isRecording ? <Square className="w-4 h-4 fill-current animate-spin" /> : <Play className="w-4 h-4 fill-current" />}
@@ -238,7 +238,7 @@ const VoiceAnalysis = () => {
           {/* Vocal Sample Soundboard */}
           <GlassCard className="border-slate-200/80 p-6 bg-white/70 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
-              <Mic className="w-5 h-5 text-violet-550 animate-pulse" />
+              <Mic className="w-5 h-5 text-primary animate-pulse" />
               <h3 className="text-xs font-bold text-slate-800 uppercase tracking-widest">Vocal Simulator Board</h3>
             </div>
             <div className="space-y-3">
@@ -257,14 +257,14 @@ const VoiceAnalysis = () => {
                   }}
                   className={`w-full text-left p-3.5 rounded-xl border transition-all flex flex-col ${
                     selectedSample?.title === sample.title && isRecording
-                      ? 'border-violet-500 bg-violet-50'
+                      ? 'border-primary bg-primary/5'
                       : 'border-slate-200 bg-slate-50 hover:border-slate-300'
                   }`}
                 >
                   <div className="flex justify-between items-center w-full">
                     <span className="text-[11px] font-black text-slate-700 uppercase tracking-wider">{sample.title}</span>
                     {selectedSample?.title === sample.title && isRecording && (
-                      <span className="text-[8px] font-mono text-violet-600 uppercase tracking-widest font-black animate-pulse">STREAMING</span>
+                      <span className="text-[8px] font-mono text-primary uppercase tracking-widest font-black animate-pulse">STREAMING</span>
                     )}
                   </div>
                   <span className="text-[9px] text-slate-550 mt-1 font-semibold">{sample.desc}</span>
@@ -276,7 +276,7 @@ const VoiceAnalysis = () => {
           <GlassCard className="border-slate-200/80 bg-white/70 shadow-sm">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xs font-bold text-slate-800 uppercase tracking-widest">Sentiment Confidence</h3>
-              <Crosshair className="w-4 h-4 text-violet-500 animate-spin-slow" />
+              <Crosshair className="w-4 h-4 text-primary animate-spin-slow" />
             </div>
             
             <div className="space-y-5">
@@ -311,7 +311,7 @@ const VoiceAnalysis = () => {
                  {isRecording 
                    ? (displayedTranscription || "Waiting for stream text segment...") 
                    : "Waiting for voice input stream..."}
-                 {isRecording && <span className="inline-block w-1 h-4 bg-violet-500 ml-1 animate-pulse" />}
+                 {isRecording && <span className="inline-block w-1 h-4 bg-primary ml-1 animate-pulse" />}
                </p>
              </div>
           </GlassCard>
@@ -322,7 +322,7 @@ const VoiceAnalysis = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <GlassCard>
            <div className="flex items-center gap-3 mb-4">
-             <Volume2 className="w-4 h-4 text-violet-600" />
+             <Volume2 className="w-4 h-4 text-primary" />
              <span className="text-[10px] font-bold text-slate-400 uppercase">Speech Intensity</span>
            </div>
            <div className="flex items-end gap-2">
@@ -330,13 +330,13 @@ const VoiceAnalysis = () => {
              <span className="text-[10px] text-slate-400 font-bold mb-1.5">dB</span>
            </div>
            <div className="h-12 mt-4">
-              <Line data={getChartData(intensityHistory, '#8b5cf6')} options={chartOptions} />
+              <Line data={getChartData(intensityHistory, '#1E3A8A')} options={chartOptions} />
            </div>
         </GlassCard>
 
         <GlassCard>
            <div className="flex items-center gap-3 mb-4">
-             <Wifi className="w-4 h-4 text-cyan-600" />
+             <Wifi className="w-4 h-4 text-secondary" />
              <span className="text-[10px] font-bold text-slate-400 uppercase">Fundamental Pitch</span>
            </div>
            <div className="flex items-end gap-2">
@@ -344,7 +344,7 @@ const VoiceAnalysis = () => {
               <span className="text-[10px] text-slate-400 font-bold mb-1.5">Hz</span>
            </div>
            <div className="h-12 mt-4">
-              <Line data={getChartData(pitchHistory, '#06b6d4')} options={chartOptions} />
+              <Line data={getChartData(pitchHistory, '#D4AF37')} options={chartOptions} />
            </div>
         </GlassCard>
 

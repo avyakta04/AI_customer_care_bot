@@ -69,7 +69,7 @@ const DynamicNeuralCanvas = () => {
         radius: Math.random() * 2 + 1,
         pulseSpeed: 0.01 + Math.random() * 0.02,
         pulseVal: Math.random() * Math.PI,
-        color: Math.random() > 0.5 ? 'rgba(124, 90, 246, 0.25)' : 'rgba(6, 182, 212, 0.25)'
+        color: Math.random() > 0.5 ? 'rgba(30, 58, 138, 0.25)' : 'rgba(212, 175, 55, 0.25)'
       });
     }
 
@@ -86,8 +86,8 @@ const DynamicNeuralCanvas = () => {
           mousePos.y,
           350
         );
-        gradient.addColorStop(0, 'rgba(124, 90, 246, 0.035)');
-        gradient.addColorStop(0.5, 'rgba(6, 182, 212, 0.015)');
+        gradient.addColorStop(0, 'rgba(30, 58, 138, 0.035)');
+        gradient.addColorStop(0.5, 'rgba(212, 175, 55, 0.015)');
         gradient.addColorStop(1, 'transparent');
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, width, height);
@@ -152,7 +152,7 @@ const DynamicNeuralCanvas = () => {
                 p1.y + (p2.y - p1.y) * 0.5,
                 4
               );
-              gradientPoint.addColorStop(0, '#8B5CF6');
+              gradientPoint.addColorStop(0, '#D4AF37');
               gradientPoint.addColorStop(1, 'transparent');
               ctx.fillStyle = gradientPoint;
               ctx.beginPath();
@@ -194,9 +194,9 @@ const Landing = () => {
 
   // Live updating feed events
   const [feedEvents, setFeedEvents] = useState([
-    { id: 1, type: "Emotion Detected", details: "Frustration patterns classified in sector 7G", color: "text-violet-600", bg: "bg-violet-50 border-violet-100", time: "Just now" },
-    { id: 2, type: "Memory Retrieved", details: "ChromaDB confidence lookup: 98.4%", color: "text-cyan-600", bg: "bg-cyan-50 border-cyan-100", time: "12s ago" },
-    { id: 3, type: "Supervisor Approved", details: "Hallucination scanning: NOMINAL (0.01%)", color: "text-amber-600", bg: "bg-amber-50 border-amber-100", time: "1m ago" },
+    { id: 1, type: "Emotion Detected", details: "Frustration patterns classified in sector 7G", color: "text-primary", bg: "bg-primary/5 border-primary/20", time: "Just now" },
+    { id: 2, type: "Memory Retrieved", details: "ChromaDB confidence lookup: 98.4%", color: "text-secondary", bg: "bg-secondary/10 border-secondary/20", time: "12s ago" },
+    { id: 3, type: "Supervisor Approved", details: "Hallucination scanning: NOMINAL (0.01%)", color: "text-secondary", bg: "bg-secondary/10 border-secondary/20", time: "1m ago" },
     { id: 4, type: "Learning Updated", details: "Offline weights sync cycle finished successfully", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-100", time: "3m ago" }
   ]);
 
@@ -220,11 +220,11 @@ const Landing = () => {
     // Real-time events stream push
     const eventInterval = setInterval(() => {
       const sampleEvents = [
-        { type: "Emotion Detected", details: "Tone detected: empathetic resolution bypass engaged", color: "text-violet-600", bg: "bg-violet-50 border-violet-100" },
-        { type: "Memory Retrieved", details: "Vector memory search hit cached sequence in sector 3A", color: "text-cyan-600", bg: "bg-cyan-50 border-cyan-100" },
-        { type: "Supervisor Approved", details: "Prompt injection validation check complete: SAFE", color: "text-amber-600", bg: "bg-amber-50 border-amber-100" },
+        { type: "Emotion Detected", details: "Tone detected: empathetic resolution bypass engaged", color: "text-primary", bg: "bg-primary/5 border-primary/20" },
+        { type: "Memory Retrieved", details: "Vector memory search hit cached sequence in sector 3A", color: "text-secondary", bg: "bg-secondary/10 border-secondary/20" },
+        { type: "Supervisor Approved", details: "Prompt injection validation check complete: SAFE", color: "text-secondary", bg: "bg-secondary/10 border-secondary/20" },
         { type: "Learning Updated", details: "Reinforcement feedback compilation loop engaged", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-100" },
-        { type: "Response Optimized", details: "Empathetic latency decreased by 14ms (total speed 68ms)", color: "text-indigo-600", bg: "bg-indigo-50 border-indigo-100" }
+        { type: "Response Optimized", details: "Empathetic latency decreased by 14ms (total speed 68ms)", color: "text-primary", bg: "bg-primary/5 border-primary/20" }
       ];
 
       const nextEvt = sampleEvents[Math.floor(Math.random() * sampleEvents.length)];
@@ -255,24 +255,24 @@ const Landing = () => {
 
   const rightOrbitSteps = [
     { label: "User Input", icon: Mic2, desc: "Acoustic streams and textual messages parsed", color: "text-slate-600", glow: "rgba(100, 116, 139, 0.15)" },
-    { label: "Emotion Detection", icon: Activity, desc: "Tone mapped against satisfaction grids", color: "text-violet-600", glow: "rgba(124, 58, 237, 0.15)" },
-    { label: "Memory Retrieval", icon: Database, desc: "ChromaDB queries past logs and cached files", color: "text-cyan-600", glow: "rgba(6, 182, 212, 0.15)" },
-    { label: "Context Builder", icon: BrainCircuit, desc: "Binds user parameters and vector caches", color: "text-indigo-600", glow: "rgba(99, 102, 241, 0.15)" },
-    { label: "AI Supervisor", icon: ShieldCheck, desc: "Intercepts unsafe prompts & hallucinations", color: "text-amber-600", glow: "rgba(245, 158, 11, 0.15)" },
+    { label: "Emotion Detection", icon: Activity, desc: "Tone mapped against satisfaction grids", color: "text-primary", glow: "rgba(30, 58, 138, 0.15)" },
+    { label: "Memory Retrieval", icon: Database, desc: "ChromaDB queries past logs and cached files", color: "text-secondary", glow: "rgba(212, 175, 55, 0.15)" },
+    { label: "Context Builder", icon: BrainCircuit, desc: "Binds user parameters and vector caches", color: "text-primary", glow: "rgba(30, 58, 138, 0.15)" },
+    { label: "AI Supervisor", icon: ShieldCheck, desc: "Intercepts unsafe prompts & hallucinations", color: "text-secondary", glow: "rgba(212, 175, 55, 0.15)" },
     { label: "Hindsight Learning", icon: History, desc: "Recalculates weights from final outcomes", color: "text-emerald-600", glow: "rgba(16, 185, 129, 0.15)" }
   ];
 
   return (
     <div 
       onMouseMove={handleMouseMove}
-      className="min-h-screen bg-[#F8FAFC] text-slate-900 selection:bg-violet-500/10 overflow-x-hidden relative font-inter"
+      className="min-h-screen bg-[#F8FAFC] text-slate-900 selection:bg-primary/10 overflow-x-hidden relative font-inter"
     >
       <DynamicNeuralCanvas />
       <LandingNavbar />
 
       {/* Decorative Blur Rays */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-tr from-violet-400/5 to-cyan-400/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-[20%] right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-indigo-400/5 to-emerald-400/5 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-tr from-primary/5 to-secondary/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-[20%] right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-primary/5 to-emerald-400/5 rounded-full blur-[130px] pointer-events-none" />
 
       {/* MAIN SCI-FI OS PANEL HUD */}
       <main className="max-w-[1600px] mx-auto pt-32 px-6 lg:px-12 relative z-10">
@@ -283,7 +283,7 @@ const Landing = () => {
           {/* LEFT SIDE: LIVE SYSTEM STATUS PANEL (2 Cols) */}
           <div className="xl:col-span-2 flex flex-col gap-6">
             <GlassCard className="flex-1 p-6 flex flex-col justify-between border-slate-200/80 bg-white/70 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-violet-600/5 rounded-full blur-2xl" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl" />
               <div>
                 <div className="flex justify-between items-center mb-6">
                   <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-black">Live System Status</span>
@@ -292,50 +292,50 @@ const Landing = () => {
 
                 <div className="space-y-6">
                   {/* Module 1: Emotion Engine */}
-                  <div className="p-4 rounded-2xl bg-white border border-slate-100 hover:border-violet-500/20 hover:shadow-sm transition-all duration-300">
+                  <div className="p-4 rounded-2xl bg-white border border-slate-100 hover:border-primary/20 hover:shadow-sm transition-all duration-300">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <Activity className="w-4 h-4 text-violet-600" />
+                        <Activity className="w-4 h-4 text-primary" />
                         <span className="text-xs font-bold text-slate-800">Emotion Engine</span>
                       </div>
-                      <span className="text-xs font-mono font-bold text-violet-600">{emotionScore.toFixed(1)}%</span>
+                      <span className="text-xs font-mono font-bold text-primary">{emotionScore.toFixed(1)}%</span>
                     </div>
                     {/* Mini sparkline chart SVG */}
                     <div className="h-6 w-full opacity-60">
                       <svg viewBox="0 0 100 20" className="w-full h-full">
-                        <path d="M 0 15 Q 10 5, 20 12 T 40 8 T 60 14 T 80 5 L 100 10" fill="none" stroke="#8b5cf6" strokeWidth="1.5" />
+                        <path d="M 0 15 Q 10 5, 20 12 T 40 8 T 60 14 T 80 5 L 100 10" fill="none" stroke="#1E3A8A" strokeWidth="1.5" />
                       </svg>
                     </div>
                   </div>
 
                   {/* Module 2: Memory Retrieval */}
-                  <div className="p-4 rounded-2xl bg-white border border-slate-100 hover:border-cyan-500/20 hover:shadow-sm transition-all duration-300">
+                  <div className="p-4 rounded-2xl bg-white border border-slate-100 hover:border-secondary/20 hover:shadow-sm transition-all duration-300">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <Database className="w-4 h-4 text-cyan-600" />
+                        <Database className="w-4 h-4 text-secondary" />
                         <span className="text-xs font-bold text-slate-800">Memory Retrieval</span>
                       </div>
-                      <span className="text-xs font-mono font-bold text-cyan-600">{memoryScore.toFixed(1)}%</span>
+                      <span className="text-xs font-mono font-bold text-secondary">{memoryScore.toFixed(1)}%</span>
                     </div>
                     <div className="h-6 w-full opacity-60">
                       <svg viewBox="0 0 100 20" className="w-full h-full">
-                        <path d="M 0 10 T 15 15 T 35 5 T 55 10 T 75 14 T 100 7" fill="none" stroke="#06b6d4" strokeWidth="1.5" />
+                        <path d="M 0 10 T 15 15 T 35 5 T 55 10 T 75 14 T 100 7" fill="none" stroke="#D4AF37" strokeWidth="1.5" />
                       </svg>
                     </div>
                   </div>
 
                   {/* Module 3: AI Supervisor */}
-                  <div className="p-4 rounded-2xl bg-white border border-slate-100 hover:border-amber-500/20 hover:shadow-sm transition-all duration-300">
+                  <div className="p-4 rounded-2xl bg-white border border-slate-100 hover:border-secondary/20 hover:shadow-sm transition-all duration-300">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <ShieldCheck className="w-4 h-4 text-amber-600" />
+                        <ShieldCheck className="w-4 h-4 text-secondary" />
                         <span className="text-xs font-bold text-slate-800">AI Supervisor</span>
                       </div>
-                      <span className="text-xs font-mono font-bold text-amber-600">{supervisorScore.toFixed(2)}%</span>
+                      <span className="text-xs font-mono font-bold text-secondary">{supervisorScore.toFixed(2)}%</span>
                     </div>
                     <div className="h-6 w-full opacity-60">
                       <svg viewBox="0 0 100 20" className="w-full h-full">
-                        <path d="M 0 12 T 20 10 T 40 11 T 60 9 T 80 12 T 100 10" fill="none" stroke="#f59e0b" strokeWidth="1.5" />
+                        <path d="M 0 12 T 20 10 T 40 11 T 60 9 T 80 12 T 100 10" fill="none" stroke="#D4AF37" strokeWidth="1.5" />
                       </svg>
                     </div>
                   </div>
@@ -377,16 +377,19 @@ const Landing = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-slate-200/60 shadow-sm relative z-20 mb-4"
               >
-                <Sparkles className="w-3.5 h-3.5 text-violet-600 animate-spin-slow" />
+                <Sparkles className="w-3.5 h-3.5 text-primary animate-spin-slow" />
                 <span className="text-[9px] font-black text-slate-800 uppercase tracking-[0.25em]">Emotional Intelligence OS</span>
               </motion.div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-[0.9] mb-2 select-none">
-                INTELLIGENCE <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-500 animate-pulse-slow">UNLEASHED</span>
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[0.9] mb-3 select-none">
+                <span className="text-primary">ECHO</span>
+                <span className="text-secondary">MIND</span>
               </h1>
-              <p className="text-[10px] text-slate-500 font-semibold tracking-wide uppercase max-w-sm leading-relaxed mb-1">
-                Bridge user emotion with real-time vector memory systems & supervisor shields.
+              <h2 className="text-sm md:text-base font-bold text-slate-700 tracking-wide uppercase max-w-lg leading-relaxed mb-3">
+                Emotion-Aware Customer Intelligence Platform
+              </h2>
+              <p className="text-xs text-slate-500 max-w-xl leading-relaxed mb-4">
+                ECHOMIND combines emotion detection, memory retrieval, AI supervision, and hindsight learning to deliver smarter, more empathetic customer interactions that improve over time.
               </p>
             </div>
 
@@ -410,7 +413,7 @@ const Landing = () => {
                 style={{ transform: `translate(${mouseOffset.x * -0.1}px, ${mouseOffset.y * -0.1}px)` }}
                 className="px-10 py-4.5 bg-white border border-slate-200 rounded-2xl font-black text-xs tracking-widest text-slate-800 hover:bg-slate-50 transition-all flex items-center gap-3 uppercase shadow-sm cursor-pointer"
               >
-                <Command className="w-4 h-4 text-cyan-600" />
+                <Command className="w-4 h-4 text-secondary" />
                 Live OS Feed
               </a>
             </div>
@@ -419,7 +422,7 @@ const Landing = () => {
           {/* RIGHT SIDE: INTERACTIVE AI PROCESSING ORBIT (2 Cols) */}
           <div className="xl:col-span-2 flex flex-col justify-between">
             <GlassCard className="flex-1 p-6 flex flex-col justify-between border-slate-200/80 bg-white/70 shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-24 h-24 bg-cyan-600/5 rounded-full blur-2xl" />
+              <div className="absolute top-0 left-0 w-24 h-24 bg-secondary/5 rounded-full blur-2xl" />
               
               <div>
                 <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-black block mb-6">AI Processing Orbit</span>
@@ -443,7 +446,7 @@ const Landing = () => {
                         }`}
                       >
                         {isActive && (
-                          <div className="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-violet-500 to-cyan-500 rounded-full" />
+                          <div className="absolute left-0 top-3 bottom-3 w-1 bg-gradient-to-b from-primary to-secondary rounded-full" />
                         )}
                         <div className={`p-2.5 rounded-xl bg-slate-50 border border-slate-200/60 ${step.color} ${isActive ? 'animate-bounce' : ''}`}>
                           <StepIcon className="w-4 h-4" />
@@ -497,12 +500,12 @@ const Landing = () => {
         {/* METRICS SECTION: FLOATING METRICS CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {[
-            { label: "Emotion Accuracy", value: `${emotionScore.toFixed(1)}%`, target: "95%", icon: Activity, progress: 94, trend: "up", color: "text-violet-600", stroke: "#8b5cf6" },
-            { label: "Response Quality", value: `${supervisorScore.toFixed(2)}%`, target: "100%", icon: ShieldCheck, progress: 99, trend: "up", color: "text-amber-600", stroke: "#f59e0b" },
-            { label: "Memory Recall", value: `${memoryScore.toFixed(1)}%`, target: "99%", icon: Database, progress: 98, trend: "up", color: "text-cyan-600", stroke: "#06b6d4" },
+            { label: "Emotion Accuracy", value: `${emotionScore.toFixed(1)}%`, target: "95%", icon: Activity, progress: 94, trend: "up", color: "text-primary", stroke: "#1E3A8A" },
+            { label: "Response Quality", value: `${supervisorScore.toFixed(2)}%`, target: "100%", icon: ShieldCheck, progress: 99, trend: "up", color: "text-secondary", stroke: "#D4AF37" },
+            { label: "Memory Recall", value: `${memoryScore.toFixed(1)}%`, target: "99%", icon: Database, progress: 98, trend: "up", color: "text-secondary", stroke: "#D4AF37" },
             { label: "Customer Satisfaction", value: "4.86/5", target: "4.90", icon: Sparkles, progress: 97, trend: "up", color: "text-emerald-600", stroke: "#10b981" }
           ].map((card, idx) => (
-            <GlassCard key={idx} className="border-slate-200/80 bg-white/70 shadow-sm p-6 flex items-center justify-between group hover:border-violet-500/20 transition-all duration-300">
+            <GlassCard key={idx} className="border-slate-200/80 bg-white/70 shadow-sm p-6 flex items-center justify-between group hover:border-primary/20 transition-all duration-300">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <div className={`p-2 rounded-xl bg-slate-50 border border-slate-200/60 ${card.color}`}>
@@ -544,8 +547,8 @@ const Landing = () => {
           <GlassCard className="border border-slate-200/80 bg-white/70 shadow-sm p-8">
             <div className="flex justify-between items-center mb-8">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-violet-50 border border-violet-100 rounded-xl">
-                  <Network className="w-5 h-5 text-violet-600 animate-pulse" />
+                <div className="p-2 bg-primary/5 border border-primary/10 rounded-xl">
+                  <Network className="w-5 h-5 text-primary animate-pulse" />
                 </div>
                 <div>
                   <h2 className="text-lg font-black text-slate-800 tracking-tight">Live OS Execution Stream</h2>
@@ -557,7 +560,7 @@ const Landing = () => {
                 Trace Socket Active
               </div>
             </div>
-
+ 
             <div className="space-y-4">
               <AnimatePresence mode="popLayout">
                 {feedEvents.map((evt) => (
@@ -567,7 +570,7 @@ const Landing = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                    className="p-4 bg-white border border-slate-100 rounded-2xl flex items-center justify-between group hover:border-violet-500/20 transition-all duration-300 shadow-sm"
+                    className="p-4 bg-white border border-slate-100 rounded-2xl flex items-center justify-between group hover:border-primary/20 transition-all duration-300 shadow-sm"
                   >
                     <div className="flex items-center gap-4">
                       <span className={`px-3 py-1.5 rounded-xl font-mono text-[9px] font-black uppercase tracking-wider border ${evt.bg} ${evt.color}`}>
@@ -585,7 +588,7 @@ const Landing = () => {
 
         {/* CTA PLATFORM ENTRY BANNER */}
         <section className="py-24 relative overflow-hidden z-10 flex flex-col items-center justify-center text-center">
-          <div className="absolute -inset-10 bg-violet-600/5 rounded-full blur-[150px] pointer-events-none" />
+          <div className="absolute -inset-10 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
           <div className="max-w-4xl mx-auto">
             <motion.h2 
               initial={{ opacity: 0, scale: 0.95 }}
@@ -620,17 +623,17 @@ const Landing = () => {
       <footer className="py-16 border-t border-slate-200/80 px-6 bg-white relative z-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex items-center gap-4 group">
-            <div className="p-3 rounded-xl bg-violet-50 border border-violet-200 group-hover:rotate-12 transition-transform">
-              <BrainCircuit className="w-6 h-6 text-violet-600" />
+            <div className="p-3 rounded-xl bg-primary/5 border border-primary/10 group-hover:rotate-12 transition-transform">
+              <BrainCircuit className="w-6 h-6 text-primary" />
             </div>
-            <span className="text-lg font-black tracking-tighter text-slate-800 uppercase italic">NEURA_PLATFORM</span>
+            <span className="text-lg font-black tracking-tighter text-slate-800 uppercase italic">ECHOMIND</span>
           </div>
           <div className="flex flex-wrap justify-center gap-8 text-xs font-black text-slate-400 uppercase tracking-[0.25em]">
-            <a href="#" className="hover:text-violet-600 transition-colors">Neural_Ethics</a>
-            <a href="#" className="hover:text-violet-600 transition-colors">Open_API_Log</a>
-            <a href="#" className="hover:text-violet-600 transition-colors">Security_Ops</a>
+            <a href="#" className="hover:text-primary transition-colors">Ethics</a>
+            <a href="#" className="hover:text-primary transition-colors">Open_API_Log</a>
+            <a href="#" className="hover:text-primary transition-colors">Security_Ops</a>
           </div>
-          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">© 2026 Neura Systems. All Core modules active.</p>
+          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">© 2026 ECHOMIND. Every Conversation Matters.</p>
         </div>
       </footer>
     </div>

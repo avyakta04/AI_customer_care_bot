@@ -17,8 +17,8 @@ import VectorCard from '../components/VectorCard';
 
 const searchSteps = [
   { icon: Search, label: 'Query Input', color: 'text-slate-800' },
-  { icon: Fingerprint, label: 'Embedding (MiniLM)', color: 'text-violet-600' },
-  { icon: Database, label: 'ChromaDB Search', color: 'text-cyan-600' },
+  { icon: Fingerprint, label: 'Embedding (MiniLM)', color: 'text-primary' },
+  { icon: Database, label: 'ChromaDB Search', color: 'text-secondary' },
   { icon: Link2, label: 'Context Injection', color: 'text-emerald-600' },
 ];
 
@@ -109,13 +109,13 @@ const MemoryRetrieval = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Semantic Memory Retrieval</h1>
+          <h1 className="text-3xl font-bold text-slate-900 tracking-tight">ECHOMIND Memory Retrieval</h1>
           <p className="text-slate-500 mt-1">Visualizing vector similarity and contextual context construction.</p>
         </div>
         <button 
           onClick={startSearch}
           disabled={isSearching}
-          className="px-6 py-3 bg-cyan-50 border border-cyan-200 rounded-2xl font-bold text-sm text-cyan-600 hover:bg-cyan-100 transition-all flex items-center gap-3 disabled:opacity-50 active:scale-[0.98]"
+          className="px-6 py-3 bg-secondary/10 border border-secondary/20 rounded-2xl font-bold text-sm text-secondary hover:bg-secondary/20 transition-all flex items-center gap-3 disabled:opacity-50 active:scale-[0.98]"
         >
           <RefreshCcw className={`w-4 h-4 ${isSearching ? 'animate-spin' : ''}`} />
           RE-GENERATE CONTEXT
@@ -127,7 +127,7 @@ const MemoryRetrieval = () => {
         <GlassCard className="lg:col-span-8 border-slate-200/80 relative overflow-hidden flex flex-col justify-center min-h-[450px] bg-white/70 shadow-sm">
           {/* Animated Background Flow */}
           <div className="absolute inset-0 pointer-events-none z-0">
-             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.02),transparent)]" />
+             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(30,58,138,0.02),transparent)]" />
              {isSearching && (
                 <motion.div 
                   initial={{ opacity: 0 }}
@@ -140,7 +140,7 @@ const MemoryRetrieval = () => {
                       initial={{ x: -100, y: Math.random() * 400, opacity: 0 }}
                       animate={{ x: 1200, opacity: [0, 1, 0] }}
                       transition={{ repeat: Infinity, duration: 2 + Math.random() * 2, delay: Math.random() * 2 }}
-                      className="absolute w-1.5 h-1.5 bg-cyan-500 rounded-full blur-[1px]"
+                      className="absolute w-1.5 h-1.5 bg-primary rounded-full blur-[1px]"
                     />
                   ))}
                 </motion.div>
@@ -184,7 +184,7 @@ const MemoryRetrieval = () => {
                                  duration: 1.2, 
                                  ease: 'linear' 
                                }}
-                               className="absolute h-full w-16 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+                               className="absolute h-full w-16 bg-gradient-to-r from-transparent via-secondary to-transparent"
                              />
                            )}
                         </div>
@@ -203,7 +203,7 @@ const MemoryRetrieval = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       className={`text-xs flex gap-2 ${
-                        log.type === 'success' ? 'text-emerald-600 font-semibold' : log.type === 'warning' ? 'text-amber-600 font-semibold' : 'text-cyan-600'
+                        log.type === 'success' ? 'text-emerald-600 font-semibold' : log.type === 'warning' ? 'text-amber-600 font-semibold' : 'text-primary'
                       }`}
                     >
                       <span className="text-slate-300 font-bold">{log.t}</span>
@@ -219,7 +219,7 @@ const MemoryRetrieval = () => {
         {/* Results Sidebar */}
         <div className="lg:col-span-4 space-y-6">
           <div className="flex items-center gap-3 mb-2 px-2">
-            <Layers className="w-5 h-5 text-violet-600" />
+            <Layers className="w-5 h-5 text-primary" />
             <h3 className="text-sm font-bold text-slate-800 uppercase tracking-widest">Retrieved Contexts</h3>
           </div>
 

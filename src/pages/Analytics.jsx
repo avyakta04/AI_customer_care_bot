@@ -126,10 +126,10 @@ const Analytics = () => {
         'rgba(245, 158, 11, 0.5)',
         'rgba(239, 68, 68, 0.5)',
         'rgba(249, 115, 22, 0.5)',
-        'rgba(6, 182, 212, 0.5)',
+        'rgba(30, 58, 138, 0.5)',
       ],
       hoverBackgroundColor: [
-        '#10b981', '#f59e0b', '#ef4444', '#f97316', '#06b6d4'
+        '#10b981', '#f59e0b', '#ef4444', '#f97316', '#1E3A8A'
       ],
       borderColor: 'rgba(15, 23, 42, 0.05)',
       borderWidth: 2,
@@ -167,9 +167,9 @@ const Analytics = () => {
     datasets: [{
       data: [65, 25, 10],
       backgroundColor: [
-        'rgba(139, 92, 246, 0.6)',
-        'rgba(6, 182, 212, 0.6)',
-        'rgba(245, 158, 11, 0.6)',
+        'rgba(30, 58, 138, 0.6)',
+        'rgba(212, 175, 55, 0.6)',
+        'rgba(37, 99, 235, 0.6)',
       ],
       borderColor: 'rgba(15, 23, 42, 0.05)',
       borderWidth: 1,
@@ -182,10 +182,10 @@ const Analytics = () => {
       {
         label: 'Current Month',
         data: csat,
-        backgroundColor: 'rgba(139, 92, 246, 0.2)',
-        borderColor: '#8b5cf6',
+        backgroundColor: 'rgba(30, 58, 138, 0.2)',
+        borderColor: '#1E3A8A',
         borderWidth: 2,
-        pointBackgroundColor: '#8b5cf6',
+        pointBackgroundColor: '#1E3A8A',
       },
       {
         label: 'Target',
@@ -204,8 +204,8 @@ const Analytics = () => {
     datasets: [{
       label: 'Supervisor Interventions',
       data: interventions,
-      backgroundColor: 'rgba(245, 158, 11, 0.2)',
-      borderColor: '#f59e0b',
+      backgroundColor: 'rgba(212, 175, 55, 0.2)',
+      borderColor: '#D4AF37',
       borderWidth: 2,
       fill: true,
       tension: 0.5
@@ -226,8 +226,8 @@ const Analytics = () => {
       {
         label: 'Hindsight AI',
         data: [65, 75, 88, 94],
-        borderColor: '#06b6d4',
-        backgroundColor: 'rgba(6, 182, 212, 0.1)',
+        borderColor: '#D4AF37',
+        backgroundColor: 'rgba(212, 175, 55, 0.1)',
         fill: true,
         tension: 0.3
       }
@@ -244,8 +244,8 @@ const Analytics = () => {
             animate={{ opacity: 1, x: 0 }}
             className="text-4xl font-bold text-slate-900 tracking-tight flex items-center gap-3"
           >
-            <Activity className="w-8 h-8 text-violet-600" />
-            Neural Analytics <span className="text-violet-600 font-light text-xl">v4.0</span>
+            <Activity className="w-8 h-8 text-[#1E3A8A]" />
+            ECHOMIND Analytics <span className="text-secondary font-light text-xl">v4.0</span>
           </motion.h1>
           <p className="text-slate-500 mt-1 uppercase tracking-[0.3em] text-[10px] font-bold">Deep-layer performance benchmarks & emotional intelligence datasets</p>
         </div>
@@ -257,7 +257,7 @@ const Analytics = () => {
             </div>
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           </div>
-          <button className="flex items-center gap-2 px-6 py-2 bg-violet-600 text-white rounded-xl font-bold text-sm hover:brightness-110 shadow-sm transition-all">
+          <button className="flex items-center gap-2 px-6 py-2 bg-gradient-premium text-white rounded-xl font-bold text-sm hover:brightness-110 shadow-sm transition-all">
             <Download className="w-4 h-4" />
             Report.pdf
           </button>
@@ -304,12 +304,12 @@ const Analytics = () => {
 
         {/* Emotion Dist - 4 Cols */}
         <GlassCard className="lg:col-span-4 border-slate-200/80 bg-white/70 shadow-sm">
-           <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-cyan-50 rounded-lg">
-                 <PieIcon className="w-4 h-4 text-cyan-600" />
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-secondary/10 rounded-lg">
+                 <PieIcon className="w-4 h-4 text-secondary" />
               </div>
               <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Emotion Demographics</h3>
-           </div>
+            </div>
            <div className="h-[300px]">
               <Doughnut 
                  data={emotionData} 
@@ -324,12 +324,12 @@ const Analytics = () => {
 
         {/* Conversation Success - 4 Cols */}
         <GlassCard className="lg:col-span-4 border-slate-200/80 bg-white/70 shadow-sm">
-           <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-violet-50 rounded-lg">
-                 <ShieldCheck className="w-4 h-4 text-violet-600" />
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                 <ShieldCheck className="w-4 h-4 text-primary" />
               </div>
               <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Success Rate Outcome</h3>
-           </div>
+            </div>
            <div className="h-[280px]">
               <Pie 
                  data={successRateData} 
@@ -393,12 +393,12 @@ const Analytics = () => {
 
         {/* Learning Efficiency - 7 Cols */}
         <GlassCard className="lg:col-span-7 border-slate-200/80 bg-white/70 shadow-sm">
-           <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-cyan-50 rounded-lg">
-                 <Zap className="w-4 h-4 text-cyan-600" />
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-secondary/10 rounded-lg">
+                 <Zap className="w-4 h-4 text-secondary" />
               </div>
               <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Learning Efficiency Engine</h3>
-           </div>
+            </div>
            <div className="h-[250px]">
               <Line 
                  data={learningEfficiencyData} 
@@ -415,12 +415,12 @@ const Analytics = () => {
 
         {/* Supervisor Interventions - 5 Cols */}
         <GlassCard className="lg:col-span-5 border-slate-200/80 bg-white/70 shadow-sm">
-           <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-amber-50 rounded-lg">
-                 <ShieldCheck className="w-4 h-4 text-amber-600" />
+            <div className="flex items-center gap-3 mb-8">
+              <div className="p-2 bg-secondary/10 rounded-lg">
+                 <ShieldCheck className="w-4 h-4 text-secondary" />
               </div>
               <h3 className="text-xs font-black text-slate-800 uppercase tracking-[0.2em]">Supervisor Drift</h3>
-           </div>
+            </div>
            <div className="h-[250px]">
               <Bar 
                  data={interventionData} 
@@ -442,9 +442,9 @@ const Analytics = () => {
       <div className="pt-10 flex items-center justify-between border-t border-slate-200 opacity-50">
         <div className="flex items-center gap-2 text-slate-500">
            <BrainCircuit className="w-4 h-4" />
-           <span className="text-[10px] font-black uppercase tracking-[0.4em]">Neural Core OS</span>
+           <span className="text-[10px] font-black uppercase tracking-[0.4em]">ECHOMIND</span>
         </div>
-        <span className="text-[10px] font-medium text-slate-400">Session ID: NC-882-991-X</span>
+        <span className="text-[10px] font-medium text-slate-400">Session ID: EM-882-991-X</span>
       </div>
     </div>
   );
