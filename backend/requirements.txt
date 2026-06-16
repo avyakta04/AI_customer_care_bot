@@ -1,0 +1,53 @@
+# ============================================================
+# ECHOMIND Backend – Python Dependencies
+# ============================================================
+# Install with:  pip install -r requirements.txt
+# Python version: >= 3.10
+# ============================================================
+
+# --- Web Framework ---
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9          # file/form uploads (audio)
+httpx==0.27.0                    # async HTTP client (used in tests)
+
+# --- Database ---
+sqlalchemy==2.0.30
+# Uncomment for PostgreSQL:
+# psycopg2-binary==2.9.9
+
+# --- Machine Learning – Core ---
+scikit-learn==1.5.0
+xgboost==2.0.3
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.13.0
+
+# --- Deep Learning (Voice Emotion MLP) ---
+torch==2.3.0                     # CPU-only; add +cu118 index for GPU
+# torchvision==0.18.0            # uncomment if image features added later
+
+# --- NLP / Embeddings ---
+sentence-transformers==3.0.0
+transformers==4.41.2
+tokenizers==0.19.1
+
+# --- FAISS (vector similarity search) ---
+faiss-cpu==1.8.0                 # swap for faiss-gpu on CUDA machines
+
+# --- Audio Processing ---
+librosa==0.10.2
+soundfile==0.12.1
+
+# --- Serialization ---
+joblib==1.4.2
+
+# --- Logging & Utilities ---
+python-dotenv==1.0.1             # load .env files into os.environ
+pydantic==2.7.1                  # data validation (FastAPI models)
+pydantic-settings==2.3.3
+
+# --- Testing ---
+pytest==8.2.2
+pytest-asyncio==0.23.7
+httpx==0.27.0                    # async test client

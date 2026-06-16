@@ -1,0 +1,232 @@
+{
+  "pipeline": "urgency_predictor",
+  "timestamp": "2026-06-11T05:03:15.399355Z",
+  "dataset": {
+    "rows": 624,
+    "classes": [
+      "critical",
+      "high",
+      "low",
+      "medium"
+    ],
+    "source": "auto-detected"
+  },
+  "best_params": {
+    "max_depth": null,
+    "min_samples_split": 2,
+    "n_estimators": 100
+  },
+  "cv_scores": {
+    "XGBoost": {
+      "mean_f1": 0.9959553429027114,
+      "std_f1": 0.00808931419457739,
+      "all_folds": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9797767145135565
+      ]
+    },
+    "RandomForest": {
+      "mean_f1": 1.0,
+      "std_f1": 0.0,
+      "all_folds": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "GradientBoost": {
+      "mean_f1": 0.9979686293832636,
+      "std_f1": 0.0040627412334729215,
+      "all_folds": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9898431469163177
+      ]
+    }
+  },
+  "evaluation": {
+    "accuracy": 1.0,
+    "f1_weighted": 1.0,
+    "f1_macro": 1.0,
+    "precision_weighted": 1.0,
+    "recall_weighted": 1.0,
+    "roc_auc_weighted": 1.0,
+    "confusion_matrix": [
+      [
+        16,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        26,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        47,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        36
+      ]
+    ],
+    "classification_report": {
+      "critical": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 16.0
+      },
+      "high": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 26.0
+      },
+      "low": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 47.0
+      },
+      "medium": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 36.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 125.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 125.0
+      }
+    },
+    "top_features": [
+      {
+        "feature": "word_count",
+        "importance": 0.04180447357588804
+      },
+      {
+        "feature": "the",
+        "importance": 0.031394303929959365
+      },
+      {
+        "feature": "char_count",
+        "importance": 0.027035103742656375
+      },
+      {
+        "feature": "my",
+        "importance": 0.02000467484882911
+      },
+      {
+        "feature": "has_time_pressure",
+        "importance": 0.019464816774679317
+      },
+      {
+        "feature": "high_signal_count",
+        "importance": 0.018891150844389203
+      },
+      {
+        "feature": "this",
+        "importance": 0.01758522930145979
+      },
+      {
+        "feature": "does",
+        "importance": 0.01706890684375841
+      },
+      {
+        "feature": "is",
+        "importance": 0.015447190379132931
+      },
+      {
+        "feature": "am",
+        "importance": 0.014621064048328096
+      },
+      {
+        "feature": "says",
+        "importance": 0.014280897142406063
+      },
+      {
+        "feature": "want",
+        "importance": 0.013464644036705976
+      },
+      {
+        "feature": "me",
+        "importance": 0.012909182690507753
+      },
+      {
+        "feature": "but",
+        "importance": 0.012282333361224652
+      },
+      {
+        "feature": "to",
+        "importance": 0.012131470385875956
+      },
+      {
+        "feature": "is my",
+        "importance": 0.01168434682019603
+      },
+      {
+        "feature": "losing",
+        "importance": 0.011470229889482656
+      },
+      {
+        "feature": "mismatch",
+        "importance": 0.010536981711403359
+      },
+      {
+        "feature": "change",
+        "importance": 0.009928770768964798
+      },
+      {
+        "feature": "to change",
+        "importance": 0.009210419366413434
+      }
+    ]
+  },
+  "train_time_s": 3.8254148960113525,
+  "classes": [
+    "critical",
+    "high",
+    "low",
+    "medium"
+  ],
+  "meta_features": [
+    "char_count",
+    "word_count",
+    "sentence_count",
+    "exclamation_count",
+    "question_count",
+    "caps_ratio",
+    "high_signal_count",
+    "low_signal_count",
+    "has_money_mention",
+    "has_time_pressure",
+    "has_system_failure",
+    "has_account_issue",
+    "has_payment_issue",
+    "repeated_punct"
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "pipeline": "intent_classifier",
+  "timestamp": "2026-06-11T05:02:56.377529Z",
+  "dataset": {
+    "rows": 624,
+    "classes": [
+      "account_recovery",
+      "cancellation",
+      "feedback",
+      "order_tracking",
+      "payment_issue",
+      "refund_request",
+      "technical_support"
+    ],
+    "source": "auto-detected"
+  },
+  "best_params": {
+    "C": 0.1,
+    "max_iter": 2000
+  },
+  "cv_scores": {
+    "XGBoost": {
+      "mean_f1": 0.9980195918367347,
+      "std_f1": 0.003960816326530603,
+      "all_folds": [
+        1.0,
+        0.9900979591836735,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "LinearSVC": {
+      "mean_f1": 1.0,
+      "std_f1": 0.0,
+      "all_folds": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "LogisticRegression": {
+      "mean_f1": 1.0,
+      "std_f1": 0.0,
+      "all_folds": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "evaluation": {
+    "accuracy": 1.0,
+    "f1_weighted": 1.0,
+    "f1_macro": 1.0,
+    "precision_weighted": 1.0,
+    "recall_weighted": 1.0,
+    "roc_auc_weighted": 1.0,
+    "confusion_matrix": [
+      [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        37,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        16,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        31
+      ]
+    ],
+    "classification_report": {
+      "account_recovery": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 16.0
+      },
+      "cancellation": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10.0
+      },
+      "feedback": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 37.0
+      },
+      "order_tracking": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 5.0
+      },
+      "payment_issue": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 16.0
+      },
+      "refund_request": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 10.0
+      },
+      "technical_support": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 31.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 125.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 125.0
+      }
+    }
+  },
+  "train_time_s": 1.1325287818908691,
+  "classes": [
+    "account_recovery",
+    "cancellation",
+    "feedback",
+    "order_tracking",
+    "payment_issue",
+    "refund_request",
+    "technical_support"
+  ],
+  "meta_features": [
+    "text_len",
+    "word_count",
+    "question_mark",
+    "exclamation",
+    "has_number",
+    "keyword_count"
+  ]
+}
