@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ============================================================
 # ECHOMIND – .gitignore
 # ============================================================
@@ -53,12 +54,18 @@ backend/echomind.db
 # --- Logs ---
 *.log
 logs/
+=======
+# Logs
+logs
+*.log
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+<<<<<<< HEAD
 # --- Coverage ---
 coverage/
 *.lcov
@@ -67,3 +74,20 @@ coverage/
 *.zip
 *.tar.gz
 .cache/
+=======
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776

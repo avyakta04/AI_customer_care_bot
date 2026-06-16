@@ -25,11 +25,18 @@ const steps = [
 
 const HindsightLearning = () => {
   const [activeStep, setActiveStep] = useState(0);
+<<<<<<< HEAD
   const [learningCycle, setLearningCycle] = useState(42);
   const [successRatio, setSuccessRatio] = useState(98.8);
   const [isTraining, setIsTraining] = useState(false);
 
   // Stateful self-correction stream loaded from SQLite via FastAPI
+=======
+  const [learningCycle, setLearningCycle] = useState(1);
+  const [successRatio, setSuccessRatio] = useState(99.2);
+
+  // Stateful self-correction stream
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
   const [refinements, setRefinements] = useState([
     {
       id: 1,
@@ -47,6 +54,7 @@ const HindsightLearning = () => {
     }
   ]);
 
+<<<<<<< HEAD
   const [capabilities, setCapabilities] = useState([91, 95, 96, 92, 94, 98]);
 
   const fetchHindsightLogs = async () => {
@@ -88,14 +96,71 @@ const HindsightLearning = () => {
   useEffect(() => {
     fetchHindsightLogs();
     const interval = setInterval(fetchHindsightLogs, 5000);
+=======
+  const [capabilities, setCapabilities] = useState([85, 92, 78, 95, 88, 90]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep(prev => {
+        const next = (prev + 1) % steps.length;
+        if (next === 0) {
+          setLearningCycle(c => c + 1);
+          setSuccessRatio(r => Math.max(97.5, Math.min(99.9, r + (Math.random() - 0.5) * 0.4)));
+        }
+        return next;
+      });
+    }, 2000);
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
+<<<<<<< HEAD
     const stepInterval = setInterval(() => {
       setActiveStep(prev => (prev + 1) % steps.length);
     }, 2000);
     return () => clearInterval(stepInterval);
+=======
+    const correctionInterval = setInterval(() => {
+      const correctionPool = [
+        {
+          category: "EMPATHY_RESONANCE",
+          scoreGain: 15,
+          original: "That issue is resolved. Please reload.",
+          improved: "I've successfully synchronized your cached tokens. Your dashboard credentials should now match perfectly. Please try reloading the view now."
+        },
+        {
+          category: "HALLUCINATION_GUARD",
+          scoreGain: 22,
+          original: "Our system has 100% security guaranteed with zero faults.",
+          improved: "Our enterprise systems maintain a nominal 99.9% uptime with end-to-end encryption protocols and real-time active oversight."
+        },
+        {
+          category: "TONE_OPTIMIZER",
+          scoreGain: 9,
+          original: "Ok, I will fix it. One second.",
+          improved: "I understand the urgency and have engaged the deep-scan utility for immediate synchronization. One moment please."
+        },
+        {
+          category: "CONTEXT_MATCHING",
+          scoreGain: 14,
+          original: "I don't know who you are, what is your client number?",
+          improved: "Welcome back. I have loaded your semantic memory index from October 12, 2025. I see you preferred a direct auth patch. Let me apply that for you."
+        }
+      ];
+
+      const chosen = correctionPool[Math.floor(Math.random() * correctionPool.length)];
+      setRefinements(prev => [
+        { ...chosen, id: Date.now() },
+        ...prev.slice(0, 2)
+      ]);
+
+      // Gently slide capabilities
+      setCapabilities(prev => prev.map(val => Math.max(70, Math.min(100, val + Math.round((Math.random() - 0.5) * 3)))));
+    }, 6000);
+
+    return () => clearInterval(correctionInterval);
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
   }, []);
 
   const evolutionaryData = {
@@ -253,6 +318,7 @@ const HindsightLearning = () => {
                <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                   <motion.div animate={{ width: `${successRatio}%` }} className="h-full bg-emerald-500" />
                </div>
+<<<<<<< HEAD
                <div className="mt-4 flex justify-between items-center gap-4">
                   <p className="text-[9px] text-slate-550 leading-relaxed font-semibold">
                      System has autonomously corrected <span className="text-slate-800 font-black">1,248 potential mismatches</span>.
@@ -265,6 +331,11 @@ const HindsightLearning = () => {
                      {isTraining ? "Training..." : "Retrain ML"}
                   </button>
                </div>
+=======
+               <p className="mt-4 text-[9px] text-slate-500 leading-relaxed font-medium">
+                  System has autonomously corrected <span className="text-slate-800 font-bold">1,248 potential mismatches</span> in the last 24 duty cycles.
+               </p>
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
             </GlassCard>
          </div>
       </div>

@@ -65,17 +65,21 @@ const VoiceAnalysis = () => {
   const [stress, setStress] = useState(12);
   const [density, setDensity] = useState(0.0);
 
+<<<<<<< HEAD
   // Sentiment values returned by model
   const [happyVal, setHappyVal] = useState(0);
   const [frustratedVal, setFrustratedVal] = useState(0);
   const [neutralVal, setNeutralVal] = useState(0);
 
+=======
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
   // Chart data histories for rolling charts
   const [intensityHistory, setIntensityHistory] = useState(Array(20).fill(0));
   const [pitchHistory, setPitchHistory] = useState(Array(20).fill(0));
   const [stressHistory, setStressHistory] = useState(Array(20).fill(12));
   const [densityHistory, setDensityHistory] = useState(Array(20).fill(0));
 
+<<<<<<< HEAD
   const createWavBlob = (pitchHz, intensityDb, stressPercent) => {
     const sampleRate = 16000;
     const duration = 2.0;
@@ -143,38 +147,91 @@ const VoiceAnalysis = () => {
   useEffect(() => {
     let interval;
     if (isRecording) {
+=======
+  useEffect(() => {
+    let interval;
+    
+    if (isRecording) {
+      // Fast updates for active pipeline step
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
       interval = setInterval(() => {
         setPipelineStep(prev => (prev + 1) % 4);
       }, 1000);
     } else {
       setPipelineStep(-1);
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
     return () => clearInterval(interval);
   }, [isRecording]);
 
   useEffect(() => {
     const dataInterval = setInterval(() => {
+<<<<<<< HEAD
       if (isRecording) {
         // Add live variance based on active values
         const nextInt = Math.max(25, Math.min(95, intensity + (Math.random() - 0.5) * 8));
         const nextPitch = Math.max(140, Math.min(380, pitch + (Math.random() - 0.5) * 15));
         const nextStress = Math.max(5, Math.min(98, stress + (Math.random() - 0.5) * 4));
         const nextDens = Math.max(0.4, Math.min(1.5, density + (Math.random() - 0.5) * 0.08));
+=======
+      // Simulate real-time vocal frequency dynamics
+      if (isRecording) {
+        const baseInt = selectedSample ? selectedSample.intensity : intensity;
+        const basePitch = selectedSample ? selectedSample.pitch : pitch;
+        const baseStress = selectedSample ? selectedSample.stress : stress;
+        const baseDens = selectedSample ? selectedSample.density : density;
+
+        const nextInt = Math.max(25, Math.min(95, baseInt + (Math.random() - 0.5) * 10));
+        const nextPitch = Math.max(140, Math.min(380, basePitch + (Math.random() - 0.5) * 20));
+        const nextStress = Math.max(45, Math.min(95, baseStress + (Math.random() - 0.5) * 5));
+        const nextDens = Math.max(0.4, Math.min(1.4, baseDens + (Math.random() - 0.5) * 0.1));
+
+        setIntensity(nextInt);
+        setPitch(nextPitch);
+        setStress(nextStress);
+        setDensity(nextDens);
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
 
         setIntensityHistory(prev => [...prev.slice(1), nextInt]);
         setPitchHistory(prev => [...prev.slice(1), nextPitch]);
         setStressHistory(prev => [...prev.slice(1), nextStress]);
+<<<<<<< HEAD
         setDensityHistory(prev => [...prev.slice(1), nextDens * 50]);
       } else {
         setIntensityHistory(prev => [...prev.slice(1), 5 + (Math.random() - 0.5) * 2]);
         setPitchHistory(prev => [...prev.slice(1), 0]);
         setStressHistory(prev => [...prev.slice(1), 8 + (Math.random() - 0.5) * 2]);
+=======
+        setDensityHistory(prev => [...prev.slice(1), nextDens * 50]); // scale for visual consistency
+      } else {
+        // Slow ambient static wave when standby
+        const nextInt = Math.max(2, Math.min(12, 5 + (Math.random() - 0.5) * 4));
+        const nextPitch = 0;
+        const nextStress = Math.max(5, Math.min(15, 10 + (Math.random() - 0.5) * 2));
+        const nextDens = 0.0;
+
+        setIntensity(nextInt);
+        setPitch(nextPitch);
+        setStress(nextStress);
+        setDensity(nextDens);
+
+        setIntensityHistory(prev => [...prev.slice(1), nextInt]);
+        setPitchHistory(prev => [...prev.slice(1), 0]);
+        setStressHistory(prev => [...prev.slice(1), nextStress]);
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
         setDensityHistory(prev => [...prev.slice(1), 0]);
       }
     }, 300);
 
     return () => clearInterval(dataInterval);
+<<<<<<< HEAD
   }, [isRecording, intensity, pitch, stress, density]);
+=======
+  }, [isRecording, intensity, pitch, stress, density, selectedSample]);
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
 
   useEffect(() => {
     if (!isRecording) {
@@ -295,7 +352,14 @@ const VoiceAnalysis = () => {
                   onClick={() => {
                     setSelectedSample(sample);
                     setIsRecording(true);
+<<<<<<< HEAD
                     runAudioMLAnalysis(sample.pitch, sample.intensity, sample.stress);
+=======
+                    setIntensity(sample.intensity);
+                    setPitch(sample.pitch);
+                    setStress(sample.stress);
+                    setDensity(sample.density);
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
                   }}
                   className={`w-full text-left p-3.5 rounded-xl border transition-all flex flex-col ${
                     selectedSample?.title === sample.title && isRecording
@@ -323,9 +387,15 @@ const VoiceAnalysis = () => {
             
             <div className="space-y-5">
               {[
+<<<<<<< HEAD
                 { label: 'Happy', val: isRecording ? happyVal : 0, color: 'bg-green-500' },
                 { label: 'Frustrated', val: isRecording ? frustratedVal : 0, color: 'bg-orange-500' },
                 { label: 'Neutral', val: isRecording ? neutralVal : 0, color: 'bg-blue-500' },
+=======
+                { label: 'Happy', val: isRecording ? (selectedSample ? selectedSample.happiness : Math.max(0, Math.round(15 + Math.sin(Date.now() / 2000) * 10))) : 0, color: 'bg-green-500' },
+                { label: 'Frustrated', val: isRecording ? (selectedSample ? selectedSample.frustration : Math.max(0, Math.round(75 + Math.cos(Date.now() / 2000) * 12))) : 0, color: 'bg-orange-500' },
+                { label: 'Neutral', val: isRecording ? (selectedSample ? selectedSample.neutrality : Math.max(0, Math.round(10 - Math.sin(Date.now() / 2000) * 5))) : 0, color: 'bg-blue-500' },
+>>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
               ].map((item) => (
                 <div key={item.label} className="space-y-2">
                   <div className="flex justify-between text-[10px] font-bold text-slate-550">
