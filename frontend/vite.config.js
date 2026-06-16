@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-<<<<<<< HEAD
 import { resolve } from 'path'
 
 // https://vitejs.dev/config/
@@ -70,10 +69,4 @@ export default defineConfig({
 
   // Environment variables prefix
   envPrefix: 'VITE_',
-=======
-
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react()],
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
 })

@@ -102,7 +102,6 @@ const LiveChat = () => {
     simulateAIResponse(inputValue);
   };
 
-<<<<<<< HEAD
   const handleFeedbackSubmit = async (messageId, score) => {
     try {
       await fetch('http://localhost:8000/api/hindsight/feedback', {
@@ -148,50 +147,11 @@ const LiveChat = () => {
       setReasoningStep(4);
       
       await new Promise(r => setTimeout(r, 400));
-=======
-  const simulateAIResponse = (userText) => {
-    setIsTyping(true);
-    setReasoningStep(1);
-    
-    // Check if the user text matches a predefined persona
-    const matchingPersona = personas.find(p => p.text === userText);
-    
-    if (matchingPersona) {
-      setCurrentEmotion({ type: matchingPersona.emotion, confidence: matchingPersona.confidence });
-      setActiveTags(matchingPersona.tags);
-    } else {
-      // Simulate emotion change based on keywords
-      if (userText.toLowerCase().includes("urgent") || userText.toLowerCase().includes("deadline")) {
-        setCurrentEmotion({ type: 'Urgent', confidence: 94 });
-        setActiveTags(['URGENT_TICKET', 'ESCALATION', 'BLOCKER']);
-      } else {
-        setCurrentEmotion({ type: 'Neutral', confidence: 91 });
-        setActiveTags(['GENERAL_QUERY', 'AI_STANDBY']);
-      }
-    }
 
-    // Step 2: Memory Retrieval
-    setTimeout(() => {
-      setReasoningStep(2);
-    }, 600);
-
-    // Step 3: Supervisor Review
-    setTimeout(() => {
-      setReasoningStep(3);
-    }, 1200);
-
-    // Step 4: Generating Response
-    setTimeout(() => {
-      setReasoningStep(4);
-    }, 1800);
-
-    setTimeout(() => {
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
       setIsTyping(false);
       setReasoningStep(0);
       setIsStreaming(true);
       
-<<<<<<< HEAD
       setCurrentEmotion({ type: data.emotion, confidence: Math.round(data.emotion_confidence * 100) });
       
       const tags = [
@@ -203,15 +163,7 @@ const LiveChat = () => {
       
       const aiResponseId = Date.now() + 1;
       const fullText = data.response;
-=======
-      const aiResponseId = Date.now() + 1;
-      const fullText = matchingPersona 
-        ? matchingPersona.response
-        : userText.toLowerCase().includes("urgent") || userText.toLowerCase().includes("deadline")
-        ? "I understand the urgency regarding your deadline. I've initiated a deep-scan of your credential cache. It appears there was a sync delay with the global auth server. I am re-validating your token now. Please try again in 30 seconds."
-        : "I have completed a vector search across historical interactions. I see you requested support regarding auth cache synchronization. I have updated the context parameters and established a new secure session token. Try refreshing your view now.";
-      
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
+
       let currentIdx = 0;
       const streamingMsg = {
         id: aiResponseId,
@@ -233,11 +185,7 @@ const LiveChat = () => {
             }
             return last;
           });
-<<<<<<< HEAD
           currentIdx += 2;
-=======
-          currentIdx += 2; // Stream 2 chars at a time for speed
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
         } else {
           clearInterval(interval);
           setIsStreaming(false);
@@ -245,20 +193,15 @@ const LiveChat = () => {
             const last = [...prev];
             const msgIdx = last.findIndex(m => m.id === aiResponseId);
             if (msgIdx !== -1) {
-<<<<<<< HEAD
               last[msgIdx] = { 
                 ...last[msgIdx], 
                 status: "VERIFIED_RESPONSE",
                 message_id: data.message_id
               };
-=======
-              last[msgIdx] = { ...last[msgIdx], status: "VERIFIED_RESPONSE" };
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
             }
             return last;
           });
         }
-<<<<<<< HEAD
       }, 15);
       
     } catch (error) {
@@ -273,10 +216,6 @@ const LiveChat = () => {
         status: "SYSTEM_ERR"
       }]);
     }
-=======
-      }, 30);
-    }, 2400);
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
   };
 
   return (
@@ -345,11 +284,8 @@ const LiveChat = () => {
                 isAI={msg.isAI}
                 timestamp={msg.timestamp}
                 status={msg.status}
-<<<<<<< HEAD
                 messageId={msg.message_id}
                 onFeedback={handleFeedbackSubmit}
-=======
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
               />
             ))}
             {isTyping && (

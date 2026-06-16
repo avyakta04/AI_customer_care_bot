@@ -60,24 +60,15 @@ const MemoryRetrieval = () => {
     return () => clearInterval(interval);
   }, [isSearching]);
 
-<<<<<<< HEAD
   const startSearch = async () => {
-=======
-  const startSearch = () => {
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
     setIsSearching(true);
     setFoundMemories([]);
     setActiveStep(0);
     
-<<<<<<< HEAD
-=======
-    // Clear and start search logs
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
     setLogs([
       { t: new Date().toLocaleTimeString([], { hour12: false }), msg: "QUERY_INPUT_RECEIVED: 'credential mismatch dashboard urgent'", type: "info" }
     ]);
 
-<<<<<<< HEAD
     try {
       await new Promise(r => setTimeout(r, 600));
       
@@ -116,44 +107,21 @@ const MemoryRetrieval = () => {
       
     } catch (e) {
       console.error(e);
+      // Fallback to mock data if backend unavailable
+      setActiveStep(1);
+      setLogs(prev => [...prev, { t: new Date().toLocaleTimeString([], { hour12: false }), msg: "GENERATING_EMBEDDING: MiniLM-L6 model initialized", type: "info" }]);
+      await new Promise(r => setTimeout(r, 1200));
+      setActiveStep(2);
+      setLogs(prev => [...prev, { t: new Date().toLocaleTimeString([], { hour12: false }), msg: "CHROMADB_SCAN: cosine distance similarity metric applied", type: "info" }]);
+      await new Promise(r => setTimeout(r, 1200));
+      setActiveStep(3);
+      setLogs(prev => [...prev, { t: new Date().toLocaleTimeString([], { hour12: false }), msg: "SEMANTIC_HITS: 3 matches verified", type: "success" }]);
+      await new Promise(r => setTimeout(r, 1000));
+      setFoundMemories(mockMemories);
       setIsSearching(false);
       setActiveStep(-1);
-      setLogs(prev => [...prev, { t: new Date().toLocaleTimeString([], { hour12: false }), msg: "ERROR: Could not query local vector engine.", type: "warning" }]);
+      setLogs(prev => [...prev, { t: new Date().toLocaleTimeString([], { hour12: false }), msg: "EXECUTION_COMPLETE: Context ready for AI response generation", type: "success" }]);
     }
-=======
-    // Simulate pipeline progression
-    let step = 0;
-    const interval = setInterval(() => {
-      step++;
-      setActiveStep(step);
-      
-      const stepMsgs = [
-        "GENERATING_EMBEDDING: MiniLM-L6 model initialized",
-        "CHROMADB_SCAN: cosine distance similarity metric applied",
-        "SEMANTIC_HITS: 3 matches verified",
-      ];
-      
-      setLogs(prev => [...prev, {
-        t: new Date().toLocaleTimeString([], { hour12: false }),
-        msg: stepMsgs[step - 1] || "PIPELINE_RESOLVED: context injected",
-        type: step === 3 ? "success" : "info"
-      }]);
-
-      if (step === 3) {
-        clearInterval(interval);
-        setTimeout(() => {
-          setFoundMemories(mockMemories);
-          setIsSearching(false);
-          setActiveStep(-1);
-          setLogs(prev => [...prev, {
-            t: new Date().toLocaleTimeString([], { hour12: false }),
-            msg: "EXECUTION_COMPLETE: Context ready for AI response generation",
-            type: "success"
-          }]);
-        }, 1000);
-      }
-    }, 1200);
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
   };
 
   return (

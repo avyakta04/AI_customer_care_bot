@@ -50,7 +50,6 @@ const AISupervisor = () => {
   };
 
   useEffect(() => {
-<<<<<<< HEAD
     const fetchMetrics = async () => {
       try {
         const res = await fetch('http://localhost:8000/api/metrics');
@@ -90,39 +89,6 @@ const AISupervisor = () => {
     fetchMetrics();
     const interval = setInterval(fetchMetrics, 4000);
     return () => clearInterval(interval);
-=======
-    const logInterval = setInterval(() => {
-      const msgs = [
-        "EVALUATING_EMOTIONAL_STABILITY: NOMINAL",
-        "HALLUCINATION_CHECK: 0.01%_PROBABILITY",
-        "SENTIMENT_MATCHING: 98.4%_ACCURACY",
-        "CROSS_CHECKING_CHROMADB_CONTEXT: VERIFIED",
-        "DETECTED_ADVISORY: TONE_IS_TOO_FORMAL_FOR_USER_STATE",
-        "COMPARING_SAFETY_TEMPLATES: NO_VIOLATION",
-        "POLICING_SYNTAX_HALLUCINATIONS: SECURE",
-        "LATENCY_MONITOR: inference=124ms queue=0ms"
-      ];
-      
-      const newLog = {
-        t: new Date().toLocaleTimeString([], { hour12: false }),
-        msg: msgs[Math.floor(Math.random() * msgs.length)],
-        type: Math.random() > 0.82 ? 'warning' : 'info'
-      };
-
-      setLogs(prev => [...prev.slice(-12), newLog]);
-      setHealthScore(prev => Math.max(80, Math.min(100, prev + (Math.random() - 0.5) * 4)));
-      
-      // Update circular metrics
-      setMetrics(prev => ({
-        empathy: Math.max(86, Math.min(99, prev.empathy + (Math.random() > 0.6 ? (Math.random() > 0.5 ? 1 : -1) : 0))),
-        quality: Math.max(90, Math.min(100, prev.quality + (Math.random() > 0.7 ? (Math.random() > 0.5 ? 1 : -1) : 0))),
-        hallucination: Math.max(0, Math.min(6, prev.hallucination + (Math.random() > 0.9 ? (Math.random() > 0.5 ? 1 : -1) : 0))),
-        escalation: Math.max(8, Math.min(22, prev.escalation + (Math.random() > 0.6 ? (Math.random() > 0.5 ? 1 : -1) : 0)))
-      }));
-    }, 2000);
-
-    return () => clearInterval(logInterval);
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
   }, []);
 
   const stabilityData = {

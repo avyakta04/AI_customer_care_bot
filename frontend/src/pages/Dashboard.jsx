@@ -15,17 +15,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Dashboard = () => {
   // Live fluctuating states for stats grid
-<<<<<<< HEAD
   const [sessions, setSessions] = useState(2);
   const [supervisionRate, setSupervisionRate] = useState(99.8);
   const [recoveryRate, setRecoveryRate] = useState(88.5);
   const [interventions, setInterventions] = useState(0);
-=======
-  const [sessions, setSessions] = useState(1284);
-  const [supervisionRate, setSupervisionRate] = useState(99.4);
-  const [recoveryRate, setRecoveryRate] = useState(88.2);
-  const [interventions, setInterventions] = useState(12);
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
 
   // Stateful supervisor feed
   const [feedEvents, setFeedEvents] = useState([
@@ -35,7 +28,6 @@ const Dashboard = () => {
     { id: 4, sid: "8294", time: "15m ago", text: "Learning cycle complete: weights synchronized", pulse: false }
   ]);
 
-<<<<<<< HEAD
   const fetchDashboardStats = async () => {
     try {
       const response = await fetch('http://localhost:8000/api/metrics');
@@ -72,45 +64,6 @@ const Dashboard = () => {
     fetchDashboardStats();
     const interval = setInterval(fetchDashboardStats, 5000);
     return () => clearInterval(interval);
-=======
-  useEffect(() => {
-    const statsInterval = setInterval(() => {
-      // Oscillate stats slightly to simulate live transaction monitoring
-      setSessions(prev => Math.max(1200, Math.min(1400, prev + Math.round((Math.random() - 0.5) * 8))));
-      setSupervisionRate(prev => Math.max(98.5, Math.min(99.9, prev + (Math.random() - 0.5) * 0.1)));
-      setRecoveryRate(prev => Math.max(85.0, Math.min(92.0, prev + (Math.random() - 0.5) * 0.3)));
-      setInterventions(prev => Math.max(8, Math.min(22, prev + (Math.random() > 0.8 ? (Math.random() > 0.5 ? 1 : -1) : 0))));
-    }, 3000);
-
-    const feedInterval = setInterval(() => {
-      const liveAlerts = [
-        { text: "Detected tone sync latency spike in session #8310", pulse: true },
-        { text: "Direct resolution bypass authorized for sector 3F", pulse: false },
-        { text: "Emotion Engine: Customer sentiment recovered to Happy", pulse: false },
-        { text: "ChromaDB memory indexing synchronized successfully", pulse: false },
-        { text: "Hallucination Risk assessment: NOMINAL (0.01%)", pulse: false }
-      ];
-
-      const nextAlert = liveAlerts[Math.floor(Math.random() * liveAlerts.length)];
-      const nextSid = Math.floor(Math.random() * 900) + 8200;
-      
-      setFeedEvents(prev => [
-        {
-          id: Date.now(),
-          sid: nextSid.toString(),
-          time: "Just now",
-          text: nextAlert.text,
-          pulse: nextAlert.pulse
-        },
-        ...prev.slice(0, 3)
-      ]);
-    }, 5000);
-
-    return () => {
-      clearInterval(statsInterval);
-      clearInterval(feedInterval);
-    };
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
   }, []);
 
   const stats = [

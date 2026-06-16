@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { BrainCircuit, User, ShieldCheck, ThumbsUp, ThumbsDown } from 'lucide-react';
@@ -14,13 +13,6 @@ const ChatBubble = ({ message, isAI = false, timestamp, status, messageId, onFee
     }
   };
 
-=======
-import React from 'react';
-import { motion } from 'framer-motion';
-import { BrainCircuit, User, ShieldCheck } from 'lucide-react';
-
-const ChatBubble = ({ message, isAI = false, timestamp, status }) => {
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -57,7 +49,6 @@ const ChatBubble = ({ message, isAI = false, timestamp, status }) => {
         </div>
 
         {/* Metadata */}
-<<<<<<< HEAD
         <div className="flex items-center justify-between w-full px-2">
           <div className="flex items-center gap-3">
             <span className="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em]">{timestamp}</span>
@@ -100,20 +91,6 @@ const ChatBubble = ({ message, isAI = false, timestamp, status }) => {
                 <ThumbsDown className="w-3 h-3" />
               </button>
             </div>
-=======
-        <div className="flex items-center gap-3 px-2">
-          <span className="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em]">{timestamp}</span>
-          {isAI && status && (
-            <>
-              <div className="w-1 h-1 rounded-full bg-slate-200" />
-              <div className="flex items-center gap-1.5">
-                {status === 'VERIFIED_RESPONSE' && <ShieldCheck className="w-3 h-3 text-emerald-600" />}
-                <span className={`text-[10px] font-black uppercase tracking-[0.1em] ${status === 'VERIFIED_RESPONSE' ? 'text-emerald-600' : 'text-violet-600'}`}>
-                  {status.replace('_', ' ')}
-                </span>
-              </div>
-            </>
->>>>>>> 987d03ae86da3d6ad18815118b36c0ed046b6776
           )}
         </div>
       </div>
