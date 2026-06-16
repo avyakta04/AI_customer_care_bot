@@ -45,14 +45,18 @@ app.post('/api/predict', async (req, res) => {
         const pythonResponse = await axios.post(`${PYTHON_ML_URL}/api/predict`, req.body);
         const prediction = pythonResponse.data;
 
-        // 2. Save the interaction in PostgreSQL
-        await prisma.chatLog.create({
-            data: {
-                userText: text,
-                aiIntent: prediction.intent || "unknown",
-                aiEmotion: prediction.emotion || "unknown"
-            }
-        });
+        // 2. Save the interaction in PostgreSQL (Fail-safe)
+        try {
+            await prisma.chatLog.create({
+                data: {
+                    userText: text,
+                    aiIntent: prediction.intent || "unknown",
+                    aiEmotion: prediction.emotion || "unknown"
+                }
+            });
+        } catch (dbError) {
+            console.warn("DB Warning: Could not save chat log:", dbError.message);
+        }
 
         // 3. Return prediction to frontend
         res.json(prediction);

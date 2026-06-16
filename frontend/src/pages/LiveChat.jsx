@@ -104,7 +104,7 @@ const LiveChat = () => {
 
   const handleFeedbackSubmit = async (messageId, score) => {
     try {
-      await fetch('http://localhost:8000/api/hindsight/feedback', {
+      await fetch('/api/hindsight/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -123,7 +123,7 @@ const LiveChat = () => {
     setReasoningStep(1);
     
     try {
-      const response = await fetch('http://localhost:8000/api/predict', {
+      const response = await fetch('/api/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

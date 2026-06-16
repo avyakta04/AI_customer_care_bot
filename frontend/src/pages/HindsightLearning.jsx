@@ -51,7 +51,7 @@ const HindsightLearning = () => {
 
   const fetchHindsightLogs = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/hindsight/logs');
+      const response = await fetch('/api/hindsight/logs');
       const data = await response.json();
       
       setIsTraining(data.retraining_status.is_training);
@@ -74,7 +74,7 @@ const HindsightLearning = () => {
   const triggerRetraining = async () => {
     try {
       setIsTraining(true);
-      const response = await fetch('http://localhost:8000/api/hindsight/train', { method: 'POST' });
+      const response = await fetch('/api/hindsight/train', { method: 'POST' });
       const data = await response.json();
       if (data.success) {
         alert("ML retraining started in background.");

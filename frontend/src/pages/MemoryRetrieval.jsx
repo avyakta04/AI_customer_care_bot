@@ -76,7 +76,7 @@ const MemoryRetrieval = () => {
       setActiveStep(1);
       setLogs(prev => [...prev, { t: new Date().toLocaleTimeString([], { hour12: false }), msg: "GENERATING_EMBEDDING: MiniLM-L6 vectorizing input text", type: "info" }]);
       
-      const response = await fetch('http://localhost:8000/api/memory/search', {
+      const response = await fetch('/api/memory/search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

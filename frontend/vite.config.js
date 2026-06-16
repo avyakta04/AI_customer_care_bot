@@ -27,16 +27,16 @@ export default defineConfig({
     strictPort: false,
     open: true,
 
-    // Proxy for FastAPI backend at localhost:8000
+    // Proxy for Node.js API Gateway at localhost:3000
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'http://localhost:3000',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path,
       },
       '/ws': {
-        target: 'ws://localhost:8000',
+        target: 'ws://localhost:3000',
         ws: true,
         changeOrigin: true,
       },

@@ -52,7 +52,7 @@ const AISupervisor = () => {
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/metrics');
+        const res = await fetch('/api/metrics');
         const data = await res.json();
         
         setMetrics({

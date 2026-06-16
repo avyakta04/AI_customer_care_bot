@@ -30,7 +30,7 @@ const Dashboard = () => {
 
   const fetchDashboardStats = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/metrics');
+      const response = await fetch('/api/metrics');
       const data = await response.json();
       
       setSessions(data.active_sessions);

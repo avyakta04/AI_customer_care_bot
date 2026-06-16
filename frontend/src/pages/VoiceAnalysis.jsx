@@ -115,7 +115,7 @@ const VoiceAnalysis = () => {
       const formData = new FormData();
       formData.append("file", audioFile);
       
-      const response = await fetch("http://localhost:8000/api/voice/analyze", {
+      const response = await fetch("/api/voice/analyze", {
         method: "POST",
         body: formData
       });
