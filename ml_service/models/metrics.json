@@ -1,0 +1,8 @@
+{
+    "voice_accuracy": 1.0,
+    "emotion_accuracy": 1.0,
+    "intent_accuracy": 1.0,
+    "urgency_accuracy": 0.992,
+    "safety_accuracy": 0.9889064976228209,
+    "ranking_score": 1.0
+}

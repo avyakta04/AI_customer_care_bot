@@ -13,8 +13,7 @@ httpx==0.27.0                    # async HTTP client (used in tests)
 
 # --- Database ---
 sqlalchemy==2.0.30
-# Uncomment for PostgreSQL:
-# psycopg2-binary==2.9.9
+psycopg2-binary==2.9.9
 
 # --- Machine Learning – Core ---
 scikit-learn==1.5.0

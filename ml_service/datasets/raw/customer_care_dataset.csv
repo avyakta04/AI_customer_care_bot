@@ -1,0 +1,625 @@
+query_text,emotion,intent,urgency,stress_index,escalation_count
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,95,3
+"This is unacceptable! The server has been offline for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,94,2
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,91,4
+"This is unacceptable! The server has been unresponsive for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,91,4
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,90,2
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,98,4
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,93,4
+"This is unacceptable! The server has been unresponsive for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,96,2
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,94,2
+"This is unacceptable! The server has been not working for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,96,3
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,93,3
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,96,2
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,95,4
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,90,4
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,91,3
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,94,4
+"This is unacceptable! The server has been crashed for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,99,2
+"This is unacceptable! The server has been offline for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,100,2
+"This is unacceptable! The server has been offline for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,93,2
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,97,4
+"This is unacceptable! The server has been not working for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,95,3
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,94,4
+"This is unacceptable! The server has been offline for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,99,4
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,93,2
+"This is unacceptable! The server has been down for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,94,4
+"This is unacceptable! The server has been not working for 2 hours, and our team is losing thousands of dollars!",frustrated,technical_support,critical,100,3
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,92,4
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,87,3
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,87,4
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,93,4
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,88,3
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,96,5
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,92,3
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,97,4
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,93,5
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,94,3
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,91,3
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,90,5
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,95,5
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,91,5
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,96,4
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,96,4
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,92,3
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,89,5
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,94,3
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,87,3
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,89,5
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,89,5
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,93,5
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,88,4
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,93,5
+I have been trying to get this database restored for over two hours now! It is extremely critical and we are losing sales.,angry,technical_support,critical,94,5
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,88,2
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,87,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,83,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,84,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,91,2
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,93,2
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,84,2
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,89,1
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,90,1
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,87,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,85,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,84,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,87,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,91,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,86,1
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,88,1
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,91,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,83,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,88,2
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,83,1
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,88,2
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,86,1
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,86,3
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,84,1
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,90,1
+Your system charged my credit card twice and now I have a negative balance. Reverse this immediately or I am reporting it!,angry,payment_issue,critical,91,1
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,65,1
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,62,2
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,67,2
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,62,1
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,68,2
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,66,0
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,68,2
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,63,2
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,64,1
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,70,2
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,65,1
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,68,1
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,61,0
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,63,0
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,65,0
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,69,2
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,63,2
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,63,0
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,61,2
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,70,0
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,63,0
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,60,1
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,61,2
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,63,1
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,70,1
+Why is my account locked? I am trying to log in but it says password mismatch and won't let me send a recovery link.,frustrated,account_recovery,high,63,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,72,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,76,3
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,74,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,68,3
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,73,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,67,3
+I cannot access my dashboard. The login page keeps looping back with credential mismatch bug Please help ASAP.,frustrated,account_recovery,high,67,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch bug Please help ASAP.,frustrated,account_recovery,high,70,1
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,74,1
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,71,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,68,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch mismatch Please help ASAP.,frustrated,account_recovery,high,68,1
+I cannot access my dashboard. The login page keeps looping back with credential mismatch mismatch Please help ASAP.,frustrated,account_recovery,high,67,1
+I cannot access my dashboard. The login page keeps looping back with credential mismatch fail Please help ASAP.,frustrated,account_recovery,high,69,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,70,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch fail Please help ASAP.,frustrated,account_recovery,high,73,1
+I cannot access my dashboard. The login page keeps looping back with credential mismatch glitch Please help ASAP.,frustrated,account_recovery,high,74,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,75,3
+I cannot access my dashboard. The login page keeps looping back with credential mismatch fail Please help ASAP.,frustrated,account_recovery,high,70,2
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,67,3
+I cannot access my dashboard. The login page keeps looping back with credential mismatch bug Please help ASAP.,frustrated,account_recovery,high,72,1
+I cannot access my dashboard. The login page keeps looping back with credential mismatch error. Please help ASAP.,frustrated,account_recovery,high,74,3
+I cannot access my dashboard. The login page keeps looping back with credential mismatch mismatch Please help ASAP.,frustrated,account_recovery,high,69,1
+I cannot access my dashboard. The login page keeps looping back with credential mismatch bug Please help ASAP.,frustrated,account_recovery,high,69,1
+I cannot access my dashboard. The login page keeps looping back with credential mismatch fail Please help ASAP.,frustrated,account_recovery,high,73,1
+I cannot access my dashboard. The login page keeps looping back with credential mismatch mismatch Please help ASAP.,frustrated,account_recovery,high,70,3
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,80,1
+I want a full money back I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,81,2
+I want a full cash return I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,79,0
+I want a full cash return I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,78,1
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,85,2
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,80,0
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,84,2
+I want a full money back I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,83,0
+I want a full reimbursement I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,80,0
+I want a full cash return I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,79,0
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,83,2
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,85,2
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,83,1
+I want a full money back I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,77,1
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,76,2
+I want a full cash return I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,79,2
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,80,0
+I want a full cash return I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,83,1
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,75,0
+I want a full cash return I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,75,0
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,77,2
+I want a full reimbursement I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,82,2
+I want a full money back I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,76,0
+I want a full reimbursement I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,83,0
+I want a full reimbursement I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,81,0
+I want a full refund. I signed up yesterday but your interface is completely buggy and does not sync.,angry,refund_request,high,80,0
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,78,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a reimbursement right away.,angry,refund_request,high,83,0
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a cash return right away.,angry,refund_request,high,81,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a reimbursement right away.,angry,refund_request,high,76,0
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a reimbursement right away.,angry,refund_request,high,79,0
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,78,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a reimbursement right away.,angry,refund_request,high,77,0
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a money back right away.,angry,refund_request,high,79,0
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a reimbursement right away.,angry,refund_request,high,76,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,76,0
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,76,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,74,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,81,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a cash return right away.,angry,refund_request,high,73,0
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a cash return right away.,angry,refund_request,high,75,2
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a cash return right away.,angry,refund_request,high,73,0
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a cash return right away.,angry,refund_request,high,78,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a money back right away.,angry,refund_request,high,79,2
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,73,2
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,81,2
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a reimbursement right away.,angry,refund_request,high,78,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,83,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a money back right away.,angry,refund_request,high,77,2
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,79,1
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,77,2
+This billing is wrong! You billed me for the enterprise plan instead of the trial. I want a refund right away.,angry,refund_request,high,79,2
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,68,2
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,69,3
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,65,3
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,72,2
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,69,3
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,63,2
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,67,1
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,69,3
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,72,3
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,68,2
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,70,2
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,73,1
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,71,2
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,65,3
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,64,2
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,71,3
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,73,3
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,68,1
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,66,3
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,67,1
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,66,1
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,63,1
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,66,2
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,72,1
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,70,2
+Where is my order? The tracking number you sent says it hasn't even shipped yet. I need it by tomorrow.,frustrated,order_tracking,high,73,3
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,50,1
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,51,1
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,47,2
+I would like to terminate my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,51,0
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,53,1
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,48,0
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,52,2
+I would like to stop my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,52,2
+I would like to deactivate my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,53,1
+I would like to deactivate my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,52,1
+I would like to stop my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,53,1
+I would like to stop my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,52,0
+I would like to close my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,49,1
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,53,0
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,48,1
+I would like to close my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,46,1
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,53,1
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,48,1
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,54,2
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,54,1
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,50,1
+I would like to deactivate my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,53,2
+I would like to close my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,52,0
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,52,0
+I would like to cancel my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,55,2
+I would like to close my subscription immediately. The service does not work as advertised.,frustrated,cancellation,medium,52,0
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,20,0
+Please terminate my account and delete my credit card info from your servers.,neutral,cancellation,medium,21,1
+Please terminate my account and delete my credit card info from your servers.,neutral,cancellation,medium,16,1
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,22,0
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,21,0
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,20,0
+Please deactivate my account and delete my credit card info from your servers.,neutral,cancellation,medium,19,0
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,16,0
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,23,0
+Please stop my account and delete my credit card info from your servers.,neutral,cancellation,medium,18,1
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,25,0
+Please close my account and delete my credit card info from your servers.,neutral,cancellation,medium,18,0
+Please close my account and delete my credit card info from your servers.,neutral,cancellation,medium,17,0
+Please close my account and delete my credit card info from your servers.,neutral,cancellation,medium,22,1
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,20,0
+Please terminate my account and delete my credit card info from your servers.,neutral,cancellation,medium,17,0
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,15,0
+Please deactivate my account and delete my credit card info from your servers.,neutral,cancellation,medium,21,1
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,24,1
+Please close my account and delete my credit card info from your servers.,neutral,cancellation,medium,16,1
+Please terminate my account and delete my credit card info from your servers.,neutral,cancellation,medium,24,0
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,21,1
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,23,1
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,21,0
+Please cancel my account and delete my credit card info from your servers.,neutral,cancellation,medium,20,1
+Please deactivate my account and delete my credit card info from your servers.,neutral,cancellation,medium,17,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,30,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,27,1
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,33,1
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,29,1
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,33,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,32,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,34,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,30,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,26,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,32,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,32,1
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,34,1
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,31,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,25,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,30,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,32,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,30,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,30,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,34,1
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,29,1
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,25,1
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,28,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,28,1
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,31,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,33,0
+"Hello! I am trying to integrate the webhook, but the payload format in your docs doesn't match the event response.",confused,technical_support,medium,32,1
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,15,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,17,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,10,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,14,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,16,1
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,13,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,20,1
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,15,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,18,1
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,15,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,18,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,15,1
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,17,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,14,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,13,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,13,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,11,1
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,18,1
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,12,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,13,1
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,17,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,19,1
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,19,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,11,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,14,0
+How do I update my payment card? I don't see the billing tab anywhere in my profile settings page.,confused,payment_issue,low,15,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,10,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,9,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,13,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,9,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,5,1
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,9,1
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,7,1
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,12,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,5,1
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,9,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,12,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,10,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,5,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,12,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,6,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,12,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,14,1
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,15,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,7,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,14,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,6,0
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,6,1
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,11,1
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,14,1
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,8,1
+Can you explain how the neural weights are synchronized? The dashboard metric isn't very clear.,confused,feedback,low,11,0
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,45,1
+I am trying to change my notification settings but I keep getting a permission denied glitch What is going on?,confused,technical_support,medium,49,1
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,49,0
+I am trying to change my notification settings but I keep getting a permission denied bug What is going on?,confused,technical_support,medium,43,2
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,50,0
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,42,2
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,40,1
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,49,1
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,43,1
+I am trying to change my notification settings but I keep getting a permission denied crash What is going on?,confused,technical_support,medium,41,2
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,44,2
+I am trying to change my notification settings but I keep getting a permission denied fail What is going on?,confused,technical_support,medium,46,0
+I am trying to change my notification settings but I keep getting a permission denied fail What is going on?,confused,technical_support,medium,44,0
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,42,1
+I am trying to change my notification settings but I keep getting a permission denied mismatch What is going on?,confused,technical_support,medium,44,1
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,44,2
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,44,2
+I am trying to change my notification settings but I keep getting a permission denied crash What is going on?,confused,technical_support,medium,41,2
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,46,2
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,44,0
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,50,2
+I am trying to change my notification settings but I keep getting a permission denied bug What is going on?,confused,technical_support,medium,50,1
+I am trying to change my notification settings but I keep getting a permission denied fail What is going on?,confused,technical_support,medium,47,2
+I am trying to change my notification settings but I keep getting a permission denied glitch What is going on?,confused,technical_support,medium,42,2
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,47,0
+I am trying to change my notification settings but I keep getting a permission denied error. What is going on?,confused,technical_support,medium,46,1
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,35,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,35,1
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,31,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,35,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,37,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,40,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,38,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,37,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,35,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,35,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,36,1
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,30,1
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,38,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,36,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,33,1
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,35,1
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,37,1
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,37,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,33,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,38,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,34,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,37,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,30,1
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,39,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,32,0
+Why does the voice translation speed drop? Is it a configuration problem on my side?,confused,technical_support,medium,38,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,15,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,18,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,11,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,11,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,11,1
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,12,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,14,1
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,14,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,17,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,13,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,18,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,16,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,19,1
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,12,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,14,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,15,1
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,14,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,14,1
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,14,1
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,19,1
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,17,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,17,1
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,17,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,15,1
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,18,0
+Is there an API endpoint to retrieve historical chat transcripts? I can't find it in the docs.,confused,feedback,low,17,0
+"Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team!",happy,feedback,low,5,0
+"Wow, the voice translation response speed is incredibly speedy I wanted to say thank you to the team!",happy,feedback,low,9,0
+"Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team!",happy,feedback,low,6,0
+"Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team!",happy,feedback,low,7,1
+"Wow, the voice translation response speed is incredibly smooth I wanted to say thank you to the team!",happy,feedback,low,6,1
+"Wow, the voice translation response speed is incredibly speedy I wanted to say thank you to the team!",happy,feedback,low,7,0
+"Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team!",happy,feedback,low,9,0
+"Wow, the voice translation response speed is incredibly smooth I wanted to say thank you to the team!",happy,feedback,low,1,1
+"Wow, the voice translation response speed is incredibly quick I wanted to say thank you to the team!",happy,feedback,low,2,0
+"Wow, the voice translation response speed is incredibly speedy I wanted to say thank you to the team!",happy,feedback,low,1,0
+"Wow, the voice translation response speed is incredibly rapid I wanted to say thank you to the team!",happy,feedback,low,5,1
+"Wow, the voice translation response speed is incredibly quick I wanted to say thank you to the team!",happy,feedback,low,5,1
+"Wow, the voice translation response speed is incredibly smooth I wanted to say thank you to the team!",happy,feedback,low,5,1
+"Wow, the voice translation response speed is incredibly smooth I wanted to say thank you to the team!",happy,feedback,low,8,0
+"Wow, the voice translation response speed is incredibly speedy I wanted to say thank you to the team!",happy,feedback,low,10,1
+"Wow, the voice translation response speed is incredibly speedy I wanted to say thank you to the team!",happy,feedback,low,1,0
+"Wow, the voice translation response speed is incredibly quick I wanted to say thank you to the team!",happy,feedback,low,7,0
+"Wow, the voice translation response speed is incredibly quick I wanted to say thank you to the team!",happy,feedback,low,0,0
+"Wow, the voice translation response speed is incredibly rapid I wanted to say thank you to the team!",happy,feedback,low,5,0
+"Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team!",happy,feedback,low,3,1
+"Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team!",happy,feedback,low,10,0
+"Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team!",happy,feedback,low,1,1
+"Wow, the voice translation response speed is incredibly speedy I wanted to say thank you to the team!",happy,feedback,low,7,1
+"Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team!",happy,feedback,low,7,1
+"Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team!",happy,feedback,low,4,1
+"Wow, the voice translation response speed is incredibly fast! I wanted to say thank you to the team!",happy,feedback,low,7,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,4,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,9,1
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,1,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,6,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,8,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,9,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,3,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,3,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,5,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,0,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,5,1
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,4,1
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,3,1
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,3,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,9,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,3,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,8,1
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,-1,1
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,6,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,2,1
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,4,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,9,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,8,0
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,9,1
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,9,1
+Awesome! The system responded in under 50 milliseconds. Thanks for the quick support and resolving our latency issue!,happy,feedback,low,1,1
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,8,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,4,1
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,13,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,7,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,3,1
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,8,1
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,5,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,7,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,9,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,6,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,11,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,11,1
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,7,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,7,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,7,1
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,8,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,10,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,5,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,13,1
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,13,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,11,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,4,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,3,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,11,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,10,0
+Great job! The new auth cache update solved all our credential matching issues. Super smooth experience.,happy,feedback,low,13,1
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,2,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,7,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,6,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,7,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,-2,1
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,0,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,-3,1
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,5,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,6,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,7,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,7,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,1,1
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,3,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,-1,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,-3,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,4,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,-2,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,5,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,3,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,2,1
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,5,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,6,1
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,-1,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,7,0
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,4,1
+I love the new dark mode design! The layout feels premium and highly responsive. Keep up the good work.,happy,feedback,low,3,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,10,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,5,1
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,10,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,12,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,8,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,6,1
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,10,1
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,15,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,5,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,9,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,6,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,6,1
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,8,1
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,15,1
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,5,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,10,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,7,1
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,8,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,13,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,14,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,8,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,7,1
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,5,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,7,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,13,0
+Please send the invoice for the last transaction to my email address.,neutral,payment_issue,low,7,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,25,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,30,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,22,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,25,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,29,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,20,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,24,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,22,1
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,26,1
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,21,1
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,21,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,27,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,28,1
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,21,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,28,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,29,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,30,1
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,24,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,30,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,20,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,26,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,30,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,27,1
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,27,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,21,0
+I need to change the owner email of my team workspace. How do I proceed?,neutral,account_recovery,medium,29,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,12,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,8,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,11,1
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,17,1
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,15,1
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,12,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,16,1
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,11,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,15,1
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,13,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,8,1
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,17,1
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,10,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,14,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,13,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,14,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,13,1
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,8,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,13,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,17,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,12,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,17,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,8,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,8,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,13,0
+Could you check if the syncer database is currently up-to-date?,neutral,technical_support,medium,12,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,8,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,11,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,12,1
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,11,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,13,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,9,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,13,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,3,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,12,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,8,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,12,1
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,6,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,13,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,6,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,8,1
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,8,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,7,1
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,6,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,11,1
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,12,1
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,13,1
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,3,1
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,13,1
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,7,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,5,0
+I would like to submit a feature request for scheduled auto-exports of the supervisor logs.,neutral,feedback,low,7,0

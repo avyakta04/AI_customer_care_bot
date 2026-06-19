@@ -1,11 +1,21 @@
 import os
 from datetime import datetime
+from urllib.parse import urlparse, urlunparse, parse_qs, urlencode
+from dotenv import load_dotenv
 from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, Text, Boolean, ForeignKey
 from sqlalchemy.orm import declarative_base, sessionmaker, relationship
 
-DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///echomind.db")
+# Load environment variables from .env
+load_dotenv()
 
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {})
+# Use PostgreSQL (same as Node backend)
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./dev.db")
+
+# No special driver handling needed for SQLite
+# Removed PostgreSQL specific parsing logic
+# (SQLite URL does not require special handling)
+
+engine = create_engine(DATABASE_URL, connect_args={}, pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 

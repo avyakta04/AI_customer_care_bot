@@ -1,4 +1,11 @@
+import sys
 import os
+
+# Move local directory to the end of sys.path to prevent it shadowing standard packages like HuggingFace 'datasets'
+script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path = [p for p in sys.path if p != '' and os.path.abspath(p) != script_dir]
+sys.path.append(script_dir)
+
 import threading
 from datetime import datetime
 from fastapi import FastAPI, HTTPException, UploadFile, File, BackgroundTasks
@@ -7,6 +14,10 @@ from pydantic import BaseModel
 from typing import List, Optional
 import shutil
 import json
+
+# Directory paths
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+MODELS_DIR = os.path.join(BASE_DIR, "models")
 
 from database import SessionLocal, init_db, Customer, ChatSession, ChatMessage, HindsightFeedback, SystemAnalytics
 from models_store import ModelsStore
@@ -232,7 +243,7 @@ def voice_analyze_endpoint(file: UploadFile = File(...)):
     temp_dir = os.path.join(BASE_DIR, "temp")
     os.makedirs(temp_dir, exist_ok=True)
     temp_path = os.path.join(temp_dir, file.filename)
-    
+
     try:
         with open(temp_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)

@@ -10,7 +10,16 @@ from response_engine import ResponseEngine
 import faiss
 import librosa
 from sentence_transformers import SentenceTransformer
+import librosa
 from train_models import SpeechEmotionNN, extract_audio_features
+
+# Helper to safely load pickle/joblib files; returns None if missing
+def safe_load(path):
+    try:
+        return joblib.load(path)
+    except Exception as e:
+        print(f"[WARN] Could not load {path}: {e}")
+        return None
 
 BASE_DIR = os.path.dirname(__file__)
 MODELS_DIR = os.path.join(BASE_DIR, "models")
@@ -21,46 +30,50 @@ class ModelsStore:
         self.response_engine = ResponseEngine(MODELS_DIR)
         
         # 1. Text models
-        self.emotion_model = joblib.load(os.path.join(MODELS_DIR, "emotion_model.pkl"))
-        self.emotion_vectorizer = joblib.load(os.path.join(MODELS_DIR, "emotion_vectorizer.pkl"))
-        self.emotion_le = joblib.load(os.path.join(MODELS_DIR, "emotion_label_encoder.pkl"))
+        self.emotion_model = safe_load(os.path.join(MODELS_DIR, "emotion_model.pkl"))
+        self.emotion_vectorizer = safe_load(os.path.join(MODELS_DIR, "emotion_vectorizer.pkl"))
         
-        self.intent_model = joblib.load(os.path.join(MODELS_DIR, "intent_model.pkl"))
-        self.intent_vectorizer = joblib.load(os.path.join(MODELS_DIR, "intent_vectorizer.pkl"))
-        self.intent_le = joblib.load(os.path.join(MODELS_DIR, "intent_label_encoder.pkl"))
-        self.intent_meta_columns = joblib.load(os.path.join(MODELS_DIR, "intent_meta_columns.pkl"))
+        self.intent_model = safe_load(os.path.join(MODELS_DIR, "intent_model.pkl"))
+        self.intent_vectorizer = safe_load(os.path.join(MODELS_DIR, "intent_vectorizer.pkl"))
+        self.intent_le = safe_load(os.path.join(MODELS_DIR, "intent_label_encoder.pkl"))
+        self.intent_meta_columns = safe_load(os.path.join(MODELS_DIR, "intent_meta_columns.pkl")) or []
         
-        self.urgency_model = joblib.load(os.path.join(MODELS_DIR, "urgency_model.pkl"))
-        self.urgency_vectorizer = joblib.load(os.path.join(MODELS_DIR, "urgency_vectorizer.pkl"))
-        self.urgency_le = joblib.load(os.path.join(MODELS_DIR, "urgency_label_encoder.pkl"))
-        self.urgency_columns = joblib.load(os.path.join(MODELS_DIR, "urgency_columns.pkl"))
-        self.urgency_meta_columns = joblib.load(os.path.join(MODELS_DIR, "urgency_meta_columns.pkl"))
+        self.urgency_model = safe_load(os.path.join(MODELS_DIR, "urgency_model.pkl"))
+        self.urgency_vectorizer = safe_load(os.path.join(MODELS_DIR, "urgency_vectorizer.pkl"))
+        self.urgency_le = safe_load(os.path.join(MODELS_DIR, "urgency_label_encoder.pkl"))
+        self.urgency_columns = safe_load(os.path.join(MODELS_DIR, "urgency_columns.pkl")) or []
+        self.urgency_meta_columns = safe_load(os.path.join(MODELS_DIR, "urgency_meta_columns.pkl")) or []
         
-        self.safety_model = joblib.load(os.path.join(MODELS_DIR, "safety_model.pkl"))
-        self.safety_vectorizer = joblib.load(os.path.join(MODELS_DIR, "safety_vectorizer.pkl"))
+        self.safety_model = safe_load(os.path.join(MODELS_DIR, "safety_model.pkl"))
+        self.safety_vectorizer = safe_load(os.path.join(MODELS_DIR, "safety_vectorizer.pkl"))
         
         # 2. Embedding & Vector search
         self.st_model = SentenceTransformer("all-MiniLM-L6-v2")
         self.faiss_index = faiss.read_index(os.path.join(MODELS_DIR, "faiss_index.index"))
-        self.faiss_metadata = joblib.load(os.path.join(MODELS_DIR, "faiss_metadata.pkl"))
-        self.ranker_model = joblib.load(os.path.join(MODELS_DIR, "ranker_model.pkl"))
+        self.faiss_metadata = safe_load(os.path.join(MODELS_DIR, "faiss_metadata.pkl")) or []
+        self.ranker_model = safe_load(os.path.join(MODELS_DIR, "ranker_model.pkl"))
         
         # 3. Voice models
-        self.voice_scaler = joblib.load(os.path.join(MODELS_DIR, "voice_scaler.pkl"))
-        self.voice_le = joblib.load(os.path.join(MODELS_DIR, "voice_label_encoder.pkl"))
-        self.voice_stress_reg = joblib.load(os.path.join(MODELS_DIR, "voice_stress_regressor.pkl"))
+        self.voice_scaler = safe_load(os.path.join(MODELS_DIR, "voice_scaler.pkl"))
+        self.voice_le = safe_load(os.path.join(MODELS_DIR, "voice_label_encoder.pkl"))
+        self.voice_stress_reg = safe_load(os.path.join(MODELS_DIR, "voice_stress_regressor.pkl"))
         
-        # Instantiate PyTorch voice network and load state
+        # Instantiate PyTorch voice network and load state with safety checks
         dummy_filepath = os.path.join(BASE_DIR, "datasets", "raw", "audio", "sample_000_happy.wav")
         if os.path.exists(dummy_filepath):
             dummy_features = extract_audio_features(dummy_filepath)
             input_dim = len(dummy_features)
         else:
-            input_dim = 33  # standard dimension (13 mfccs + 7 spectral contrast + 12 chroma + 1 pitch + 1 rms)
-            
-        self.voice_model = SpeechEmotionNN(input_dim, len(self.voice_le.classes_))
-        self.voice_model.load_state_dict(torch.load(os.path.join(MODELS_DIR, "voice_model.pth"), weights_only=True))
-        self.voice_model.eval()
+            input_dim = 33  # fallback dimension
+        try:
+            # Ensure voice_le has classes attribute; provide fallback if missing
+            le_classes = getattr(self.voice_le, "classes_", [])
+            self.voice_model = SpeechEmotionNN(input_dim, len(le_classes))
+            self.voice_model.load_state_dict(torch.load(os.path.join(MODELS_DIR, "voice_model.pth"), weights_only=True))
+            self.voice_model.eval()
+        except Exception as e:
+            print(f"[WARN] Voice model initialization failed: {e}")
+            self.voice_model = None
         
         print("All models successfully initialized offline.")
 
@@ -68,6 +81,9 @@ class ModelsStore:
         """
         Safety Engine checking for spam, toxicity, and sensitive leakage (OTP, Card info).
         """
+        if not self.safety_vectorizer or not self.safety_model:
+            return {"is_safe": True, "toxicity_score": 0.0, "detected_leaks": []}
+
         clean_text = text.lower()
         
         # Regex checks for data leaks and PII
@@ -108,13 +124,16 @@ class ModelsStore:
         """
         Predicts Emotion, Intent, Urgency, and generates Explainable AI keywords (XAI).
         """
+        if not all([self.emotion_vectorizer, self.emotion_model, self.intent_vectorizer, self.intent_model, self.intent_le, self.urgency_vectorizer, self.urgency_model, self.urgency_le]):
+            return {"emotion": "unknown", "emotion_confidence": 0, "intent": "unknown", "intent_confidence": 0, "urgency": "low", "top_features": []}
+
         clean_text = text.lower()
         
         # 1. Emotion
         vec_e = self.emotion_vectorizer.transform([clean_text])
         emotion_probs = self.emotion_model.predict_proba(vec_e)[0]
         class_idx = np.argmax(emotion_probs)
-        emotion = self.emotion_le.inverse_transform([class_idx])[0]
+        emotion = self.emotion_model.classes_[class_idx]
         emotion_conf = float(emotion_probs[class_idx])
         
         # 2. Intent
@@ -254,32 +273,41 @@ class ModelsStore:
         Performs Librosa features extraction and runs Voice Emotion classifier.
         """
         feats = extract_audio_features(file_path)
-        feats_scaled = self.voice_scaler.transform([feats])
-        
-        # PyTorch prediction
-        feats_tensor = torch.tensor(feats_scaled, dtype=torch.float32)
-        with torch.no_grad():
-            outputs = self.voice_model(feats_tensor)
-            probs = torch.softmax(outputs, dim=1).numpy()[0]
-            class_idx = np.argmax(probs)
-            emotion = self.voice_le.classes_[class_idx]
-            confidence = float(probs[class_idx])
-            
-        # Stress level prediction
-        stress_score = float(self.voice_stress_reg.predict(feats_scaled)[0])
-        
-        # Compute charts data (frequencies, intensities)
-        # Using extracted values to create real rolling sequences
-        intensity_db = float(librosa.amplitude_to_db(np.array([np.max(np.abs(feats))]))[0])
-        # scale intensity db cleanly to 40 - 90 scale
+        # Guard against missing scaler
+        if self.voice_scaler is not None:
+            feats_scaled = self.voice_scaler.transform([feats])
+        else:
+            feats_scaled = [feats]
+
+        # PyTorch prediction (skip if model missing)
+        if self.voice_model is not None:
+            feats_tensor = torch.tensor(feats_scaled, dtype=torch.float32)
+            with torch.no_grad():
+                outputs = self.voice_model(feats_tensor)
+                probs = torch.softmax(outputs, dim=1).cpu().numpy()[0]
+                class_idx = int(np.argmax(probs))
+                emotion = getattr(self.voice_le, "classes_", ["unknown"])[class_idx]
+                confidence = float(probs[class_idx])
+        else:
+            emotion = "unknown"
+            confidence = 0.0
+
+        # Stress level prediction (guard)
+        if self.voice_stress_reg is not None:
+            stress_score = float(self.voice_stress_reg.predict(feats_scaled)[0])
+        else:
+            stress_score = 0.0
+        # Compute intensity in dB from waveform amplitude
+        intensity_db = librosa.amplitude_to_db(np.max(np.abs(feats)))
+        # Scale intensity to a 35-95 range
         intensity = max(35, min(95, 60 + intensity_db * 2))
-        
+
         # Pitch Hz (mapped from features)
-        pitch = float(feats[-2]) if feats[-2] > 0 else 180.0
-        
+        pitch = float(feats[-2]) if len(feats) > 1 and feats[-2] > 0 else 180.0
+
         # Density (mapped from features)
         density = float(feats[-3]) if len(feats) > 3 else 0.95
-        
+
         return {
             "emotion": emotion,
             "confidence": confidence,

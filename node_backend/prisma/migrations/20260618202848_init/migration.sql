@@ -1,0 +1,24 @@
+-- CreateTable
+CREATE TABLE "ChatLog" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "userText" TEXT NOT NULL,
+    "aiIntent" TEXT,
+    "aiEmotion" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- CreateTable
+CREATE TABLE "Feedback" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "rating" INTEGER NOT NULL,
+    "comments" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- CreateTable
+CREATE TABLE "SystemMetric" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "cpuUsage" REAL,
+    "memUsage" REAL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

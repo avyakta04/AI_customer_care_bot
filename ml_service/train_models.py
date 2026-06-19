@@ -1,4 +1,11 @@
+import sys
 import os
+
+# Move local directory to the end of sys.path to prevent it shadowing standard packages like HuggingFace 'datasets'
+script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path = [p for p in sys.path if p != '' and os.path.abspath(p) != script_dir]
+sys.path.append(script_dir)
+
 import json
 import joblib
 import pandas as pd
@@ -197,7 +204,7 @@ def train_text_models():
     
     # Save basic NLP models
     joblib.dump(emotion_model, os.path.join(MODELS_DIR, "emotion_model.pkl"))
-    joblib.dump(emotion_vectorizer, os.path.join(MODELS_DIR, "emotion_vectorizer.pkl"))
+    joblib.dump(emotion_vectorizer, os.path.join(MODES_DIR, "emotion_vectorizer.pkl"))
     joblib.dump(intent_model, os.path.join(MODELS_DIR, "intent_model.pkl"))
     joblib.dump(intent_vectorizer, os.path.join(MODELS_DIR, "intent_vectorizer.pkl"))
     joblib.dump(intent_le, os.path.join(MODELS_DIR, "intent_label_encoder.pkl"))
